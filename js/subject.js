@@ -19,7 +19,16 @@ function addSubject() {
 
 function addSubject(content, location, num) {
     var id = "location-" + location;
-    document.getElementById(id).innerHTML = content.outerHTML;
+
+    var str = content.innerHTML.toString();
+    var nameSubject = str.split("<div>")[1];
+    nameSubject = nameSubject.split("</div>")[0];
+    var codeSubject = str.split("<kbd>")[1];
+    codeSubject = codeSubject.split("</kbd>")[0];
+    l = location;
+    n = num;
+
+    document.getElementById(id).innerHTML = "<div>" + nameSubject + "<button class='close' onclick='deleteSubject(l, n);'>×</button></div><div><kbd>" + codeSubject + "</kbd></div>";
     document.getElementById(id).setAttribute("rowspan", num);
     document.getElementById(id).setAttribute("class", "bg-subject-" + numSubject);
     incNumSub();
@@ -28,7 +37,8 @@ function addSubject(content, location, num) {
     for (var i=1; i<=num-1; i++) {
         var locationNext = location + i;
         var idNext = "location-" + locationNext;
-        document.getElementById(idNext).outerHTML = "";
+        outer = "<!--" + document.getElementById(idNext).outerHTML + "-->";
+        document.getElementById(idNext).outerHTML = outer;
     }
 
     ////////////////////
@@ -44,4 +54,15 @@ function incNumSub() {
         return;
     }
     numSubject++;
+}
+
+function deleteSubject(location, num) {
+    //var id = "location-" + location;
+    //document.getElementById(id).innerHTML = "";
+    //document.getElementById(id).setAttribute("rowspan", 1);
+    //document.getElementById(id).setAttribute("class", "");
+    //
+    //var locationNext = location + i;
+    //var idNext = "location-" + locationNext;
+    //document.getElementById("<!--<td>").outerHTML = "<td></td>";
 }
