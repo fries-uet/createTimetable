@@ -10,35 +10,29 @@ $(function(){
     $(".list-subject").jScrollPane();
 });
 
-function addSubject() {
-    document.getElementById("demo-add").innerHTML = "<div>Công nghệ phần mềm</div><div><kbd>INT2203 4</kbd> - <kbd>T4 : 8-10</kbd></div>";
-    document.getElementById("demo-sub").outerHTML = "";
-    document.getElementById("demo-add").setAttribute("rowspan", "2");
-    document.getElementById("demo-add").setAttribute("class", "bg-subject-" + 1);
-}
-
-function addSubject(content, location, num) {
-    var id = "location-" + location;
+function addSubject(content, loc, num) {
+    if (!test(loc, num)) {
+        alert("Trùng môn!");
+        return;
+    }
+    var id = cvtNum2id(loc);
 
     var str = content.innerHTML.toString();
     var nameSubject = str.split("<div>")[1];
     nameSubject = nameSubject.split("</div>")[0];
-    var codeSubject = str.split("<kbd>")[1];
-    codeSubject = codeSubject.split("</kbd>")[0];
-    l = location;
-    n = num;
+    var codeSubject = content.getAttribute("id");
 
-    document.getElementById(id).innerHTML = "<div>" + nameSubject + "<button class='close' onclick='deleteSubject(l, n);'>×</button></div><div><kbd>" + codeSubject + "</kbd></div>";
+    document.getElementById(id).innerHTML = "<div>" + nameSubject + "<button class='close' onclick='deleteSubject(" + loc+ "," + num + "," + codeSubject + ");'>×</button></div><div><kbd>" + codeSubject + "</kbd></div>";
     document.getElementById(id).setAttribute("rowspan", num);
     document.getElementById(id).setAttribute("class", "bg-subject-" + numSubject);
     incNumSub();
 
     //Delete box
     for (var i=1; i<=num-1; i++) {
-        var locationNext = location + i;
-        var idNext = "location-" + locationNext;
-        outer = "<!--" + document.getElementById(idNext).outerHTML + "-->";
-        document.getElementById(idNext).outerHTML = outer;
+        var locationNext = loc + i;
+        var idNext = cvtNum2id(locationNext);
+        //outer = "<!--" + document.getElementById(idNext).outerHTML + "-->";
+        document.getElementById(idNext).outerHTML = "";
     }
 
     ////////////////////
@@ -48,21 +42,42 @@ function addSubject(content, location, num) {
     content.setAttribute("class", "bg-success")
 }
 
+function deleteSubject(loc, num, codeSubject) {
+    //var id = cvtNum2id(loc);
+
+    //Đưa ô về trạng thái rỗng
+    //document.getElementById(id).innerHTML = "Deleted!";
+    //document.getElementById(id).setAttribute("rowspan", 1);
+    //document.getElementById(id).setAttribute("class", "");
+
+    //Khởi tạo lại những ô đã bị gộp
+    //var locationNext = loc + i;
+    //var idNext = "location-" + locationNext;
+    //document.getElementsByName("<!--<td>")[0].outerHTML = "<td></td>";
+
+    //Kích hoạt lại onclick cho môn học ở listSubject
+    //alert(codeSubject);
+    //document.getElementById(codeSubject).setAttribute("onclick", "addSubject(this," + loc + "," + num + ");");
+}
+
+function test(loc, num) {
+    for (var i=loc; i<loc+num; i++) {
+        var id = cvtNum2id(i);
+        if (document.getElementById(id) == null) return false;
+        if (document.getElementById(id).innerHTML != "") return false;
+    }
+
+    return true;
+}
+
+function cvtNum2id(num) {
+    return  "location-" + num;
+}
+
 function incNumSub() {
     if (numSubject == MAXBG) {
         numSubject = 1;
         return;
     }
     numSubject++;
-}
-
-function deleteSubject(location, num) {
-    //var id = "location-" + location;
-    //document.getElementById(id).innerHTML = "";
-    //document.getElementById(id).setAttribute("rowspan", 1);
-    //document.getElementById(id).setAttribute("class", "");
-    //
-    //var locationNext = location + i;
-    //var idNext = "location-" + locationNext;
-    //document.getElementById("<!--<td>").outerHTML = "<td></td>";
 }
