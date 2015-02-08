@@ -81,7 +81,16 @@ listSubjectInput[7] = new Subject("PHI1005 5", "Những nguyên lý cơ bản c�
 listSubjectInput[8] = new Subject("BSA2002 2", "Nguyên lý marketing", 46, 3);
 listSubjectInput[9] = new Subject("PES1550 49", "Lý luận GDTC và các môn thể thao cơ bản", 36, 2);
 listSubjectInput[10] = new Subject("MAT1104 2", "Giải tích 1", 17, 2);
-alert(cvtLocation2Time(32, 2));
+
+function printListSubject() {
+    for (i=0; i<listSubjectInput.length; i++) {
+        var name = listSubjectInput[i].name;
+        var number = listSubjectInput[i].number;
+        var location = listSubjectInput[i].location;
+        var code = listSubjectInput[i].code;
+        document.write("<tr><td onclick=\"addSubject(this," + location + "," + number + ");\" id=" + code+ "><div>" + name + "</div><div><kbd>" + code + "</kbd> - <kbd>" + cvtLocation2Time(location, number) + "</kbd></div></td></tr>");
+    }
+}
 
 //Class Subject
 function Subject (code, name, location, number) {
