@@ -43,21 +43,7 @@ function addSubject(content, loc, num) {
 }
 
 function deleteSubject(loc, num, codeSubject) {
-    //var id = cvtNum2id(loc);
 
-    //Đưa ô về trạng thái rỗng
-    //document.getElementById(id).innerHTML = "Deleted!";
-    //document.getElementById(id).setAttribute("rowspan", 1);
-    //document.getElementById(id).setAttribute("class", "");
-
-    //Khởi tạo lại những ô đã bị gộp
-    //var locationNext = loc + i;
-    //var idNext = "location-" + locationNext;
-    //document.getElementsByName("<!--<td>")[0].outerHTML = "<td></td>";
-
-    //Kích hoạt lại onclick cho môn học ở listSubject
-    //alert(codeSubject);
-    //document.getElementById(codeSubject).setAttribute("onclick", "addSubject(this," + loc + "," + num + ");");
 }
 
 function test(loc, num) {
@@ -80,4 +66,37 @@ function incNumSub() {
         return;
     }
     numSubject++;
+}
+
+//Khởi tạo giả lập
+var listSubjectInput = new Array();
+listSubjectInput[0] = new Subject("INT2209 1", "Mạng máy tính", 1, 2);
+listSubjectInput[1] = new Subject("INT2209 1-1", "Mạng máy tính (N1)", 32, 2);
+listSubjectInput[2] = new Subject("INT2209 1-2", "Mạng máy tính (N2)", 32, 2);
+listSubjectInput[3] = new Subject("INT2209 1-3", "Mạng máy tính (N3)", 34, 2);
+listSubjectInput[4] = new Subject("INT2208 4", "Công nghệ phần mềm", 28, 3);
+listSubjectInput[5] = new Subject("INT2206 4", "Nguyên lý hệ điều hành", 6, 3);
+listSubjectInput[6] = new Subject("INT1050 3", "Toán học rời rạc", 16, 2);
+listSubjectInput[7] = new Subject("PHI1005 5", "Những nguyên lý cơ bản của Chủ nghĩa Mác-Lênin 2", 3, 3);
+listSubjectInput[8] = new Subject("BSA2002 2", "Nguyên lý marketing", 46, 3);
+listSubjectInput[9] = new Subject("PES1550 49", "Lý luận GDTC và các môn thể thao cơ bản", 36, 2);
+listSubjectInput[10] = new Subject("MAT1104 2", "Giải tích 1", 17, 2);
+alert(cvtLocation2Time(32, 2));
+
+//Class Subject
+function Subject (code, name, location, number) {
+    this.code = code;
+    this.name = name;
+    this.location = location;
+    this.number = number;
+    this.tick = false;
+}
+
+function cvtLocation2Time(location, number) {
+    var day = parseInt(location / 10) + 2;
+    var time = "T" + day + " : ";
+    var first = parseInt(location%10);
+    var end = first + number - 1;
+    time += first + "-" + end;
+    return time;
 }
