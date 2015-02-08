@@ -22,7 +22,7 @@ function addSubject(content, loc, num) {
     nameSubject = nameSubject.split("</div>")[0];
     var codeSubject = content.getAttribute("id");
 
-    document.getElementById(id).innerHTML = "<div>" + nameSubject + "<button class='close' onclick='deleteSubject(" + loc+ "," + num + "," + codeSubject + ");'>×</button></div><div><kbd>" + codeSubject + "</kbd></div>";
+    document.getElementById(id).innerHTML = "<button class='close' onclick='deleteSubject(" + loc+ "," + num + ", \"" + codeSubject + "\");'>×</button><div>" + nameSubject + "</div><kbd>" + codeSubject + "</kbd>";
     document.getElementById(id).setAttribute("rowspan", num);
     document.getElementById(id).setAttribute("class", "bg-subject-" + numSubject);
     incNumSub();
@@ -88,7 +88,7 @@ function printListSubject() {
         var number = listSubjectInput[i].number;
         var location = listSubjectInput[i].location;
         var code = listSubjectInput[i].code;
-        document.write("<tr><td onclick=\"addSubject(this," + location + "," + number + ");\" id=" + code+ "><div>" + name + "</div><div><kbd>" + code + "</kbd> - <kbd>" + cvtLocation2Time(location, number) + "</kbd></div></td></tr>");
+        document.write("<tr><td onclick=\"addSubject(this," + location + ", " + number + ");\" id=" + code + "><div>" + name + "</div><div><kbd>" + code + "</kbd> - <kbd>" + cvtLocation2Time(location, number) + "</kbd></div></td></tr>");
     }
 }
 
