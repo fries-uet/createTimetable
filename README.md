@@ -1,9 +1,11 @@
 # Create Timetable for Student UET
 
-Demo Online: [12a1pro.info](http://12a1pro.info)
-
 Fries gồm các thành viên: Trần Văn Tú, Trần Minh Quý, Bùi Minh Thái, Nguyễn Tiến Minh, Nguyễn Văn Thành.
 Giáo viên hướng dẫn: Trương Anh Hoàng.
+
+Demo Online: [12a1pro.info](http://12a1pro.info)
+
+![Version 1.0](https://cloud.githubusercontent.com/assets/7255177/6105580/4a973aa8-b08b-11e4-9aae-d0e00d9e6a27.jpg)
 
 ***
 ## Mô tả:
