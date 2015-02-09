@@ -1,6 +1,10 @@
 
 /**************************/
 /*** Background Subject ***/
+.bg-subject-0 {
+    background-color: #8d9ef1;
+}
+
 .bg-subject-1 {
     background-color: #49BF67;
 }
@@ -39,4 +43,14 @@
 
 .bg-subject-10 {
     background-color: #29aeff;
+}
+
+/**********************************/
+/** Header **/
+#info-numberSuject {
+    float: right;
+    font-size: 18px;
+}
+#numberSubject {
+    color: #FF004F;
 }
