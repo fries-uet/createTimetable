@@ -44,6 +44,9 @@
 .bg-subject-10 {
     background-color: #29aeff;
 }
+.bg-subject-11 {
+    background-color: #f1e05a;
+}
 
 /**********************************/
 /** Header **/
@@ -52,5 +55,5 @@
     font-size: 18px;
 }
 #numberSubject {
-    color: #FF004F;
+    color: #ff004f;
 }
