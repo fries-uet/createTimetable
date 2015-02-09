@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Project Create Timetable UET - Fries</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/subject.js"></script>
+</head>
+<body>
+<div>
+    <header class="page-header">
+        <h1 class="text-center">Create Timetable UET - Fries</h1>
+    </header>
+    <div style="margin-top: 20px">
+        <!--Begin Left-->
+        <div class="col-lg-3">
+            <div class="title-subject text-center"><h3>Môn học</h3></div>
+
+            <!--Begin list Subject-->
+            <div class="list-subject" style="overflow-y: scroll; height: 450px;">
+                <table class="table table-striped table-hover">
+                    <tbody>
+                        <tr onclick="addSubject();">
+                            <td>
+                                <div>Công nghệ phần mềm</div>
+                                <div><kbd>INT2203 4</kbd> - <kbd>T4 : 8-10</kbd></div>
+                            </td>
+                        </tr>
+                        <tr onclick="addSubject();">
+                            <td>
+                                <div>Công nghệ phần mềm</div>
+                                <div><kbd>INT2203 4</kbd> - <kbd>T4 : 8-10</kbd></div>
+                            </td>
+                        </tr>
+                        <tr onclick="addSubject();">
+                            <td>
+                                <div>Cấu trúc dữ liệu & giải thuật</div>
+                                <div><kbd>INT2209</kbd> - <kbd>T2 : 3-5</kbd></div>
+                            </td>
+                        </tr>
+                        <tr onclick="addSubject();">
+                            <td>
+                                <div>Lập trình hướng đối tượng</div>
+                                <div><kbd>INT2203 4</kbd> - <kbd>T6 : 1-3</kbd></div>
+                            </td>
+                        </tr>
+                        <tr onclick="addSubject();">
+                            <td>
+                                <div>Nguyên lý hệ điều hành</div>
+                                <div><kbd>PHI1005</kbd> - <kbd>T5 : 2-3</kbd></div>
+                            </td>
+                        </tr>
+                        <tr onclick="addSubject();">
+                            <td>
+                                <div>Mạng máy tính</div>
+                                <div><kbd>INT2203 4</kbd> - <kbd>T4 : 8-10</kbd></div>
+                            </td>
+                        </tr>
+                        <tr onclick="addSubject();">
+                            <td>
+                                <div>Công nghệ phần mềm</div>
+                                <div><kbd>INT2203 4</kbd> - <kbd>T4 : 8-10</kbd></div>
+                            </td>
+                        </tr>
+                        <tr onclick="addSubject();">
+                            <td>
+                                <div>Công nghệ phần mềm</div>
+                                <div><kbd>INT2203 4</kbd> - <kbd>T4 : 8-10</kbd></div>
+                            </td>
+                        </tr>
+                        <tr onclick="addSubject();">
+                            <td>
+                                <div>Cấu trúc dữ liệu & giải thuật</div>
+                                <div><kbd>INT2203 4</kbd> - <kbd>T4 : 8-10</kbd></div>
+                            </td>
+                        </tr>
+                        <tr onclick="addSubject();">
+                            <td>
+                                <div>Lập trình hướng đối tượng</div>
+                                <div><kbd>INT2203 4</kbd> - <kbd>T4 : 8-10</kbd></div>
+                            </td>
+                        </tr>
+                        <tr onclick="addSubject();">
+                            <td>
+                                <div>Nguyên lý hệ điều hành</div>
+                                <div><kbd>INT2203 4</kbd> - <kbd>T4 : 8-10</kbd></div>
+                            </td>
+                        </tr>
+                        <tr onclick="addSubject();">
+                            <td>
+                                <div>Mạng máy tính</div>
+                                <div><kbd>INT2203 4</kbd> - <kbd>T4 : 8-10</kbd></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--End list Subject-->
+        </div>
+        <!--End Left-->
+
+        <!--Begin Right-->
+        <div class="col-lg-9">
+            <div>
+                <h3>Thời khóa biểu</h3>
+            </div>
+            <table class="table table-bordered table-hover text-center">
+                <thead class="bg-primary">
+                    <tr>
+                        <th class="text-center col-lg-1">Tiết/Thứ</th>
+                        <th class="text-center col-lg-2">2</th>
+                        <th class="text-center col-lg-2">3</th>
+                        <th class="text-center col-lg-2">4</th>
+                        <th class="text-center col-lg-2">5</th>
+                        <th class="text-center col-lg-2">6</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td title="7h - 7h50'">1</td>
+                        <td>1</td>
+                        <td>11</td>
+                        <td>21</td>
+                        <td>31</td>
+                        <td>41</td>
+                    </tr>
+                    <tr>
+                        <td title="8h - 8h50'">2</td>
+                        <td>2</td>
+                        <td>12</td>
+                        <td>22</td>
+                        <td>32</td>
+                        <td>42</td>
+                    </tr>
+                    <tr>
+                        <td title="9h - 9h50'">3</td>
+                        <td>3</td>
+                        <td>13</td>
+                        <td>23</td>
+                        <td>33</td>
+                        <td>44</td>
+                    </tr>
+                    <tr>
+                        <td title="10h - 10h50'">4</td>
+                        <td>4</td>
+                        <td>14</td>
+                        <td>24</td>
+                        <td>34</td>
+                        <td>44</td>
+                    </tr>
+                    <tr>
+                        <td title="11h - 11h50'">5</td>
+                        <td>5</td>
+                        <td>15</td>
+                        <td>25</td>
+                        <td>35</td>
+                        <td>45</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" title="11h50' - 13h" class="bg-info">Nghỉ trưa</td>
+                    </tr>
+                    <tr>
+                        <td title="13h - 13h50'">6</td>
+                        <td>6</td>
+                        <td>16</td>
+                        <td>26</td>
+                        <td>36</td>
+                        <td>46</td>
+                    </tr>
+                    <tr>
+                        <td title="14h - 14h50'">7</td>
+                        <td>7</td>
+                        <td>17</td>
+                        <td>27</td>
+                        <td>37</td>
+                        <td>47</td>
+                    </tr>
+                    <tr>
+                        <td title="15h - 15h50'">8</td>
+                        <td>8</td>
+                        <td>18</td>
+                        <td>28</td>
+                        <td>38</td>
+                        <td>48</td>
+                    </tr>
+                    <tr>
+                        <td title="16h - 16h50'">9</td>
+                        <td>9</td>
+                        <td>19</td>
+                        <td>29</td>
+                        <td>39</td>
+                        <td>49</td>
+                    </tr>
+                    <tr>
+                        <td title="17h - 17h50'">10</td>
+                        <td>10</td>
+                        <td>20</td>
+                        <td>30</td>
+                        <td>40</td>
+                        <td>50</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End Left-->
+
+    </div>
+    <!--<div class="col-lg-12 modal-footer">-->
+        <!--<p>Copyright @Fries 2015</p>-->
+    <!--</div>-->
+</div>
+</body>
+</html>
