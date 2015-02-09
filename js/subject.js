@@ -10,6 +10,9 @@ var numSubject = 1;
 //    $(".list-subject-scroll").jScrollPane();
 //});
 
+//Mảng lưu giá trị background của môn
+var arrBG = new Array();
+
 //Xóa phần tử của mảng
 Array.prototype.deleteA = function(item) {
     var index = this.indexOf(item);
@@ -121,6 +124,7 @@ function addSubject(index) {
     document.getElementById(id).innerHTML = "<button class='close' onclick='deleteSubject(" + index + ");'>×</button><div>" + name + "</div><kbd>" + code + "</kbd>";
     document.getElementById(id).setAttribute("rowspan", number);
     document.getElementById(id).setAttribute("class", "bg-subject-" + timeTable.length);
+    arrBG[timeTable.length - 1] = timeTable.length;
 
     //Delete box
     for (var i=1; i<=number-1; i++) {
@@ -170,12 +174,14 @@ function findSubjectInArr(arr, code) {
 }
 
 //Xóa môn học khỏi bảng thời khóa biểu
-function deleteSubject(index) {
-    timeTable.deleteA(index);
-    listSubjectInput[index].selected = false;
+function deleteSubject(item) {
+    var index = timeTable.deleteA(item);
+    arrBG.deleteA(arrBG[index]);
+    //timeTable.deleteA(item);
+    listSubjectInput[item].selected = false;
     printListSubject();
     printTable();
-    for (var i=0; i<timeTable.length; i++) reAddSubject(timeTable[i], i);
+    for (var i=0; i<timeTable.length; i++) reAddSubject(timeTable[i], arrBG[i]);
     //alert(timeTable);
     document.getElementById("numberSubject").innerHTML = timeTable.length;
 }
