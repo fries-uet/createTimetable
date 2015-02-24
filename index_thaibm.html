@@ -19,11 +19,12 @@
         <div class="col-lg-3">
             <div>
                 <form>
-                    <label>Tên Môn Học: </label><input id="nameOfSubject" type="text" class="form-control">
-                    <label>Mã Môn Học:  </label><input id="codeOfSubject" type="text" class="form-control">
+                    <label>Tên Môn Học: </label><input id="name" type="text" class="form-control" placeholder="Nhập Tên Môn Học">
+                    <label>Mã Môn Học:  </label><input id="code" type="text" class="form-control" placeholder="Nhập Mã Môn Học " ">
                     <br>
                     <label>Thứ: </label>
-                    <select id="day" class="form-inline glyphicon-text-width">
+                    <select id="day" class="form-inline glyphicon-text-width" onkeyup="check()">
+                        <!--<option selected="selected"></option>-->
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
@@ -31,7 +32,8 @@
                         <option>6</option>
                     </select>
                     <label>Tiết: </label>
-                    <select id="start" class="form-inline">
+                    <select id="start" class="form-inline" onkeyup="check()">
+                        <!--<option selected="selected"></option>-->
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -44,6 +46,7 @@
                         <option>10</option>
                     </select>
                     - <select id="end" class="form-inline">
+                        <!--<option selected="selected"></option>-->
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
@@ -54,7 +57,7 @@
                         <option>9</option>
                         <option>10</option>
                     </select><br>
-                    <div class="text-right"><input type="submit" class="btn btn-primary" value="Submit" onclick="getData()"></div>
+                    <div class="text-right"><input type="button" class="btn btn-primary" value="Submit" onclick="getData()"></div>
                 </form>
             </div>
             <div class="title-subject text-center"><h3>Môn học</h3></div>
@@ -62,8 +65,8 @@
             <!--Begin list Subject-->
             <div class="list-subject" style="overflow-y: scroll; height: 450px;">
                 <table class="table table-striped table-hover table-bordered bg-info">
-                    <tbody>
-
+                    <tbody id="leftTable">
+                        <!--<script> printLeftTable();</script>-->
                     </tbody>
                 </table>
             </div>
