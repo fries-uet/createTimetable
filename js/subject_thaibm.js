@@ -2,10 +2,10 @@
  * Created by MinhThai on 2/9/2015.
  */
 var data= [];
-var subject={name: "", code:"", day:"", start:"", end:""};
+
 
 function getData(){
-
+    var subject={name: "", code:"", day:"", start:"", end:""};
     subject.name= document.getElementById("name").value;
     subject.code= document.getElementById("code").value;
     subject.day= document.getElementById("day").value;
