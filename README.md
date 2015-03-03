@@ -18,5 +18,5 @@ Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý
 ## Công nghệ
 * HTML5
 * CSS (Bootstrap)
-* Javascript
+* Javascript ([Jquery](//jquery.com))
 * PHP & MySQL
