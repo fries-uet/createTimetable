@@ -21,8 +21,7 @@
                     <form>
                         <label>Tên Môn Học: </label><input id="name" type="text" class="form-control" placeholder="Nhập Tên Môn Học"><br>
                         <label>Mã Môn Học:  </label><input id="code" type="text" class="form-control" placeholder="Nhập Mã Môn Học "><br>
-                        <label>Giảng Viên:  </label><input id="giangVien" type="text" class="form-control" placeholder="Nhập Tên Giảng Viên">
-                        <br>
+                        <label>Giảng Viên:  </label><input id="teacher" type="text" class="form-control" placeholder="Nhập Tên Giảng Viên"><br>
                         <label>Số tín chỉ: </label>
                         <select id="tinChi" class="form-inline glyphicon-text-width">
                             <!--<option selected="selected"></option>-->
@@ -32,13 +31,14 @@
                             <option>4</option>
                             <option>5</option>
                         </select><br>
-                        <div class="radio"><label><input id="LThuyet" type="radio" name="optradio" >Lý Thuyết</label></div>
-                        <div class="radio"><label><input id="THanh" type="radio" name="optradio" >Thực Hành</label>
-                            <div id="Nhom" class="radio text-center" style="display: block">
-                                <div><label><input id="N1" type="radio" name="iptradio">Nhóm 1</label></div>
-                                <div><label><input id="N2" type="radio" name="iptradio">Nhóm 2</label></div>
-                                <div><label><input id="N3" type="radio" name="iptradio">Nhóm 3</label></div>
-                            </div>
+                        <div class="radio"><label><input id="LThuyet" type="radio" name="optradio" onclick="HideGroup()" >Lý Thuyết</label></div>
+                        <div class="radio"><label><input id="THanh" type="radio" name="optradio" onclick="ShowGroup()">Thực Hành</label>
+                            <label id="showGroup" class="text-center" style="display: none">Nhóm:
+                            <select id="group">
+                                <!--Nhom mặc định là 0- lớp lý thuyết.-->
+                                <option>0</option>
+                            </select>
+                            </label>
                         </div>
                         <label>Thứ: </label>
                         <select id="day" class="form-inline glyphicon-text-width">
