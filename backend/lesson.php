@@ -1,11 +1,5 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
-/**
- * Created by PhpStorm.
- * User: Tu
- * Date: 03/3/2015
- * Time: 11:23 PM
- */
-
 //Class lesson
 class lesson {
     var $monHoc;

@@ -20,3 +20,14 @@ Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý
 * CSS (Bootstrap)
 * Javascript ([Jquery](//jquery.com))
 * PHP & MySQL
+
+
+## thanhnv_58 chú thích: 
+* các file up lên : 
+	+ config.php : lưu thông tin database dùng đê connect
+	+ dbconnect.php : dùng để connecting database
+	+ form_nhap_db.php : dùng để lấy thông tin 
+	+ save_data.php : lưu thông tin lấy ở form_nhap_db.php vào database
+	+ getSubject.php : truy xuất data từ database theo yêu cầu của Tú Trần
+* khi các bạn sử dụng cần chạy form_nhap_db.php trước để lưu thông tin vô database
+* nếu cần dữ liệu thì chạy getSubject.php (ok)	

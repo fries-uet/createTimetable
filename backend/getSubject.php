@@ -1,55 +1,21 @@
-<html>
-<head>
-    <title></title>
-    <meta charset="utf-8">
-</head>
-<body></body>
-</html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
-/**
- * Created by PhpStorm.
- * User: Tu
- * Date: 03/3/2015
- * Time: 11:25 PM
- */
+include "dbconnect.php";
 include("subject.php");
 include("lesson.php");
-// thong tin localhost
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "time_table";
-//Tạo các đối tượng subject từ cơ sở dữ liệu
-// connecting database
-$conn = mysqli_connect($host, $user, $pass, $db);
-if(!$conn){
-    die("error ! < connecting database> ". mysqli_error($conn));
-}
-// get data from database "time_table"
-$get_data = "SELECT subject_id, maMH, tenMH, soTin FROM subject";
-$result = mysqli_query($conn, $get_data);
-// tạo oject "subject" tự động từ database
-$arr = array();
-$sl = mysqli_num_rows($result);
-$i = 0;
-$id = 0;
-$maMH = "";
-$tenMH = "";
-$soTin = 0;
-if($sl>0){
-    while($i<$sl){
-        $row = mysqli_fetch_assoc($result);
-        $id = $row['subject_id'];
-        $maMH = $row['maMH'];
-        $tenMH = $row['tenMH'];
-        $soTin = $row['soTin'];
-        $s = new subject($id, $maMH, $tenMH, $soTin);
+mysqli_query($conn, "SET NAMES 'utf8'");
+$sql_getdata = "SELECT * FROM subject";
+$result = mysqli_query($conn, $sql_getdata);
+$arr =array();
+if(mysqli_num_rows($result)>0){
+    while($row = mysqli_fetch_assoc($result)){
+        $s = new subject($row['subject_id'], $row['maMH'], $row['tenMH'], $row['soTin']);
         array_push($arr, $s);
-        $i++;
     }
 }
 //Nhét mảng trên vào 1 mảng $data theo cấu trúc như bên dưới
 $data = array("data"=>$arr);
 //In mã JSON của $data
 print_r(json_encode($data));
+mysqli_close($conn);
 ?>

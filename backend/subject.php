@@ -1,11 +1,5 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
-/**
- * Created by PhpStorm.
- * User: Tu
- * Date: 03/3/2015
- * Time: 5:45 PM
- */
-
 //Class subject
 class subject {
     var $id;
