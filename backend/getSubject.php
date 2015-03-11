@@ -2,6 +2,7 @@
 include "dbconnect.php";
 include("subject.php");
 include("lesson.php");
+header('Content-Type:application/json; charset=UTF-8');
 mysqli_query($conn, "SET NAMES 'utf8'");
 $sql_getdata = "SELECT * FROM subject";
 $result = mysqli_query($conn, $sql_getdata);
