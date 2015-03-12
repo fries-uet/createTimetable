@@ -195,7 +195,7 @@ function chooseColorBG(arr) {
 function startChoose(){
     alert("Start");
     document.getElementById("showSubject").setAttribute("class","modal fade in");
-    document.getElementById("showSubject").setAttribute("style", "display: block; width: 400");
+    document.getElementById("showSubject").setAttribute("style", "display: block");
 }
 function finishChoose(){
     document.getElementById("showSubject").setAttribute("class","modal fade");
