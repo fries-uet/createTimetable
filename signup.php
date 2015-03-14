@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Đăng ký tài khoản</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/login.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="container">
