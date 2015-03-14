@@ -5,6 +5,7 @@
     <title>Project Create Timetable UET - Fries</title>
     <link rel="icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/quytm.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <script src="js/subject_quytm.js" type="text/javascript"></script>
     <!--Bonus-->
@@ -23,7 +24,8 @@
         <!--Begin Left-->
         <div class="col-lg-3">
             <div class="title-subject text-center">
-                <a href="#menu-toggle" class="btn btn-info"  id="menu-toggle">Thêm môn học</a>
+                <a href="#menu-toggle" class="btn btn-info"  id="menu-toggle">Môn học</a>
+                <button class="btn btn-info btn-xs pull-right" onclick="startChoose()" >Chọn môn học</button>
             </div>
 
             <!--Begin list Subject-->
@@ -66,8 +68,10 @@
         <p>Copyright @Fries 2015</p>
     </div>
 
+
+
     <!--Add SlideBar-->
-    <div id="wrapper" class="toggled">
+    <div id="wrapper">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -147,7 +151,6 @@
     <script>
         $("#menu-toggle").click(function(e) {
             e.preventDefault();
-//            e.previousNode();
             $("#wrapper").toggleClass("toggled");
         });
     </script>

@@ -206,3 +206,34 @@ function finishChoose(){
 function chooseSubject(){
     alert("Đã chọn môn học");
 }
+
+//-------------Add Subject-------
+function SubAdded(tenMH, maMH, soTin){      // Tạo một đối tượng lưu thông tin môn học( chú ý: không phải là lớp môn học)
+    this.tenMH = tenMH;
+    this.maMH = maMH;
+    this.soTin = soTin;
+}
+var listSubjectAdded = new Array();         // Mảng lưu các môn học
+var soMH = 0;                               // Đếm sô môn học được nhập vào
+
+function getSubject(){           // Lấy môn học được nhập từ Form
+    listSubjectAdded[soMH] = new SubAdded(  document.getElementById("tenMH").value,
+                                            document.getElementById("maMH").value,
+                                            document.getElementById("soTin").value);
+    soMH++; // Tăng số môn học lên
+    printSub();
+}
+
+function printSub(){       // In môn học lên Web
+    var html = "";
+    for(var i=0; i<listSubjectAdded.length; i++){
+        html += "<tr><div><td>"+listSubjectAdded[i].tenMH + "</td><td>" + listSubjectAdded[i].maMH + "</td><td>" + listSubjectAdded[i].soTin + " tin<button class='close' onclick='delSub("+i+");'>×</button></td>"+"</div><tr>";
+    }
+    document.getElementById("printSub").innerHTML = html;
+}
+
+function delSub(index){
+    listSubjectAdded.splice(index, 1);
+    soMH--;
+    printSub();
+}
