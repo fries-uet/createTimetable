@@ -5,10 +5,10 @@
     <title>Project Create Timetable UET - Fries</title>
     <link rel="icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/quytm.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <script src="js/subject_quytm.js" type="text/javascript"></script>
     <!--Bonus-->
+    <script src="js/jquery.js"></script>
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <style>
 
@@ -17,15 +17,15 @@
 </head>
 <body>
 <div>
-    <header class="page-header ">
+    <header class="page-header">
         <h1 class="text-center">Create Timetable UET - Fries</h1>
     </header>
     <div style="margin-top: 20px">
         <!--Begin Left-->
         <div class="col-lg-3">
             <div class="title-subject text-center">
-                <a href="#menu-toggle" class="btn btn-info"  id="menu-toggle">Môn học</a>
-                <button class="btn btn-info btn-xs pull-right" onclick="startChoose()" >Chọn môn học</button>
+                <a class="btn btn-info"  id="menu-toggle">Chọn môn học</a>
+                <!--<button class="btn btn-info btn-xs pull-right" onclick="startChoose()" >Chọn môn học</button>-->
             </div>
 
             <!--Begin list Subject-->
@@ -71,85 +71,77 @@
 
 
     <!--Add SlideBar-->
-    <div id="wrapper">
+    <div id="wrapper" class="toggled">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                        Môn học
-                    </a>
+                    <!--Tạo button remove sidebar-->
+                    <button class="btn btn-danger btn-xs pull-left"  id="drop-menu-toggle" style="color: #ffffff">X</button>
+                    <a>Môn học</a>
+                </li>
+                <li><a>Môn học</a></li>     <! Đẩy danh sách xuống dưới 1 hàng>
+                <li>
+                    <a onclick="chooseSubject()">Công nghệ phần mềm</a>
                 </li>
                 <li>
-                    <a href="#">Công nghệ phần mềm</a>
+                    <a onclick="chooseSubject()">Toán rời cmn rạc</a>
                 </li>
                 <li>
-                    <a href="#">Toán rời cmn rạc</a>
+                    <a onclick="chooseSubject()">Nguyên lý hệ điều hành</a>
                 </li>
                 <li>
-                    <a href="#">Nguyên lý hệ điều hành</a>
+                    <a onclick="chooseSubject()">Mạng máy tính</a>
                 </li>
                 <li>
-                    <a href="#">Mạng máy tính</a>
+                    <a onclick="chooseSubject()">Nguyên lý Marketing</a>
                 </li>
                 <li>
-                    <a href="#">Nguyên lý Marketing</a>
+                    <a onclick="chooseSubject()">Chủ nghĩa Mác-Lênin</a>
                 </li>
                 <li>
-                    <a href="#">Chủ nghĩa Mác-Lênin</a>
+                    <a onclick="chooseSubject()">Bóng rổ</a>
                 </li>
                 <li>
-                    <a href="#">Bóng rổ</a>
+                    <a onclick="chooseSubject()">Bóng rổ</a>
                 </li>
                 <li>
-                    <a href="#">Bóng rổ</a>
+                    <a onclick="chooseSubject()">Bóng rổ</a>
                 </li>
                 <li>
-                    <a href="#">Bóng rổ</a>
+                    <a onclick="chooseSubject()">Bóng rổ</a>
                 </li>
                 <li>
-                    <a href="#">Bóng rổ</a>
+                    <a onclick="chooseSubject()">Bóng rổ</a>
                 </li>
                 <li>
-                    <a href="#">Bóng rổ</a>
+                    <a onclick="chooseSubject()">Bóng rổ</a>
                 </li>
                 <li>
-                    <a href="#">Bóng rổ</a>
+                    <a onclick="chooseSubject()">Bóng rổ</a>
                 </li>
                 <li>
-                    <a href="#">Bóng rổ</a>
+                    <a onclick="chooseSubject()">Bóng rổ</a>
                 </li>
                 <li>
-                    <a href="#">Bóng rổ</a>
+                    <a onclick="chooseSubject()">Bóng rổ</a>
                 </li>
                 <li>
-                    <a href="#">Bóng rổ</a>
+                    <a onclick="chooseSubject()">Bóng rổ</a>
                 </li>
-                <li>
-                    <a href="#">Bóng rổ</a>
-                </li>
-
             </ul>
         </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <!--<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
-        <!-- /#page-content-wrapper -->
-
     </div>
     <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>
         $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        $("#drop-menu-toggle").click(function(e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });

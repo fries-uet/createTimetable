@@ -192,17 +192,6 @@ function chooseColorBG(arr) {
 }
 
 // Bonus
-function startChoose(){
-    alert("Start");
-    document.getElementById("showSubject").setAttribute("class","modal fade in");
-    document.getElementById("showSubject").setAttribute("style", "display: block");
-}
-function finishChoose(){
-    document.getElementById("showSubject").setAttribute("class","modal fade");
-    document.getElementById("showSubject").setAttribute("style", "display: none; width: 400");
-    alert("Đóng xong");
-}
-
 function chooseSubject(){
     alert("Đã chọn môn học");
 }
