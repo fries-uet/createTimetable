@@ -9,18 +9,18 @@
 <body>
 <div class="container">
     <div class="login center-block">
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" method="post">
             <h3 class="col-sm-offset-4 col-sm-8">Đăng nhập tài khoản</h3>
             <div class="form-group">
-                <label class="control-label col-sm-4" for="email">Email:</label>
+                <label class="control-label col-sm-4" for="email">Username:</label>
                 <div class="col-sm-8">
-                    <input type="email" class="form-control" id="email" placeholder="Địa chỉ email">
+                    <input type="text" class="form-control" id="user" placeholder="user name" name="user">
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-4" for="pwd">Mật khẩu:</label>
                 <div class="col-sm-8">
-                    <input type="password" class="form-control" id="pwd" placeholder="Mật khẩu">
+                    <input type="password" class="form-control" id="pwd" placeholder="Mật khẩu" name="pass">
                 </div>
             </div>
             <div class="form-group">
@@ -40,3 +40,10 @@
 </div>
 </body>
 </html>
+<?php
+if(isset($_POST['user']) and isset($_POST['pass']) ){
+    include "check_data_user.php";
+}else {
+    echo "nhập đầy đủ thông tin đăng nhập !!!";
+}
+?>
