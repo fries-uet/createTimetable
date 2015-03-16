@@ -7,7 +7,7 @@
  */
 
 include "dbconnect.php";
-include("lesson.php");
+include("Lesson.php");
 header('Content-Type:application/json; charset=UTF-8');
 mysqli_query($conn, "SET NAMES 'utf8'");
 $sql_getdata = "SELECT * FROM lesson";
@@ -15,7 +15,7 @@ $result = mysqli_query($conn, $sql_getdata);
 $arr =array();
 if(mysqli_num_rows($result)>0){
     while($row = mysqli_fetch_assoc($result)){
-        $l = new lesson($row['subject_id'], $row['maLMH'], $row['nhom'], $row['viTri'], $row['soTiet'], $row['giaoVien'], $row['giangDuong']);
+        $l = new Lesson($row['subject_id'], $row['maLMH'], $row['nhom'], $row['viTri'], $row['soTiet'], $row['giaoVien'], $row['giangDuong']);
         array_push($arr, $l);
     }
 }

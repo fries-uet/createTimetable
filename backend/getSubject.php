@@ -1,7 +1,6 @@
 <?php
 include "dbconnect.php";
-include("subject.php");
-include("lesson.php");
+include("Subject.php");
 header('Content-Type:application/json; charset=UTF-8');
 mysqli_query($conn, "SET NAMES 'utf8'");
 $sql_getdata = "SELECT * FROM subject";
@@ -9,7 +8,7 @@ $result = mysqli_query($conn, $sql_getdata);
 $arr =array();
 if(mysqli_num_rows($result)>0){
     while($row = mysqli_fetch_assoc($result)){
-        $s = new subject($row['subject_id'], $row['maMH'], $row['tenMH'], $row['soTin']);
+        $s = new Subject($row['subject_id'], $row['maMH'], $row['tenMH'], $row['soTin']);
         array_push($arr, $s);
     }
 }

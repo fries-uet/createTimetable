@@ -1,6 +1,6 @@
 <?php
 //Class subject
-class subject {
+class Subject {
     var $id;
     var $maMH;
     var $tenMH;

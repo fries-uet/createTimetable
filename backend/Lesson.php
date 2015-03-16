@@ -1,6 +1,6 @@
 <?php
 //Class lesson
-class lesson {
+class Lesson {
     var $monHoc;
     var $maLMH;
     var $nhom;
