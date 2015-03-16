@@ -8,7 +8,7 @@ $result = mysqli_query($conn, $sql_getdata);
 $arr =array();
 if(mysqli_num_rows($result)>0){
     while($row = mysqli_fetch_assoc($result)){
-        $s = new Subject($row['subject_id'], $row['maMH'], $row['tenMH'], $row['soTin']);
+        $s = new Subject(intval($row['subject_id']), $row['maMH'], $row['tenMH'], intval($row['soTin']));
         array_push($arr, $s);
     }
 }

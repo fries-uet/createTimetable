@@ -15,7 +15,7 @@ $result = mysqli_query($conn, $sql_getdata);
 $arr =array();
 if(mysqli_num_rows($result)>0){
     while($row = mysqli_fetch_assoc($result)){
-        $l = new Lesson($row['subject_id'], $row['maLMH'], $row['nhom'], $row['viTri'], $row['soTiet'], $row['giaoVien'], $row['giangDuong']);
+        $l = new Lesson(intval($row['subject_id']), $row['maLMH'], intval($row['nhom']), intval($row['viTri']), intval($row['soTiet']), $row['giaoVien'], $row['giangDuong']);
         array_push($arr, $l);
     }
 }
