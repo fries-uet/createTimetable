@@ -12,14 +12,22 @@
             width: 100%;
             margin-bottom: 11px;
         }
+        #title-listSubject h3{
+            margin-top: 2px;
+            margin-bottom: 5px;
+        }
+        #title-listSubject {
+            background-color: #008ab3;
+        }
+        .tenMH {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 <div>
-    <header class="page-header ">
-        <h1 class="text-center">Create Timetable UET - Fries</h1>
-    </header>
-    <div style="margin-top: 20px">
+    <?php include("header.php"); ?>
+    <div style="padding-top: 55px">
         <!--Begin Left-->
         <div class="col-lg-3">
             <div class="text-center">
@@ -47,11 +55,11 @@
                 <thead class="bg-primary">
                 <tr>
                     <th class="text-center col-lg-1">Tiết/Thứ</th>
-                    <th class="text-center col-lg-2">2</th>
-                    <th class="text-center col-lg-2">3</th>
-                    <th class="text-center col-lg-2">4</th>
-                    <th class="text-center col-lg-2">5</th>
-                    <th class="text-center col-lg-2">6</th>
+                    <th class="text-center col-lg-2">Hai</th>
+                    <th class="text-center col-lg-2">Ba</th>
+                    <th class="text-center col-lg-2">Tư</th>
+                    <th class="text-center col-lg-2">Năm</th>
+                    <th class="text-center col-lg-2">Sáu</th>
                 </tr>
                 </thead>
                 <tbody id="bodyTable"><!-- Bảng thời khóa biểu tuần -->
@@ -143,30 +151,26 @@
         </div>
         <!--End Left-->
     </div>
-    <div class="col-lg-12 modal-footer">
-        <p>Copyright @Fries 2015</p>
+
+    <!--Add SlideBar-->
+    <div class="">
+
     </div>
-</div>
-
-<!--Add SlideBar-->
-<div id="wrapper" class="toggled">
-
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <table class="table">
-            <thead>
-                <tr><td>Danh sách môn học</td></tr>
-            </thead>
-            <tbody id="listSubject">
-            </tbody>
-        </table>
+    <div id="wrapper" class="toggled">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <table class="table table-hover">
+                <thead id="title-listSubject">
+                    <tr><td><h3>Danh sách môn học</h3></td></tr>
+                </thead>
+                <tbody id="listSubject">
+                </tbody>
+            </table>
+        </div>
     </div>
+    <!-- /#wrapper -->
+
+    <?php include("footer.php"); ?>
 </div>
-<!-- /#wrapper -->
-
-
-<!-- Javascript -->
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>
