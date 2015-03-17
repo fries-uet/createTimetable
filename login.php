@@ -44,6 +44,6 @@
 if(isset($_POST['user']) and isset($_POST['pass']) ){
     include "check_data_user.php";
 }else {
-    echo "nhập đầy đủ thông tin đăng nhập !!!";
+//    echo "nhập đầy đủ thông tin đăng nhập !!!";
 }
 ?>
