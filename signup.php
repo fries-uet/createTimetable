@@ -9,24 +9,49 @@
 <body>
 <div class="container">
     <div class="signup center-block">
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" method="post" action="check_info_signup.php">
             <h3 class="col-sm-offset-4 col-sm-8">Đăng ký thành viên</h3>
+
             <div class="form-group">
-                <label class="control-label col-sm-4" for="name">Tên đầy đủ:</label>
+                <label class="control-label col-sm-4" for="name">Tên tài khoản:</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="name" placeholder="Họ và tên">
+                    <input type="text" class="form-control" id="name" placeholder="Tên tài " name="name">
                 </div>
             </div>
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="email">Email:</label>
-                <div class="col-sm-8">
-                    <input type="email" class="form-control" id="email" placeholder="Địa chỉ email">
-                </div>
-            </div>
+
             <div class="form-group">
                 <label class="control-label col-sm-4" for="pwd">Mật khẩu:</label>
                 <div class="col-sm-8">
-                    <input type="password" class="form-control" id="pwd" placeholder="Mật khẩu">
+                    <input type="password" class="form-control" id="pwd" placeholder="Mật khẩu" name="pass">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email">Email:</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" id="email" placeholder="Địa chỉ email" name="email">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="def">Ho:</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" id="email" placeholder="Ho" name="lastname">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="abc">Ten:</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" id="email" placeholder="Ten" name="firstname">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="123">Ngay sinh:</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" id="email" placeholder="Ngay sinh" name="birth">
                 </div>
             </div>
 <!--            <div class="form-group">-->
@@ -42,6 +67,10 @@
             </div>
         </form>
     </div>
+
+<?php
+//    echo $_POST['error'];
+?>
 
     <script src="js/jquery.min.js"></script>
     <script>
