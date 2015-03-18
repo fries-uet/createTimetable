@@ -70,11 +70,12 @@ function themMH(id , tr) {
             for (var j=0; j<listLesson.length; j++) {
                 if (listLesson[j].monHoc == id) {
                     var l = listLesson[j];
+                    var classLMH = xoaDauCach(l.maLMH);
                     var htmlLess = "";
                     if (l.selected) {
-                        htmlLess = "<tr class=\"monHoc-" + id + " success\" onclick=\"xoaLMH(" + j + ", this);\"><td><div>";
+                        htmlLess = "<tr class=\"monHoc-" + id + " success " + classLMH + "\" onclick=\"xoaLMH(" + j + ", this);\"><td><div>";
                     } else {
-                        htmlLess = "<tr class=\"monHoc-" + id + "\" onclick=\"themLMH(" + j + ", this);\"><td><div>";
+                        htmlLess = "<tr class=\"monHoc-" + id + " " + classLMH + "\" onclick=\"themLMH(" + j + ", this);\"><td><div>";
                     }
 
                     htmlLess += listSubject[i].tenMH + "</div><div><kbd>"
@@ -167,4 +168,8 @@ function xoaLMH(i, tr) {
 
 function chuyenDoisangID(i) {
     return "#location-" + i;
+}
+
+function xoaDauCach(str) {
+    return str.replace(" ", "");
 }
