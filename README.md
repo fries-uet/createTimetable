@@ -31,6 +31,11 @@ Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý
 * [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **signup** - Thư mục xử lý tác vụ đăng ký</li>
 * [![file](https://cloud.githubusercontent.com/assets/7255177/6881740/eea24e98-d59e-11e4-9ff8-b4bbf55f4c5c.png)](#) **index.php** - Trang chính của app
 
+## Code style
+* **HTML/CSS** [Google HTML/CSS Style Guide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml)
+* **Javascript** [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+* **PHP & MySQL** [PHP Coding Standards](https://make.wordpress.org/core/handbook/coding-standards/php/) 
+
 ***
 Giáo viên hướng dẫn: [Trương Anh Hoàng](https://github.com/truonganhhoang).
 
