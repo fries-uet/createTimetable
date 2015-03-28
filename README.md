@@ -29,7 +29,9 @@ Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý
 * ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **signup** - Thư mục xử lý tác vụ đăng ký</li>
 * ![file](https://cloud.githubusercontent.com/assets/7255177/6881740/eea24e98-d59e-11e4-9ff8-b4bbf55f4c5c.png) **index.php** - Trang chính của app
 
+***
+Giáo viên hướng dẫn: Trương Anh Hoàng.
 
 Các thành viên trong dự án: [Trần Văn Tú](https://github.com/tutv95), [Trần Minh Quý](https://github.com/quytm), [Bùi Minh Thái](https://github.com/thaibm), [Nguyễn Tiến Minh](https://github.com/minhnt58), [Nguyễn Văn Thành](https://github.com/thanhnv58).
 
-Giáo viên hướng dẫn: Trương Anh Hoàng.
+
