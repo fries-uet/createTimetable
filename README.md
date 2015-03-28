@@ -20,7 +20,7 @@ Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý
 
 ## Cấu trúc code của dự án
 <ul>
-  <li>![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) css - Chứa các Style sheets</li>
+  <li>![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **css** - Chứa các Style sheets</li>
   <li>js - Chứa các file Javascript</li>
   <li>images - Chứa các file Ảnh</li>
   <li>includes - Thư mục chứa các phần bố cục dùng chung của app như header, footer, sidebar,....</li>
@@ -34,4 +34,5 @@ Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý
 
 Các thành viên trong dự án: [Trần Văn Tú](https://github.com/tutv95), [Trần Minh Quý](https://github.com/quytm), [Bùi Minh Thái](https://github.com/thaibm), [Nguyễn Tiến Minh](https://github.com/minhnt58), [Nguyễn Văn Thành](https://github.com/thanhnv58).
 
+![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)
 Giáo viên hướng dẫn: Trương Anh Hoàng.
