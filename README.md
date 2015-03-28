@@ -4,9 +4,11 @@
 ***
 ## Mô tả:
 Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý trước mỗi khi đăng ký môn học của mỗi kì.
-* Hỗ trợ tìm môn học
 * Tạo thời khóa biểu hợp lý theo ý muốn
+* Hỗ trợ tìm môn học
+* Tạo thời khóa biểu tự động
 * Tối ưu thời gian của lịch học
+* Chia sẻ thời khóa biểu cho bạn bè
 * ..................
 
 ## Công nghệ
