@@ -20,14 +20,14 @@ Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý
 
 ## Cấu trúc code của dự án
 * [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **css** - Chứa các Style sheets
-* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **js** - Chứa các file Javascript
-* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **images** - Chứa các file Ảnh
-* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **includes** - Thư mục chứa các phần bố cục dùng chung của app như header, footer, sidebar,....
-* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **backend** - Xử lý các tác vụ với server
-* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **admin** - Trang xử lý tác vụ của người quản lý app
-* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **login** - Thư mục xử lý tác vụ đăng nhập
-* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **signup** - Thư mục xử lý tác vụ đăng ký</li>
-* ![file](https://cloud.githubusercontent.com/assets/7255177/6881740/eea24e98-d59e-11e4-9ff8-b4bbf55f4c5c.png) **index.php** - Trang chính của app
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **js** - Chứa các file Javascript
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **images** - Chứa các file Ảnh
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **includes** - Thư mục chứa các phần bố cục dùng chung của app như header, footer, sidebar,....
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **backend** - Xử lý các tác vụ với server
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **admin** - Trang xử lý tác vụ của người quản lý app
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **login** - Thư mục xử lý tác vụ đăng nhập
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **signup** - Thư mục xử lý tác vụ đăng ký</li>
+* [![file](https://cloud.githubusercontent.com/assets/7255177/6881740/eea24e98-d59e-11e4-9ff8-b4bbf55f4c5c.png)](#) **index.php** - Trang chính của app
 
 ***
 Giáo viên hướng dẫn: [Trương Anh Hoàng](https://github.com/truonganhhoang).
