@@ -19,7 +19,7 @@ Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý
 [Create Timetable UET (Public)](https://www.pivotaltracker.com/n/projects/1266230)
 
 ## Cấu trúc code của dự án
-* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)]() **css** - Chứa các Style sheets
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **css** - Chứa các Style sheets
 * ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **js** - Chứa các file Javascript
 * ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **images** - Chứa các file Ảnh
 * ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **includes** - Thư mục chứa các phần bố cục dùng chung của app như header, footer, sidebar,....
