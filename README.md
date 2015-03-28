@@ -19,7 +19,17 @@ Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý
 [Create Timetable UET (Public)](https://www.pivotaltracker.com/n/projects/1266230)
 
 ## Cấu trúc code của dự án
-(Đang cập nhật......)
+<ul>
+  <li>css - Chứa các Style sheets</li>
+  <li>js - Chứa các file Javascript</li>
+  <li>images - Chứa các file Ảnh</li>
+  <li>includes - Thư mục chứa các phần bố cục dùng chung của app như header, footer, sidebar,....</li>
+  <li>backend - Xử lý các tác vụ với server</li>
+  <li>admin - Trang xử lý tác vụ của người quản lý app</li>
+  <li>login - Trang đăng nhập</li>
+  <li>signup - Trang đăng ký</li>
+  <li>index.php - Trang chính của app</li>
+</ul>
 
 
 Các thành viên trong dự án: [Trần Văn Tú](https://github.com/tutv95), [Trần Minh Quý](https://github.com/quytm), [Bùi Minh Thái](https://github.com/thaibm), [Nguyễn Tiến Minh](https://github.com/minhnt58), [Nguyễn Văn Thành](https://github.com/thanhnv58).
