@@ -20,7 +20,7 @@ Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý
 
 ## Cấu trúc code của dự án
 <ul>
-  <li>css - Chứa các Style sheets</li>
+  <li>![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)css - Chứa các Style sheets</li>
   <li>js - Chứa các file Javascript</li>
   <li>images - Chứa các file Ảnh</li>
   <li>includes - Thư mục chứa các phần bố cục dùng chung của app như header, footer, sidebar,....</li>
