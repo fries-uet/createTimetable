@@ -19,17 +19,15 @@ Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý
 [Create Timetable UET (Public)](https://www.pivotaltracker.com/n/projects/1266230)
 
 ## Cấu trúc code của dự án
-<ul>
-  <li>![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **css** - Chứa các Style sheets</li>
-  <li>js - Chứa các file Javascript</li>
-  <li>images - Chứa các file Ảnh</li>
-  <li>includes - Thư mục chứa các phần bố cục dùng chung của app như header, footer, sidebar,....</li>
-  <li>backend - Xử lý các tác vụ với server</li>
-  <li>admin - Trang xử lý tác vụ của người quản lý app</li>
-  <li>login - Trang đăng nhập</li>
-  <li>signup - Trang đăng ký</li>
-  <li>index.php - Trang chính của app</li>
-</ul>
+* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) **css** - Chứa các Style sheets
+* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) js - Chứa các file Javascript
+* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) images - Chứa các file Ảnh
+* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) includes - Thư mục chứa các phần bố cục dùng chung của app như header, footer, sidebar,....
+* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) backend - Xử lý các tác vụ với server
+* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) admin - Trang xử lý tác vụ của người quản lý app
+* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) login - Trang đăng nhập
+* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) signup - Trang đăng ký</li>
+* ![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png) index.php - Trang chính của app
 
 
 Các thành viên trong dự án: [Trần Văn Tú](https://github.com/tutv95), [Trần Minh Quý](https://github.com/quytm), [Bùi Minh Thái](https://github.com/thaibm), [Nguyễn Tiến Minh](https://github.com/minhnt58), [Nguyễn Văn Thành](https://github.com/thanhnv58).
