@@ -1,4 +1,4 @@
-<div class="navbar-fixed-top" style="background: #e3e3e3; box-shadow: 1px 1px 5px #101010">
+<div class="navbar-fixed-top" style="background: #e3e3e3; box-shadow: 1px 1px 5px #3f3d3d">
     <h3>
         <a style="padding-left: 10px">
             Create Timetable UET - Fries
