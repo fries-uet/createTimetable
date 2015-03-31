@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <title>Create Timetable UET - Fries</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/sidebar.css" type="text/css"/>
+    <script src="js/jquery.min.js"></script>
 </head>
 <body>
     <div id="page" style="padding-top: 55px">
 
 <!--        Lấy header-->
-        <?php include("includes/headerContent.php"); ?>
+        <?php include("includes/header.php"); ?>
 
 <!--        Phần thân của Thời khóa biểu-->
         <div id="content">
@@ -18,7 +20,7 @@
             <div id="content-left" class="col-lg-3">
                 <div id="content-left-header" class="text-center">
                     <h3>Môn học</h3>
-                    <button class="btn btn-block btn-sm btn-warning">Thêm</button>
+                    <button class="btn btn-block btn-sm btn-warning" id="btnAddSubject">Thêm</button>
                 </div>
                 <div id="content-left-listSubject" style="overflow-y: scroll; height: 450px">
                     <table id="list-subject" class="table">
@@ -142,8 +144,32 @@
             </div>
         </div>
 
+<!--        Thêm sideBar-->
+        <div id="wrapper" class="">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <table class="table table-hover">
+                    <thead id="title-listSubject">
+                        <li class="sidebar-brand">
+                            <h3 style="color: #337ab7">Danh sách môn học<h3>
+                        </li>
+                    </thead>
+                    <tbody id="listSubject">
+<!--                        Ghi danh sách các môn học-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Menu Toggle Script -->
+        <script>
+            $("#btnAddSubject").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+        </script>
 <!--        Lấy footer-->
-        <?php include("includes/footerContent.php"); ?>
+        <?php include("includes/footer.php"); ?>
     </div>
 </body>
 </html>
