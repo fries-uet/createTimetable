@@ -18,9 +18,9 @@
             </header>
         </div>
 
-        <div class="container">
+        <div class="container" >
             <!--Begin left table-->
-            <div class="col-lg-4">
+            <div class="col-lg-4" style="margin-top: 60px">
                 <form class="form-group">
                     <p><label>Tên Môn Học: </label><input id="name" type="text" class="form-control" placeholder="Nhập Tên Môn Học" value=""></p>
                     <p><label>Mã Môn Học: </label><input id="code" type="text" class="form-control" placeholder="Nhập Mã Môn Học" value=""></p>
@@ -93,10 +93,10 @@
             <!--end left table-->
 
             <!--Begin Right table-->
-            <div class="col-sm-6 table-bordered">
-                <div class="title-subject text-center"><h3>Môn học</h3></div>
+            <div class="col-sm-6">
+                <div class="title-subject text-center bg-primary btn-sm" ><h4><b>Môn học</b></h4></div>
                 <!--Begin list Subject-->
-                <div class="list-subject" style="overflow-y: scroll; height: 450px;">
+                <div class="list-subject  table-bordered btn-sm" style="overflow-y: scroll; height: 450px;">
                     <table class="table table-striped table-hover table-bordered  bg-info">
                         <tbody id="leftTable">
                         <!--<script> printRightTable();</script>-->

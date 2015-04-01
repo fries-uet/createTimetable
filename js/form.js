@@ -46,7 +46,7 @@ function printRightTable(){
     for(var i=0; i<data.length; i++){
         leftTable+= "<tr><td><button class='close' onclick='deleteLeftSubject(\""+data[i].code+"\");'>×</button><div><b>"+data[i].name+"</b></div>";
         leftTable+= "<div>"+data[i].teacher+"</div>";
-        leftTable+= "<div>"+data[i].code+"  Thứ "+data[i].day+":  "+data[i].start+"-"+data[i].end+"</div><button class='btn btn-default btn-xs pull-right' onclick='editSubject(\""+data[i].code+"\");'>Edit</button></td></tr>"
+        leftTable+= "<div>"+data[i].code+"  Thứ "+data[i].day+":  "+data[i].start+"-"+data[i].end+"</div><button class='btn btn-default btn-xs pull-right btn-sm btn-warning' onclick='editSubject(\""+data[i].code+"\");'>Edit</button></td></tr>"
     }
     document.getElementById("leftTable").innerHTML= leftTable;
 }
