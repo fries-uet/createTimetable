@@ -3,7 +3,7 @@
 $host     = "localhost";
 $username = "root";
 $password = "";
-$database = "time_table";
+$database = "create_timetable";
 $conn = mysqli_connect( $host, $username, $password, $database );
-mysqli_query( $conn, "SET NAME 'utf8'" );
+mysqli_query( $conn, "SET NAMES 'utf8'" );
 ?>
