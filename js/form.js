@@ -4,9 +4,56 @@
 
 
 var data= []    //Mảng data[] Lưu danh sách các môn học.
+// luu thong tin vo database
+$( document ).ready( function(){
+    $("form.form-group").on( "submit", function(){
+        if( check() == false )alert( "xem lại thông tin nhập !!!" );
+        else {
+            var data = {};
+            that = $(this);
+            that.find( '[name]').each( function(){
+                var that = $(this);
+                var name = that.attr('name');
+                var value = that.val();
+                data[name] = value;
+            });
+            //console.log(data);
+
+            $.ajax( {
+                url : "../backend/save1.php",
+                type : "POST",
+                data : data,
+                success : function( data ){
+                    console.log(data);
+                    var str = "<b>"+data+"</b>";
+                    $("#success").html(str);
+                }
+            });
+        }
+        return false;
+    });
+});
+// lam sạch form ....
+function clearForm(){
+    $("#success").html("<b>xem kỹ thông tin trước khi bấm</b>");
+}
+//kiem tra thong tin du va dung hay chua
+function check(){
+    if( $("#name").val() == "" )return false;
+    if( $("#code").val() == "" )return false;
+    if( $("#teacher").val() == "" )return false;
+    if( $("#location").val() == "" )return false;
+    if( isNaN( $("#tinChi").val() ) )return false;
+    if( isNaN( $("#group").val() ) )return false;
+    if( isNaN( $("#day").val() ) )return false;
+    if( isNaN( $("#start").val() ) )return false;
+    if( isNaN( $("#end").val() ) )return false;
+    if( $( "#end").val() <= $( "#start").val() ) return false;
+    return true;
+}
 
 function getData(){
-    var subject={name: "", code:"",teacher:"", tinChi:"", group:"", day:"", start:"", end:""};
+    var subject={name: "", code:"",teacher:"", tinChi:"",  location:"", group:"", day:"", start:"", end:""};
     subject.name=       document.getElementById("name").value;
     subject.code=       document.getElementById("code").value;
     subject.teacher=    document.getElementById("teacher").value;
@@ -37,11 +84,12 @@ function getData(){
         //alert(data[0].name + "  " + data[0].code );
     }
     printRightTable();
-
     document.getElementById("name").outerHTML= "<input id='name' type='text' class='form-control' placeholder='Nhập Tên Môn Học' value=''>";
     document.getElementById("code").outerHTML= "<input id='code' type='text' class='form-control' placeholder='Nhập Mã Môn Học' value=''>";
     document.getElementById("teacher").outerHTML= "<input id='teacher' type='text' class='form-control' placeholder='Nhập Tên Giảng Viên' value=''>";
     document.getElementById("location").outerHTML= "<input id='location' type='text' class='form-control' placeholder='Nhập Lớp và Giảng Đường' value=''>";
+
+
 }
 //
 //Hàm in danh sách môn học. (Bên phải)
