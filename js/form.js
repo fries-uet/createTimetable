@@ -10,6 +10,7 @@ function getData(){
     subject.name=       document.getElementById("name").value;
     subject.code=       document.getElementById("code").value;
     subject.teacher=    document.getElementById("teacher").value;
+    subject.location=    document.getElementById("location").value;
     subject.tinChi=     document.getElementById("tinChi").value;
     subject.group=      document.getElementById("group").value;
     subject.day=        document.getElementById("day").value;
@@ -25,6 +26,9 @@ function getData(){
     else if(subject.teacher ==""){
         alert("Bạn chưa nhập Tên Giảng Viên!");
     }
+    else if(subject.location ==""){
+        alert("Bạn chưa nhập Địa Điểm!");
+    }
     else if(subject.end <= subject.start){
         alert("Bạn nhập Tiết học chưa đúng!")
     }
@@ -37,7 +41,7 @@ function getData(){
     document.getElementById("name").outerHTML= "<input id='name' type='text' class='form-control' placeholder='Nhập Tên Môn Học' value=''>";
     document.getElementById("code").outerHTML= "<input id='code' type='text' class='form-control' placeholder='Nhập Mã Môn Học' value=''>";
     document.getElementById("teacher").outerHTML= "<input id='teacher' type='text' class='form-control' placeholder='Nhập Tên Giảng Viên' value=''>";
-
+    document.getElementById("location").outerHTML= "<input id='location' type='text' class='form-control' placeholder='Nhập Lớp và Giảng Đường' value=''>";
 }
 //
 //Hàm in danh sách môn học. (Bên phải)
@@ -79,7 +83,7 @@ function editSubject(code){
             document.getElementById("name").setAttribute("value", data[i].name);
             document.getElementById("code").setAttribute("value", data[i].code);
             document.getElementById("teacher").setAttribute("value", data[i].teacher);
-
+            document.getElementById("location").setAttribute("value", data[i].teacher);
             for(var j=i; j<data.length-1; j++){
                 data[j]= data[j+1];
             }

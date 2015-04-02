@@ -25,7 +25,7 @@
                     <p><label>Tên Môn Học: </label><input id="name" type="text" class="form-control" placeholder="Nhập Tên Môn Học" value=""></p>
                     <p><label>Mã Môn Học: </label><input id="code" type="text" class="form-control" placeholder="Nhập Mã Môn Học" value=""></p>
                     <p><label>Giảng Viên: </label><input id="teacher" type="text" class="form-control" placeholder="Nhập Tên Giảng Viên" value=""></p>
-                
+                    <p><label>Địa Điểm: </label><input id="location" type="text" class="form-control" placeholder="Nhập Lớp và Giảng Đường" value=""></p>
                     <div class="form-inline">
                             <p><label class="">Số Tín: </label>
                                 <select id="tinChi" class="" style="">
