@@ -13,8 +13,8 @@
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    /*left: 250px;*/
-    right: 0px; /* Căn lề phải*/
+    left: 330px;
+    /*right: 0px;  Căn lề phải*/
     width: 0;
     /*height: 100%;*/
     height: 500px;
@@ -29,11 +29,11 @@
     transition: all 0.5s ease;
     /*Bo góc*/
     -moz-border-radius-topleft:80px;
-    -webkit-border-top-left-radius:50px;
+    -webkit-border-top-left-radius:10px;
     -moz-border-radius-bottomleft:10px;
     -webkit-border-bottom-left-radius:10px;
     /*Đổ bóng*/
-    box-shadow: -5px 5px 20px #858D93;
+    box-shadow: 5px 5px 20px #858D93;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -125,7 +125,10 @@
 
     #wrapper.toggled #sidebar-wrapper {
         width: 0px;
-        right: -20px;   /*Sau khi thu gọn thì căn lề thụt vào 20px, để làm mất thanh cuộn*/
+        /*right: -20px;   *//*Sau khi thu gọn thì căn lề thụt vào 20px, để làm mất thanh cuộn*/
+        height: 0px;
+        left: 170px;
+        top: 110px;
     }
 
     #wrapper.toggled #page-content-wrapper {

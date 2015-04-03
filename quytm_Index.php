@@ -20,7 +20,7 @@
             <div id="content-left" class="col-lg-3">
                 <div id="content-left-header" class="text-center">
                     <h3>Môn học</h3>
-                    <button class="btn btn-block btn-sm btn-warning" id="btnAddSubject">Thêm</button>
+                    <button class="btn btn-block btn-sm btn-info" id="btnAddSubject">Thêm</button>
                 </div>
                 <div id="content-left-listSubject" style="overflow-y: scroll; height: 450px">
                     <table id="list-subject" class="table">
@@ -166,6 +166,9 @@
             $("#btnAddSubject").click(function(e) {
                 e.preventDefault();
                 $("#wrapper").toggleClass("toggled");
+//                $("#wrapper").animate({
+//                    height: 'toggle'
+//                });
             });
         </script>
 <!--        Lấy footer-->
