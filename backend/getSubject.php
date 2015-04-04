@@ -13,5 +13,6 @@
             array_push( $arr, $subject );
         }
     }
-    print_r( json_encode ( $arr ) );
+    include("echoJson.php");
+    echoJson($arr);
 ?>
