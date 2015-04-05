@@ -21,7 +21,7 @@
 
         <div class="container" >
             <!--Begin left table-->
-            <div class="col-lg-4" style="margin-top: 20px; padding-left: 40px; width: 400px;">
+            <div class="col-lg-4" style="margin-top: 10px; padding-left: 40px; width: 420px; float: left;">
                 <form class="form-group" method="post" action="../backend/save1.php">
                     <p><label>Tên Môn Học: </label><input id="name" type="text" class="form-control" placeholder="Nhập Tên Môn Học" value="" name="tenMH"></p>
                     <p><label>Mã Môn Học: </label><input id="code" type="text" class="form-control" placeholder="Nhập Mã Môn Học" value="" name="maMH"></p>
@@ -101,6 +101,13 @@
                 </form>
             </div>
             <!--end left table-->
+
+            <!-- danh sach cac mon hoc trong database -->
+            <table style=" width: 700px; float: left; padding-left: 10px;" id="list">
+                <tr> <td style="text-align: center; font-size: 24px; color: #269abc; width: 700px;">danh sach cac mon hoc </td></tr>
+            </table>
+            <!--  end danh sach cac mon hoc trong database -->
+
         </div>
         
         <div>

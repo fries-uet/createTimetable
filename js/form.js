@@ -6,6 +6,7 @@
 var data= []    //Mảng data[] Lưu danh sách các môn học.
 // luu thong tin vo database
 $( document ).ready( function(){
+    list();
     $("form.form-group").on( "submit", function(){
         if( check() == false )alert( "xem lại thông tin nhập !!!" );
         else {
@@ -27,12 +28,51 @@ $( document ).ready( function(){
                     console.log(data);
                     var str = "<b>"+data+"</b>";
                     $("#success").html(str);
+                    addList();
                 }
             });
         }
         return false;
     });
 });
+// in danh sach cac mon hoc....
+function list(){
+    $.ajax( {
+        url : "../backend/getMonHoc.php",
+        type : 'post',
+        dataType : 'json',
+        success : function( list ){
+            $.each( list, function( key, value ){
+                var str;
+                str += "<tr>"
+                str +=         "<td style='width: 150px; text-align: left;clear: both; float: left;'>" + value['tenMH'] + "</td>";
+                str +=         "<td style='width: 90px; text-align: left; float: left;'>" + value['maLMH'] + "</td>";
+                str +=         "<td style='width: 130px; text-align: left; float: left;'>" + value['giaoVien'] + "</td>";
+                str +="</tr>"
+                $("#list").append( str );
+            });
+        }
+    });
+}
+// them mon hoc vo danh sach....
+function addList(){
+    $.ajax( {
+        url : "../backend/getMonHocCuoi.php",
+        type : 'post',
+        dataType : 'json',
+        success : function( the_last ){
+            $.each( the_last, function( key, value ){
+                var str;
+                str += "<tr>"
+                str +=         "<td style='width: 150px; text-align: left;clear: both; float: left;'>" + value['tenMH'] + "</td>";
+                str +=         "<td style='width: 90px; text-align: left; float: left;'>" + value['maLMH'] + "</td>";
+                str +=         "<td style='width: 130px; text-align: left; float: left;'>" + value['giaoVien'] + "</td>";
+                str +="</tr>"
+                $("#list").append( str );
+            });
+        }
+    });
+}
 // lam sạch form ....
 function clearForm(){
     $("#success").html("<b>xem kỹ thông tin trước khi bấm</b>");
