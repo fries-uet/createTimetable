@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="css/sidebar.css" type="text/css"/>
     <link rel="stylesheet" href="css/tooltipster.css" />
+    <link rel="stylesheet" href="css/tooltipster-light.css" />
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.tooltipster.min.js"></script>
@@ -20,6 +21,10 @@
             color: #777;
             background-color: #eee;
             cursor: default;
+        }
+
+        .name-subject {
+            display: block;
         }
     </style>
 </head>
