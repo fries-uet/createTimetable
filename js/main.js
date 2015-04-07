@@ -27,7 +27,7 @@ var listSubject = [];
 var listLesson = [];
 
 //Get Lesson
-$.getJSON("/backend/getLesson.php", function (data) {
+$.getJSON("./backend/getLesson.php", function (data) {
     for (var i = 0; i < data.length; i++) {
         listLesson[i] = new Lesson(data[i].id, data[i].subID, data[i].maLMH, data[i].nhom,
             data[i].viTri, data[i].soTiet, data[i].giaoVien, data[i].giangDuong);
@@ -35,7 +35,7 @@ $.getJSON("/backend/getLesson.php", function (data) {
 });
 
 //Get Subject
-$.getJSON("/backend/getSubject.php", function (data) {
+$.getJSON("./backend/getSubject.php", function (data) {
     for (var i=0; i<data.length; i++) {
         listSubject[i] = new Subject(data[i].id, data[i].maMH, data[i].tenMH, data[i].soTin);
         var li = "<li class='list-group-item list-group-item-info subject' target='" + i + "' onclick='addSubject(this);'>" + listSubject[i].tenMH + "</li>";
