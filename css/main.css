@@ -51,7 +51,7 @@ li.list-group-item.subject, li.list-group-item.lesson {
 li.head-lesson {
     margin-top: 6px;
     font-weight: bold;
-    color: #777;
+    color: #353535;
     background-color: #eee;
     cursor: default;
 }
@@ -67,5 +67,5 @@ li.head-lesson {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 9999;
 }

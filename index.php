@@ -12,6 +12,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.tooltipster.min.js"></script>
+    <script src="js/jquery.noty.packaged.min.js"></script>
 </head>
 <body>
     <div id="page" style="padding-top: 55px">
@@ -61,40 +62,40 @@
                         </tr>
                     </thead>
                     <tbody id="bodyTable"><!-- Bảng thời khóa biểu tuần -->
-                        <tr id="lesson-1">
-                            <td title="7h - 7h50'">1</td>
+                        <tr id="lesson1">
+                            <td title="7h - 7h50'" id="location-01">1</td>
                             <td id="location-1"></td>
                             <td id="location-11"></td>
                             <td id="location-21"></td>
                             <td id="location-31"></td>
                             <td id="location-41"></td>
                         </tr>
-                        <tr id="lesson-2">
-                            <td title="8h - 8h50'">2</td>
+                        <tr id="lesson2">
+                            <td title="8h - 8h50'" id="location-02">2</td>
                             <td id="location-2"></td>
                             <td id="location-12"></td>
                             <td id="location-22"></td>
                             <td id="location-32"></td>
                             <td id="location-42"></td>
                         </tr>
-                        <tr id="lesson-3">
-                            <td title="9h - 9h50'">3</td>
+                        <tr id="lesson3">
+                            <td title="9h - 9h50'" id="location-03">3</td>
                             <td id="location-3"></td>
                             <td id="location-13"></td>
                             <td id="location-23"></td>
                             <td id="location-33"></td>
                             <td id="location-43"></td>
                         </tr>
-                        <tr id="lesson-4">
-                            <td title="10h - 10h50'">4</td>
+                        <tr id="lesson4">
+                            <td title="10h - 10h50'" id="location-04">4</td>
                             <td id="location-4"></td>
                             <td id="location-14"></td>
                             <td id="location-24"></td>
                             <td id="location-34"></td>
                             <td id="location-44"></td>
                         </tr>
-                        <tr id="lesson-5">
-                            <td title="11h - 11h50'">5</td>
+                        <tr id="lesson5">
+                            <td title="11h - 11h50'" id="location-05">5</td>
                             <td id="location-5"></td>
                             <td id="location-15"></td>
                             <td id="location-25"></td>
@@ -104,7 +105,7 @@
                         <tr>
                             <td colspan="6" title="11h50' - 13h" class="bg-info">Đi ăn cơm với gấu</td>
                         </tr>
-                        <tr id="lesson-6">
+                        <tr id="lesson6" id="location-06">
                             <td title="13h - 13h50'">6</td>
                             <td id="location-6"></td>
                             <td id="location-16"></td>
@@ -112,7 +113,7 @@
                             <td id="location-36"></td>
                             <td id="location-46"></td>
                         </tr>
-                        <tr id="lesson-7">
+                        <tr id="lesson7" id="location-07">
                             <td title="14h - 14h50'">7</td>
                             <td id="location-7"></td>
                             <td id="location-17"></td>
@@ -120,7 +121,7 @@
                             <td id="location-37"></td>
                             <td id="location-47"></td>
                         </tr>
-                        <tr id="lesson-8">
+                        <tr id="lesson8" id="location-08">
                             <td title="15h - 15h50'">8</td>
                             <td id="location-8"></td>
                             <td id="location-18"></td>
@@ -128,7 +129,7 @@
                             <td id="location-38"></td>
                             <td id="location-48"></td>
                         </tr>
-                        <tr id="lesson-9">
+                        <tr id="lesson9" id="location-09">
                             <td title="16h - 16h50'">9</td>
                             <td id="location-9"></td>
                             <td id="location-19"></td>
@@ -136,7 +137,7 @@
                             <td id="location-39"></td>
                             <td id="location-49"></td>
                         </tr>
-                        <tr id="lesson-10">
+                        <tr id="lesson10" id="location-010">
                             <td title="17h - 17h50'">10</td>
                             <td id="location-10"></td>
                             <td id="location-20"></td>

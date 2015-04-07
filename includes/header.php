@@ -1,7 +1,7 @@
 <nav class="navbar navbar-fixed-top" style="background: #e3e3e3;">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="./">Create Timetable</a>
+            <a class="navbar-brand" href="/">Create Timetable</a>
         </div>
         <div>
 <!--            <ul class="nav navbar-nav">-->
