@@ -5,6 +5,7 @@
     <title>Nhập Môn Học UET - FRIES</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
     <script src="../js/jquery.min.js" type="text/javascript" ></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script src="../js/form.js" type="text/javascript"></script>
 </head>
 <body>
