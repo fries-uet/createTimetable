@@ -21,10 +21,19 @@ function Lesson(id, subID, maLMH, nhom, viTri, soTiet, giaoVien, giangDuong) {
 $("#btnAddSubject").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
+    $("#bg-sidebar").toggleClass("bg-sidebar");
+});
+
+$("#bg-sidebar").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+    $("#bg-sidebar").toggleClass("bg-sidebar");
 });
 
 var listSubject = [];
 var listLesson = [];
+var soMon = 0;
+var soTin = 0;
 
 //Get Lesson
 $.getJSON("./backend/getLesson.php", function (data) {
@@ -97,7 +106,7 @@ function addLesson(li) {
         var lessonHTML = "<div target='" + index + "'>" + "<span class='name-subject'>" + listSubject[isub].tenMH + "</span><span>" + listLesson[index].maLMH + "</span></div>";
         viTri.html(lessonHTML);
         viTri.attr("rowspan", listLesson[index].soTiet);
-        viTri.addClass("bg-success");
+        viTri.addClass("bg-lesson-" + soMon);
 
         for (var i=1; i<listLesson[index].soTiet; i++) {
             var idDelete = listLesson[index].viTri + i;
@@ -105,13 +114,25 @@ function addLesson(li) {
             trDelete.remove();
         }
     }
+
+    soMon++;
+    soTin += parseInt(listSubject[isub].soTin);
+    updateInfo();
 }
 
 function removeLesson(li) {
+    soMon--;
+    updateInfo();
+
     $(li).removeClass("list-group-item-warning");
     $(li).addClass("list-group-item-info");
     $(li).attr("onclick", "addLesson(this)");
     $(li).attr("style", "");
+}
+
+function updateInfo() {
+    $("#soMon").text(soMon);
+    $("#soTin").text(soTin);
 }
 
 //$(document).ready(function() {

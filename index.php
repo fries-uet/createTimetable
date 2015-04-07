@@ -8,25 +8,10 @@
     <link rel="stylesheet" href="css/sidebar.css" type="text/css"/>
     <link rel="stylesheet" href="css/tooltipster.css" />
     <link rel="stylesheet" href="css/tooltipster-light.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.tooltipster.min.js"></script>
-    <style>
-        li.list-group-item.subject, li.list-group-item.lesson {
-            cursor: pointer;
-        }
-        li.head-lesson {
-            margin-top: 6px;
-            font-weight: bold;
-            color: #777;
-            background-color: #eee;
-            cursor: default;
-        }
-
-        .name-subject {
-            display: block;
-        }
-    </style>
 </head>
 <body>
     <div id="page" style="padding-top: 55px">
@@ -57,11 +42,11 @@
                     </h3>
                     <div class="pull-right" style="padding-top: 25px; padding-left: 20px">
                         Tổng số môn:
-                        <div id="number-subjects" class="pull-right" style="color: red; padding-left: 10px">0</div>
+                        <div id="soMon" class="pull-right" style="color: red; padding-left: 10px">0</div>
                     </div>
                     <div class="pull-right" style="padding-top: 25px">
                         Tổng số tín:
-                        <div id="number-credits" class="pull-right" style="color: red; padding-left: 10px">0</div>
+                        <div id="soTin" class="pull-right" style="color: red; padding-left: 10px">0</div>
                     </div>
                 </div>
                 <table id="content-right-table" class="table table-bordered table-hover text-center">
@@ -165,6 +150,7 @@
         </div>
 
         <div id="wrapper">
+            <div id="bg-sidebar" class="bg-sidebar"></div>
             <div id="sidebar-wrapper">
                 <li class="list-group-item list-group-item-success"><h4>Danh sách môn học</h4></li>
                 <ul class="list-group" id="list-subject">

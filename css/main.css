@@ -1,0 +1,71 @@
+.bg-lesson-0 {
+    background-color: #8d9ef1;
+}
+
+.bg-lesson-1 {
+    background-color: #49BF67;
+}
+
+.bg-lesson-2 {
+    background-color: #F2DEDE;
+}
+
+.bg-lesson-3 {
+    background-color: #858D93;
+}
+
+.bg-lesson-4 {
+    background-color: #FF9900;
+}
+
+.bg-lesson-5 {
+    background-color: #ccffec;
+}
+
+.bg-lesson-6 {
+    background-color: #c1ff4d;
+}
+
+.bg-lesson-7 {
+    background-color: #ff94b3;
+}
+
+.bg-lesson-8 {
+    background-color: #b991ff;
+}
+
+.bg-lesson-9 {
+    background-color: #abb8ff;
+}
+
+.bg-lesson-10 {
+    background-color: #29aeff;
+}
+.bg-lesson-11 {
+    background-color: #f1e05a;
+}
+
+li.list-group-item.subject, li.list-group-item.lesson {
+    cursor: pointer;
+}
+li.head-lesson {
+    margin-top: 6px;
+    font-weight: bold;
+    color: #777;
+    background-color: #eee;
+    cursor: default;
+}
+
+.name-subject {
+    display: block;
+}
+
+.bg-sidebar {
+    width: 100%;
+    height: 100%;
+    background: rgba(77, 77, 77, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
