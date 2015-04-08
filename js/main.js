@@ -233,3 +233,12 @@ function chooseBackground() {
 //        content: $("<span>Thực hành: <strong>Không có</strong></span><br><span>Giảng viên: <strong>Trương Anh Hoàng</strong></span><br><span>Giảng đường: <strong>103 G2</strong></strong></span>")
 //    });
 //});
+
+
+
+
+//Chọn thứ trong bảng thời khóa biểu
+$(".glyphicon-filter").click(
+    function(){
+        $("#monday-table").fadeToggle("1500");
+    });

@@ -6,6 +6,7 @@
     <title>Create Timetable UET - Fries</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="css/sidebar.css" type="text/css"/>
+    <link rel="stylesheet" href="css/selectDay.css" type="text/css"/>
     <link rel="stylesheet" href="css/tooltipster.css" />
     <link rel="stylesheet" href="css/tooltipster-light.css" />
     <link rel="stylesheet" href="css/main.css" />
@@ -39,7 +40,7 @@
             <div id="content-right" class="col-lg-9">
                 <div>
                     <h3 class="pull-left">
-                        Thời khóa biểu
+                        Thời khóa biểu <span class="glyphicon glyphicon-filter" style="color: #4cae4c"></span>
                     </h3>
                     <div class="pull-right" style="padding-top: 25px; padding-left: 20px">
                         Tổng số môn:
@@ -54,7 +55,7 @@
                     <thead class="bg-primary">
                         <tr>
                             <th class="text-center col-lg-1">Tiết \Thứ</th>
-                            <th class="text-center col-lg-2">Hai</th>
+                            <th class="text-center col-lg-2" id="monday">Hai</th>
                             <th class="text-center col-lg-2">Ba</th>
                             <th class="text-center col-lg-2">Tư</th>
                             <th class="text-center col-lg-2">Năm</th>
@@ -150,7 +151,7 @@
             </div>
         </div>
 
-        <div id="wrapper">
+        <div id="wrapper" class="">
             <div id="bg-sidebar" class="bg-sidebar"></div>
             <div id="sidebar-wrapper">
                 <li class="list-group-item list-group-item-success"><h4>Danh sách môn học</h4></li>
@@ -159,8 +160,10 @@
             </div>
         </div>
 
+        <!--Phần bảng chọn ưu tiên-->
+            <?php include("includes/selectTable.php");?>
         <!--Lấy footer-->
-        <?php include("includes/footer.php"); ?>
+            <?php include("includes/footer.php"); ?>
     </div>
 <script src="js/main.js"></script>
 </body>
