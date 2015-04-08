@@ -148,14 +148,16 @@ function addLesson(li) {
 
 function removeLesson(index) {
     soMon--;
-    updateInfo();
     listLesson[index].selected = false;
 
     li = $("#lesson-" + index);
-    $(li).removeClass("list-group-item-warning");
-    $(li).addClass("list-group-item-info");
-    $(li).attr("onclick", "addLesson(this)");
-    $(li).attr("style", "");
+    li.removeClass("list-group-item-warning");
+    li.addClass("list-group-item-info");
+    li.attr("onclick", "addLesson(this)");
+    li.attr("style", "");
+
+    var isub = parseInt(li.attr("subject"));
+    soTin -= listSubject[isub].soTin;
 
     var viTri = listLesson[index].viTri;
     var soTiet = listLesson[index].soTiet;
@@ -167,6 +169,8 @@ function removeLesson(index) {
     for (var i = viTri + 1; i<viTri + soTiet; i++) {
         rewriteTD(i);
     }
+
+    updateInfo();
 }
 
 function removeLessonX() {
@@ -180,8 +184,8 @@ function rewriteTD(id) {
         forward.after(td);
     } else {
         var forwarID = id - 10;
-        var forward = $("#location-" + forwarID);
-        forward.after(td);
+        var forwardX = $("#location-" + forwarID);
+        forwardX.after(td);
     }
 
 }
