@@ -1,48 +1,49 @@
+@charset "UTF-8";
 .bg-lesson-0 {
-    background-color: #8d9ef1;
+    background-color: rgba(141, 158, 241, 0.5);
 }
 
 .bg-lesson-1 {
-    background-color: #49BF67;
+    background-color: rgba(73, 191, 103, 0.5);
 }
 
 .bg-lesson-2 {
-    background-color: #F2DEDE;
+    background-color: rgba(242, 222, 222, 0.5);
 }
 
 .bg-lesson-3 {
-    background-color: #858D93;
+    background-color: rgba(133, 141, 147, 0.5);
 }
 
 .bg-lesson-4 {
-    background-color: #FF9900;
+    background-color: rgba(255, 153, 0, 0.5);
 }
 
 .bg-lesson-5 {
-    background-color: #ccffec;
+    background-color: rgba(204, 255, 236, 0.5);
 }
 
 .bg-lesson-6 {
-    background-color: #c1ff4d;
+    background-color: rgba(193, 255, 77, 0.5);
 }
 
 .bg-lesson-7 {
-    background-color: #ff94b3;
+    background-color: rgba(255, 148, 179, 0.5);
 }
 
 .bg-lesson-8 {
-    background-color: #b991ff;
+    background-color: rgba(185, 145, 255, 0.5);
 }
 
 .bg-lesson-9 {
-    background-color: #abb8ff;
+    background-color: rgba(171, 184, 255, 0.50);
 }
 
 .bg-lesson-10 {
-    background-color: #29aeff;
+    background-color: rgba(41, 174, 255, 0.5);
 }
 .bg-lesson-11 {
-    background-color: #f1e05a;
+    background-color: rgba(241, 224, 90, 0.5);
 }
 
 li.list-group-item.subject, li.list-group-item.lesson {
@@ -68,4 +69,75 @@ li.head-lesson {
     top: 0;
     left: 0;
     z-index: 9999;
+}
+
+.tick-status {
+    float: right;
+    font-size: inherit;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=50);
+    opacity: .5;
+    color: #008000;
+}
+
+.btn-remove {
+    float: right;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+    color: #ff0000;
+    cursor: pointer;
+}
+
+.btn-remove:hover {
+    filter: alpha(opacity=50);
+    opacity: .7;
+}
+
+#list-subject {
+    overflow-y: auto;
+    height: 450px;
+    margin-bottom: 0!important;
+}
+
+#title-listsubject {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Side bar */
+#sidebar-wrapper {
+    z-index: 10000;
+    position: fixed;
+    top: 111px;
+    left: 330px;
+    height: 500px;
+    width: 300px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    /* Bo góc */
+    -moz-border-radius-topleft:10px;
+    -webkit-border-top-left-radius:10px;
+    -moz-border-radius-bottomleft:10px;
+    -webkit-border-bottom-left-radius:10px;
+    /* Đổ bóng */
+    box-shadow: 5px 5px 20px #858D93;
+}
+
+#soMon,
+#soTin {
+    color: #ff0000;
+    padding-left: 5px;
+}
+
+#content-left-listSubject {
+    overflow-y: scroll;
+    height: 450px;
 }

@@ -19,14 +19,12 @@ function Lesson(id, subID, maLMH, nhom, viTri, soTiet, giaoVien, giangDuong) {
 }
 
 $("#btnAddSubject").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
+    $("#sidebar-wrapper").animate({top: "100px"});
     $("#bg-sidebar").toggleClass("bg-sidebar");
 });
 
 $("#bg-sidebar").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
+    $("#sidebar-wrapper").animate({top: "-600px"});
     $("#bg-sidebar").toggleClass("bg-sidebar");
 });
 
@@ -229,20 +227,3 @@ function chooseBackground() {
 
     return index;
 }
-
-//$(document).ready(function() {
-//    $('.lesson').tooltipster({
-//        theme: "tooltipster-light",
-//        position: "right",
-//        content: $("<span>Thực hành: <strong>Không có</strong></span><br><span>Giảng viên: <strong>Trương Anh Hoàng</strong></span><br><span>Giảng đường: <strong>103 G2</strong></strong></span>")
-//    });
-//});
-
-
-
-
-//Chọn thứ trong bảng thời khóa biểu
-$(".glyphicon-filter").click(
-    function(){
-        $("#monday-table").fadeToggle("1500");
-    });

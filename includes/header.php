@@ -7,7 +7,7 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/admin/formInput.php">Nhập môn học</a></li>
+                        <li><a href="./admin/formInput.php">Nhập môn học</a></li>
 <!--                        <li><a href="#">Page 1-2</a></li>-->
 <!--                        <li><a href="#">Page 1-3</a></li>-->
                     </ul>
