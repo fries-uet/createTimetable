@@ -19,12 +19,17 @@ function Lesson(id, subID, maLMH, nhom, viTri, soTiet, giaoVien, giangDuong) {
 }
 
 $("#btnAddSubject").click(function(e) {
-    $("#sidebar-wrapper").animate({top: "100px"});
+    $("#sidebar-wrapper").animate({top: "111px"}, 100);
     $("#bg-sidebar").toggleClass("bg-sidebar");
 });
 
 $("#bg-sidebar").click(function(e) {
-    $("#sidebar-wrapper").animate({top: "-600px"});
+    $("#sidebar-wrapper").animate({top: "-600px"}, 100);
+    $("#bg-sidebar").toggleClass("bg-sidebar");
+});
+
+$("#closeListSubject").click(function(e) {
+    $("#sidebar-wrapper").animate({top: "-600px"}, 100);
     $("#bg-sidebar").toggleClass("bg-sidebar");
 });
 
@@ -38,52 +43,165 @@ for (var i=0; i<MAXLESSON; i++) {
     bg[i] = false;
 }
 
-//Get Lesson
-$.getJSON("./backend/getLesson.php", function (data) {
-    for (var i = 0; i < data.length; i++) {
-        listLesson[i] = new Lesson(data[i].id, data[i].subID, data[i].maLMH, data[i].nhom,
-            data[i].viTri, data[i].soTiet, data[i].giaoVien, data[i].giangDuong);
-    }
-});
+//Get Subject and Lesson qua ajax
+$.ajax({
+    url: "./backend/getSubject.php",
+    method: "GET",
+    dataType: "json",
+    success: function (data) {
+        for (var i=0; i<data.length; i++) {
+            listSubject[i] = new Subject(data[i].id, data[i].maMH, data[i].tenMH, data[i].soTin);
 
-//Get Subject
-$.getJSON("./backend/getSubject.php", function (data) {
-    for (var i=0; i<data.length; i++) {
-        listSubject[i] = new Subject(data[i].id, data[i].maMH, data[i].tenMH, data[i].soTin);
-        var li = "<li class='list-group-item list-group-item-info subject' target='" + i + "' onclick='addSubject(this);'>" + listSubject[i].tenMH + "</li>";
-        $("#list-subject").append(li);
-    }
-});
-
-function addSubject(li) {
-    //Phần hiệu ứng
-    $(li).removeClass("list-group-item-info");
-    $(li).attr("onclick", "removeSubject(this)");
-
-    //Phần thuật toán và thêm bớt DOM
-    var index = parseInt($(li).attr("target"));//Lấy index của môn học cần thêm trong mảng listSubject
-    var containLesson = $("#list-lesson");
-    listSubject[index].selected = true;
-
-    //Thêm tất cả các lớp môn học
-    var listLessonHTML = "<div id='subject-" + listSubject[index].id + "'><li class='list-group-item list-group-item-success head-lesson'>" + listSubject[index].tenMH + "</li>";
-    for (var i=0; i<listLesson.length; i++) {
-        if (listLesson[i].subID == listSubject[index].id) {
-            var classL = "list-group-item-info";
-            var click = "addLesson(this)";
-            var style = "";
-            if (listLesson[i].selected) {
-                classL = "list-group-item-warning";
-                click = "removeLessonX()";
-                style = "color:#bcbcbc";
-            }
-            listLessonHTML += "<li class='list-group-item lesson " + classL + "' id='lesson-" + i + "' onclick='" + click + "' target='" + i + "' subject='" + index + "' style='" + style + "'>"
-            + cvtTimeLesson(listLesson[i].viTri, listLesson[i].soTiet) + " | " + listLesson[i].maLMH + "</li>";
+            //Khởi tạo DOM
+            var li = "<li class='list-group-item list-group-item-info subject' id='subject-" + i + "' onclick='addSubject(" + i +");'>"
+                + listSubject[i].tenMH + "<span class='glyphicon glyphicon-ok tick-status' id='tick-subject-" + i + "' style='display: none'></span></li>";
+            $("#list-subject").append(li);
         }
+
+        $.ajax({
+            url: "./backend/getLesson.php",
+            method: "GET",
+            dataType: "json",
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    listLesson[i] = new Lesson(data[i].id, data[i].subID, data[i].maLMH, data[i].nhom,
+                        data[i].viTri, data[i].soTiet, data[i].giaoVien, data[i].giangDuong);
+                }
+
+                //Khởi tạo DOM cho #list-lesson
+                for (var i=0; i< listSubject.length; i++) {
+                    var listLessonHTML = "<div id='subjectX-" + i + "' style='display: none'><li class='list-group-item list-group-item-success head-lesson'>"
+                        + listSubject[i].tenMH + "<span class='glyphicon glyphicon-remove btn-remove' onclick='removeSubject(" + i +");'></span></li>";
+                    for (var j=0; j<listLesson.length; j++) {
+                        if (listLesson[j].subID == listSubject[i].id) {
+                            listLessonHTML += "<li class='list-group-item lesson list-group-item-info" + "' id='lesson-" + j + "' target='" + i + "' onclick='addLesson(" + j + ")'>"
+                            + cvtTimeLesson(listLesson[j].viTri, listLesson[j].soTiet) + " | " + listLesson[j].maLMH + "<span class='glyphicon glyphicon-ok tick-status' id='tick-lesson-" + j + "' style='display: none'></span></li>";
+                        }
+                    }
+
+                    listLessonHTML += "</div>";
+                    $("#list-lesson").append(listLessonHTML);
+                }
+
+                //Thêm thông tin thêm về lớp môn học
+                infoLesson();
+            }
+        });
+    }
+});
+
+function infoLesson() {
+    for (var i=0; i<listLesson.length; i++) {
+        var thucHanh = "Không có";
+        var giangVien = listLesson[i].giaoVien;
+        var giangDuong = listLesson[i].giangDuong;
+        $("#lesson-" + i).tooltipster({
+            theme: "tooltipster-light",
+            position: "right",
+            content: $("<span>Thực hành: <strong>" + thucHanh + "</strong></span><br><span>Giảng viên: <strong>" + giangVien + "</strong></span><br><span>Giảng đường: <strong>" + giangDuong + "</strong></strong></span>")
+        });
+    }
+}
+
+function addSubject(index) {
+    var subject = $("#subject-" + index);
+    subject.removeClass("list-group-item-info");
+    subject.addClass("list-group-item-warning");
+    subject.attr("onclick", "removeSubject(" + index + ")");
+
+    var subjectX = $("#subjectX-" + index);
+    subjectX.show();
+
+    $("#tick-subject-" + index).show();
+}
+
+function removeSubject(index) {
+    var subject = $("#subject-" + index);
+    subject.addClass("list-group-item-info");
+    subject.removeClass("list-group-item-warning");
+    subject.attr("onclick", "addSubject(" + index + ")");
+
+    var subjectX = $("#subjectX-" + index);
+    subjectX.hide();
+
+    $("#tick-subject-" + index).hide();
+}
+
+function addLesson(index) {
+    var viTri = listLesson[index].viTri;
+    var soTiet = listLesson[index].soTiet;
+
+    if (ktTrungMon(viTri, soTiet)) {
+        thongBao("Môn học đã bị trùng thời gian", "warning");
+        return;
     }
 
-    listLessonHTML += "</div>";
-    containLesson.append(listLessonHTML);
+    var lesson = $("#lesson-" + index);
+    lesson.removeClass("list-group-item-info");
+    lesson.addClass("list-group-item-warning");
+    lesson.attr("onclick", "removeLesson(" + index + ")");
+
+    var isub = lesson.attr("target");
+    insert2Table(index, isub);
+
+    $("#tick-lesson-" + index).show();
+
+    soMon++;
+    soTin += listSubject[isub].soTin;
+    updateInfo();
+}
+
+function removeLesson(index) {
+    var lesson = $("#lesson-" + index);
+    lesson.addClass("list-group-item-info");
+    lesson.removeClass("list-group-item-warning");
+    lesson.attr("onclick", "addLesson(" + index + ")");
+
+    var id = listLesson[index].viTri;
+    emptyTable(id);
+
+    //Hiện lại những ô đã bị ẩn
+    for (var i=1; i<listLesson[index].soTiet; i++) {
+        var idDelete = listLesson[index].viTri + i;
+        var trDelete = $("#location-" + idDelete);
+        trDelete.show();
+    }
+
+    $("#tick-lesson-" + index).hide();
+
+    var isub = lesson.attr("target");
+    soMon--;
+    soTin -= listSubject[isub].soTin;
+    updateInfo();
+}
+
+function insert2Table(index, isub) {
+    var viTri = $("#location-" + listLesson[index].viTri);
+    var lessonHTML = "<div><button class='close' onclick=\"removeLesson(" + index + ")\">×</button><span class='name-subject'>"
+        + listSubject[isub].tenMH + "</span><span>" + listLesson[index].maLMH + "</span></div>";
+    viTri.html(lessonHTML);
+    viTri.attr("rowspan", listLesson[index].soTiet);
+    viTri.addClass("bg-lesson-" + soMon);
+
+    //Ẩn đi những ô bị thừa
+    for (var i=1; i<listLesson[index].soTiet; i++) {
+        var idDelete = listLesson[index].viTri + i;
+        var trDelete = $("#location-" + idDelete);
+        trDelete.hide();
+    }
+}
+
+//Đưa trạng thái của ô về rỗng
+function emptyTable(id) {
+    var viTri = $("#location-" + id)
+    viTri.empty();
+    viTri.attr("class", "");
+    viTri.attr("rowspan", 1);
+}
+
+function updateInfo() {
+    $("#soMon").text(soMon);
+    $("#soTin").text(soTin);
 }
 
 //Chuyển từ vị trí và số tiết sang dạng xâu: Thứ 4 - Tiết 8-10
@@ -94,103 +212,6 @@ function cvtTimeLesson(viTri, soTiet) {
     var tietCuoi = parseInt(tietDau + soTiet - 1);
     str += " - Tiết " + tietDau + "-" + tietCuoi;
     return str;
-}
-
-function removeSubject(li) {
-    $(li).addClass("list-group-item-info");
-    $(li).attr("onclick", "addSubject(this)");
-
-    var index = parseInt($(li).attr("target"));
-    $("#subject-" + listSubject[index].id).remove();
-    listSubject[index].selected = false;
-}
-
-function addLesson(li) {
-    var index = parseInt($(li).attr("target"));//Index của lesson
-    var isub = parseInt($(li).attr("subject"));//Index của subject
-
-    //if ($(li).parent().attr("target") == "selected") {
-    //    thongBao("Bạn đã chọn môn học đó rồi!", "warning");
-    //    return;
-    //}
-
-    if (ktTrungMon(listLesson[index].viTri, listLesson[index].soTiet)) {
-        thongBao("Môn học đã bị trùng thời gian", "warning");
-        return;
-    }
-
-    $(li).parent().attr("target", "selected");
-    $(li).removeClass("list-group-item-info");
-    $(li).addClass("list-group-item-warning");
-    $(li).attr("onclick", "removeLessonX()");
-    $(li).css("color", "#bcbcbc");
-
-    var viTri = $("#location-" + listLesson[index].viTri);
-    var lessonHTML = "<div><button class='close' onclick=\"removeLesson(" + index + ")\">×</button><span class='name-subject'>" + listSubject[isub].tenMH + "</span><span>" + listLesson[index].maLMH + "</span></div>";
-    viTri.html(lessonHTML);
-    viTri.attr("rowspan", listLesson[index].soTiet);
-    viTri.addClass("bg-lesson-" + soMon);
-
-    //Xóa những ô bị thừa
-    for (var i=1; i<listLesson[index].soTiet; i++) {
-        var idDelete = listLesson[index].viTri + i;
-        var trDelete = $("#location-" + idDelete);
-        trDelete.remove();
-    }
-
-    soMon++;
-    soTin += parseInt(listSubject[isub].soTin);
-    listLesson[index].selected = true;
-    updateInfo();
-}
-
-function removeLesson(index) {
-    soMon--;
-    listLesson[index].selected = false;
-
-    li = $("#lesson-" + index);
-    li.removeClass("list-group-item-warning");
-    li.addClass("list-group-item-info");
-    li.attr("onclick", "addLesson(this)");
-    li.attr("style", "");
-
-    var isub = parseInt(li.attr("subject"));
-    soTin -= listSubject[isub].soTin;
-
-    var viTri = listLesson[index].viTri;
-    var soTiet = listLesson[index].soTiet;
-    var locationID = $("#location-" + viTri);
-    locationID.empty();
-    locationID.attr("class", "");
-    locationID.attr("rowspan", 1);
-    //Khởi tạo lại những ô bị xóa
-    for (var i = viTri + 1; i<viTri + soTiet; i++) {
-        rewriteTD(i);
-    }
-
-    updateInfo();
-}
-
-function removeLessonX() {
-
-}
-
-function rewriteTD(id) {
-    var td = "<td id='location-" + id + "'></td>";
-    if (id<=10) {
-        var forward = $("#location-0" + id);
-        forward.after(td);
-    } else {
-        var forwarID = id - 10;
-        var forwardX = $("#location-" + forwarID);
-        forwardX.after(td);
-    }
-
-}
-
-function updateInfo() {
-    $("#soMon").text(soMon);
-    $("#soTin").text(soTin);
 }
 
 function ktTrungMon(viTri, soTiet) {
@@ -220,10 +241,4 @@ function thongBao(text, type) {
         theme       : 'defaultTheme',
         maxVisible  : 10
     });
-}
-
-//Chọn màu nền cho lớp môn học ở TKB tuần
-function chooseBackground() {
-
-    return index;
 }
