@@ -218,11 +218,11 @@ function ktTrungMon(viTri, soTiet) {
     for (var i=viTri; i<viTri + soTiet; i++) {
         var locationID = $("#location-" + i);
 
-        if (!locationID.length) {
+        if (locationID.text()) {
             return true;
         }
 
-        if (locationID.text()) {
+        if (locationID.css("display") == "none") {
             return true;
         }
     }
