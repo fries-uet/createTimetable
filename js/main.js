@@ -38,10 +38,7 @@ var listSubject = [];
 var listLesson = [];
 var soMon = 0;
 var soTin = 0;
-var bg = [];
-for (var i=0; i<MAXLESSON; i++) {
-    bg[i] = false;
-}
+var bgs = [];//Mảng chứa danh sách backgroud của lớp môn học đã được chọn
 
 //Get Subject and Lesson qua ajax
 $.ajax({
@@ -173,15 +170,16 @@ function removeLesson(index) {
     soMon--;
     soTin -= listSubject[isub].soTin;
     updateInfo();
+    removeBG(index);
 }
 
 function insert2Table(index, isub) {
     var viTri = $("#location-" + listLesson[index].viTri);
-    var lessonHTML = "<div><button class='close' onclick=\"removeLesson(" + index + ")\">×</button><span class='name-subject'>"
+    var lessonHTML = "<div><button class='close' onclick='removeLesson(" + index + ")' title='Bỏ chọn'>×</button><span class='name-subject'>"
         + listSubject[isub].tenMH + "</span><span>" + listLesson[index].maLMH + "</span></div>";
     viTri.html(lessonHTML);
     viTri.attr("rowspan", listLesson[index].soTiet);
-    viTri.addClass("bg-lesson-" + soMon);
+    viTri.addClass("bg-lesson-" + getBG(index));
 
     //Ẩn đi những ô bị thừa
     for (var i=1; i<listLesson[index].soTiet; i++) {
@@ -193,7 +191,7 @@ function insert2Table(index, isub) {
 
 //Đưa trạng thái của ô về rỗng
 function emptyTable(id) {
-    var viTri = $("#location-" + id)
+    var viTri = $("#location-" + id);
     viTri.empty();
     viTri.attr("class", "");
     viTri.attr("rowspan", 1);
@@ -228,6 +226,26 @@ function ktTrungMon(viTri, soTiet) {
     }
 
     return false;
+}
+
+function getBG(item) {
+    for (var i=0; i<bgs.length; i++) {
+        if (bgs[i] == -1) {
+            bgs[i] = item;
+            return i;
+        }
+    }
+
+    bgs.push(item);
+    return bgs.length - 1;
+}
+
+//Xóa đi backgroud không dùng
+function removeBG(item) {
+    var i = bgs.indexOf(item);
+    if (i >= 0) {
+        bgs[i] = -1;
+    }
 }
 
 function thongBao(text, type) {
