@@ -165,6 +165,7 @@
         <!--Lấy footer-->
             <?php include("includes/footer.php"); ?>
     </div>
+    <span style="font-family: wingdings; font-size: 200%;"></span>
 <script src="js/main_.js"></script>
 </body>
 </html>

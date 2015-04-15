@@ -10,15 +10,15 @@
     padding-left: 250px;
 }
 
-#monday-table {
+#select-table {
     z-index: 10000;
     position: fixed;
-    left: 340px;
+    left: 370px;
     /*right: 0px;  Căn lề phải*/
-    top: 115px;
-    width: 950px;
+    top: 110px;
+    width: 1065px;
     /*height: 100%;*/
-    height: 470px;
+    height: 450px;
     /*margin-left: -250px;*/
     overflow-y: auto;
     background: #000;

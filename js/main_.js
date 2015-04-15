@@ -242,7 +242,40 @@ function chooseBackground() {
 
 
 //Chọn thứ trong bảng thời khóa biểu
-$(".glyphicon-filter").click(
+$(".glyphicon-filter").click( //hiển thị bảng.
     function(){
-        $("#monday-table").fadeToggle("1500");
+        $("#select-table").fadeToggle("1500");
     });
+
+// tick & lock (Chọn từng ô.)
+                            //$("#select-location-1").click(
+function choose(id) {
+    if ($("#"+id).attr("class") == "") {
+        $("#"+id).addClass("tick");
+        document.getElementById(id).innerHTML= "&#x2714";
+    }
+    else if ($("#"+id).attr("class") == "tick") {
+        $("#"+id).removeClass("tick");
+        $("#"+id).addClass("lock");
+        document.getElementById(id).innerHTML= "&#x2718";
+    }
+    else if ($("#"+id).attr("class") == "lock") {
+        $("#"+id).attr("CLASS", "");
+        document.getElementById(id).innerHTML= "";
+    }
+}                           //});
+
+//Hàm chọn hàng
+function chooseRow(id1, id2, id3, id4, id5){
+    var id =[id1,id2,id3,id4,id5];
+    for(var i=0; i<5; i++){
+        choose("select-location-"+id[i]);
+    }
+}
+//Hàm chọn cột.
+function chooseColum(id1, id10){
+
+    for(var i=id1; i<=id10; i++){
+        choose("select-location-"+i);
+    }
+}

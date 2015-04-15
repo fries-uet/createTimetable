@@ -69,3 +69,14 @@ li.head-lesson {
     left: 0;
     z-index: 9999;
 }
+
+.tick {
+    font-family: wingdings;
+    /*font-size: 100%;*/
+    color: #27ae60;
+}
+.lock {
+    font-family: wingdings;
+    /*font-size: 100%;*/
+    color: #e74c3c;
+}
