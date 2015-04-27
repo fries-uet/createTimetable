@@ -34,10 +34,24 @@ function chooseLocation(id){
     //alert(loc + " : " + locationState[loc]);
 }
 
+//Hàm chọn hàng
+function chooseRow(id1, id2, id3, id4, id5){
+    var id =[id1,id2,id3,id4,id5];
+    for(var i=0; i<5; i++){
+        chooseLocation("m-location-"+id[i]);
+    }
+}
+//Hàm chọn cột.
+function chooseColum(id1, id10){
+
+    for(var i=id1; i<=id10; i++){
+        chooseLocation("m-location-"+i);
+    }
+}
+
 function createArrayLocation(){
     for (i=0; i<51; i++){
-        location.push(0);
-        s +=  locationState[i];
+        locationState.push(0);
     }
 }
 createArrayLocation();
