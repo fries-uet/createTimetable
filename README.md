@@ -34,7 +34,9 @@ Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý
 ## Code style
 * [HTML/CSS](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml)
 * [Javascript](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
-* [PHP & MySQL](https://make.wordpress.org/core/handbook/coding-standards/php/) 
+* [PHP & MySQL](https://make.wordpress.org/core/handbook/coding-standards/php/)
+* Công cụ kiểm tra tự động: [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer).
+Với công cụ **PHP_CodeSniffer** ta có thể kiểm tra được cái vi phạm stylóae của PHP, Javascript và CSS theo một tiêu chuẩn mã h.
 
 ***
 Giáo viên hướng dẫn: [Trương Anh Hoàng](https://github.com/truonganhhoang).

@@ -1,5 +1,15 @@
 <?php
-//Class subject
+/**
+ * Class MonHoc
+ * PHP version 5
+ * @category Class
+ * @package API
+ * @author Fries UET <fries.uet@gmail.com>
+ * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link http://fries.ga
+ */
+
+
 class MonHoc {
     var $id;
     var $maMH;
@@ -15,4 +25,3 @@ class MonHoc {
         $this->lopMHs = $lopMHs;
     }
 }
-?>
