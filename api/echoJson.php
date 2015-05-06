@@ -4,5 +4,4 @@
     function echoJson($data) {
         print_r(json_encode($data));
     }
-
 ?>

@@ -7,7 +7,7 @@ class LopMH {
 
     function __construct($id, $maLMH, $buoiHocs) {
         $this->id = $id;
-        $this->mLaMH = $maLMH;
+        $this->maLMH = $maLMH;
         $this->buoiHocs = $buoiHocs;
     }
 }
