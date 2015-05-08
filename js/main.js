@@ -1,104 +1,54 @@
-function Subject(id, maMH, tenMH, soTin) {
-    this.id = id;
-    this.maMH = maMH;
-    this.tenMH = tenMH;
-    this.soTin = soTin;
-    this.selected = false;
-}
-
-function Lesson(id, subID, maLMH, nhom, viTri, soTiet, giaoVien, giangDuong) {
-    this.id = id;
-    this.subID = subID;
-    this.maLMH = maLMH;
-    this.nhom = nhom;
-    this.viTri = viTri;
-    this.soTiet = soTiet;
-    this.giaoVien = giaoVien;
-    this.giangDuong = giangDuong;
-    this.selected = false;
-}
-
-$("#btnAddSubject").click(function(e) {
+$("#btnAddSubject").click(function() {
     $("#sidebar-wrapper").animate({top: "111px"}, 100);
     $("#bg-sidebar").toggleClass("bg-sidebar");
 });
 
-$("#bg-sidebar").click(function(e) {
+$("#bg-sidebar").click(function() {
     $("#sidebar-wrapper").animate({top: "-600px"}, 100);
     $("#bg-sidebar").toggleClass("bg-sidebar");
 });
 
-$("#closeListSubject").click(function(e) {
+$("#closeListSubject").click(function() {
     $("#sidebar-wrapper").animate({top: "-600px"}, 100);
     $("#bg-sidebar").toggleClass("bg-sidebar");
 });
 
-var MAXLESSON = 20;
-var listSubject = [];
-var listLesson = [];
 var soMon = 0;
 var soTin = 0;
 var bgs = [];//Mảng chứa danh sách backgroud của lớp môn học đã được chọn
+var dataMonHoc;//Chứa dữ liệu của tất cả môn học
 
-//Get Subject and Lesson qua ajax
-$.ajax({
-    url: "./backend/getSubject.php",
-    method: "GET",
-    dataType: "json",
-    success: function (data) {
-        for (var i=0; i<data.length; i++) {
-            listSubject[i] = new Subject(data[i].id, data[i].maMH, data[i].tenMH, data[i].soTin);
-
-            //Khởi tạo DOM
-            var li = "<li class='list-group-item list-group-item-info subject' id='subject-" + i + "' onclick='addSubject(" + i +");'>"
-                + listSubject[i].tenMH + "<span class='glyphicon glyphicon-ok tick-status' id='tick-subject-" + i + "' style='display: none'></span></li>";
-            $("#list-subject").append(li);
-        }
-
-        $.ajax({
-            url: "./backend/getLesson.php",
-            method: "GET",
-            dataType: "json",
-            success: function (data) {
-                for (var i = 0; i < data.length; i++) {
-                    listLesson[i] = new Lesson(data[i].id, data[i].subID, data[i].maLMH, data[i].nhom,
-                        data[i].viTri, data[i].soTiet, data[i].giaoVien, data[i].giangDuong);
-                }
-
-                //Khởi tạo DOM cho #list-lesson
-                for (var i=0; i< listSubject.length; i++) {
-                    var listLessonHTML = "<div id='subjectX-" + i + "' style='display: none'><li class='list-group-item list-group-item-success head-lesson'>"
-                        + listSubject[i].tenMH + "<span class='glyphicon glyphicon-remove btn-remove' onclick='removeSubject(" + i +");'></span></li>";
-                    for (var j=0; j<listLesson.length; j++) {
-                        if (listLesson[j].subID == listSubject[i].id) {
-                            listLessonHTML += "<li class='list-group-item lesson list-group-item-info" + "' id='lesson-" + j + "' target='" + i + "' onclick='addLesson(" + j + ")'>"
-                            + cvtTimeLesson(listLesson[j].viTri, listLesson[j].soTiet) + " | " + listLesson[j].maLMH + "<span class='glyphicon glyphicon-ok tick-status' id='tick-lesson-" + j + "' style='display: none'></span></li>";
-                        }
-                    }
-
-                    listLessonHTML += "</div>";
-                    $("#list-lesson").append(listLessonHTML);
-                }
-
-                //Thêm thông tin thêm về lớp môn học
-                infoLesson();
-            }
-        });
+//Chuyển từ vị trí và số tiết sang dạng xâu: Thứ 4 - Tiết 8-10
+function cvtTime(viTri, soTiet, nhom) {
+    var str = "<strong>Thứ ";
+    str += parseInt(viTri/10) + 2;
+    var tietDau = parseInt(viTri % 10);
+    var tietCuoi = parseInt(tietDau + soTiet - 1);
+    var theLoai;
+    if (nhom === 0) {
+        theLoai = "CL";
+    } else {
+        theLoai = "N" + nhom;
     }
-});
-
-function infoLesson() {
-    for (var i=0; i<listLesson.length; i++) {
-        var thucHanh = "Không có";
-        var giangVien = listLesson[i].giaoVien;
-        var giangDuong = listLesson[i].giangDuong;
-        $("#lesson-" + i).tooltipster({
-            theme: "tooltipster-light",
-            position: "right",
-            content: $("<span>Thực hành: <strong>" + thucHanh + "</strong></span><br><span>Giảng viên: <strong>" + giangVien + "</strong></span><br><span>Giảng đường: <strong>" + giangDuong + "</strong></strong></span>")
-        });
-    }
+    str += "</strong> " + tietDau + "-" + tietCuoi + " (" + theLoai + ")";
+    return str;
 }
+
+function cvtTimeFull(viTri, soTiet, nhom) {
+    var str = "Thứ ";
+    str += parseInt(viTri/10) + 2;
+    var tietDau = parseInt(viTri % 10);
+    var tietCuoi = parseInt(tietDau + soTiet - 1);
+    var theLoai;
+    if (nhom === 0) {
+        theLoai = "CL";
+    } else {
+        theLoai = "N" + nhom;
+    }
+    str += " | Tiết " + tietDau + "-" + tietCuoi + " (" + theLoai + ")";
+    return str;
+}
+
 
 function addSubject(index) {
     var subject = $("#subject-" + index);
@@ -124,77 +74,175 @@ function removeSubject(index) {
     $("#tick-subject-" + index).hide();
 }
 
-function addLesson(index) {
-    var viTri = listLesson[index].viTri;
-    var soTiet = listLesson[index].soTiet;
+function infoLesson() {
+    for (var i = 0; i < dataMonHoc.length; i++) {
+        var lopMHs = dataMonHoc[i].lopMHs;
+        var tenMH = dataMonHoc[i].tenMH;
 
-    if (ktTrungMon(viTri, soTiet)) {
-        thongBao("Môn học đã bị trùng thời gian", "warning");
-        return;
+        for (var j = 0; j < lopMHs.length; j++) {
+            var id = lopMHs[j].id;
+            var maLMH = lopMHs[j].maLMH;
+
+            var html = "<div>";
+            html += "<span style='text-align: center; font-weight: bold;'>" + tenMH + "</span><br>";
+            html += "<span>Mã LMH: " + maLMH + "</span><br>";
+            var buoiHocs = lopMHs[j].buoiHocs;
+            for (var t = 0; t < buoiHocs.length; t++) {
+                var viTri = buoiHocs[t].viTri;
+                var soTiet = buoiHocs[t].soTiet;
+                var nhom = buoiHocs[t].nhom;
+                var giaoVien = buoiHocs[t].giaoVien;
+                var giangDuong = buoiHocs[t].giangDuong;
+                var thoiGian = cvtTimeFull(viTri, soTiet, nhom);
+
+                var buoi = "<br><span> " + thoiGian + "</span><br>";
+                buoi += "<span style='padding-left: 4px;'>- Giảng viên: " + giaoVien + "</span><br>"
+                    + "<span style='padding-left: 4px;'>- Giảng đường: " + giangDuong + "</span><br>";
+
+                html += buoi;
+            }
+            html += "</div>";
+
+            var lopmh = $("#lopmh-" + id);
+            lopmh.tooltipster({
+                theme   : "tooltipster-light",
+                position: "right",
+                content : $(html),
+                delay   : 500,
+                trigger : 'hover',
+                animation: 'fade',
+                hideOnClick: true
+            });
+        }
+    }
+}
+
+$(document).ready(function () {
+    $.ajax({
+        url     : "./api/getmonhoc.php",
+        method  : "GET",
+        dataType: "json",
+        success : function(data) {
+            dataMonHoc = data;
+
+            for (var i=0; i<data.length; i++) {
+                //Khởi tạo DOM cho danh sách môn học
+                var li = "<li class='list-group-item list-group-item-info monhoc' id='subject-" + i + "' onclick='addSubject(" + i +");'>"
+                    + data[i].tenMH + "<span class='glyphicon glyphicon-ok tick-status' id='tick-subject-" + i + "' style='display: none'></span></li>";
+                $("#list-subject").append(li);
+
+                //Khởi tạo DOM cho #list-lesson
+                var listLessonHTML = "<div id='subjectX-" + i + "' style='display: none'><li class='list-group-item list-group-item-success head-lesson'>"
+                    + data[i].tenMH + "<span class='glyphicon glyphicon-remove btn-remove' onclick='removeSubject(" + i + ");'></span></li>";
+
+                var lopMHs = data[i].lopMHs;
+                for (var j = 0; j < lopMHs.length; j++) {
+                    listLessonHTML += "<li class='list-group-item lopmh list-group-item-info' onclick='themLMH(" + i + "," + j + ");' id='lopmh-" + lopMHs[j].id + "'>";
+                    var buoiHocs = lopMHs[j].buoiHocs;
+                    for (var t = 0; t < buoiHocs.length - 1; t++) {
+                        listLessonHTML += cvtTime(buoiHocs[t].viTri, buoiHocs[t].soTiet, buoiHocs[t].nhom) + " | ";
+                    }
+                    listLessonHTML += cvtTime(buoiHocs[buoiHocs.length - 1].viTri, buoiHocs[buoiHocs.length - 1].soTiet, buoiHocs[buoiHocs.length - 1].nhom);
+
+                    listLessonHTML += "<span class='glyphicon glyphicon-ok tick-status' id='tick-lopmh-" + lopMHs[j].id + "' style='display: none'></span></li>";
+                }
+
+                listLessonHTML += "</div>";
+
+                $("#list-lesson").append(listLessonHTML);
+            }
+            infoLesson();
+        }
+    });
+});
+
+function themLMH(mon, lop) {
+    var monhoc = dataMonHoc[mon];
+    var tenMH = monhoc.tenMH;
+    var lopMHs = monhoc.lopMHs;
+
+    var lopMH = lopMHs[lop];
+    var maLMH = lopMH.maLMH;
+    var buoiHocs = lopMH.buoiHocs;
+
+    for (var i = 0; i < buoiHocs.length; i++) {
+        var viTri = buoiHocs[i].viTri;
+        var soTiet = buoiHocs[i].soTiet;
+
+        //Kiểm tra xem có bị trùng thời gian hay không?
+        if (ktTrungThoiGian(viTri, soTiet)) {
+            thongBao("<strong>Trùng lịch!</strong><br>Buổi học đó của bạn đã bị trùng.", "warning");
+            return;
+        }
     }
 
-    var lesson = $("#lesson-" + index);
-    lesson.removeClass("list-group-item-info");
-    lesson.addClass("list-group-item-warning");
-    lesson.attr("onclick", "removeLesson(" + index + ")");
+    var bg = getBG(lopMH.id);
+    for (var i = 0; i < buoiHocs.length; i++) {
+        var viTri = buoiHocs[i].viTri;
+        var soTiet = buoiHocs[i].soTiet;
 
-    var isub = lesson.attr("target");
-    insert2Table(index, isub);
+        //Thêm buổi học vào lịch tuần
+        var location = $("#location-" + viTri);//Định vị ô cần chèn
+        var buoiHTML = "<div><button class='close' title='Bỏ chọn' onclick='xoaLMH(" + mon + "," + lop + ");'>×</button><span class='name-subject'>"
+            + tenMH + "</span><span>" + maLMH + "</span></div>";
+        location.html(buoiHTML);
+        location.attr("rowspan", soTiet);
+        location.addClass("bg-lesson-" + bg);
 
-    $("#tick-lesson-" + index).show();
+        //Ẩn những ô thừa
+        for (var j = viTri + 1; j < viTri + soTiet; j++) {
+            $("#location-" + j).hide();
+        }
+    }
+
+    var lopmhDOM = $("#lopmh-" + lopMH.id);
+    lopmhDOM.removeClass("list-group-item-info");
+    lopmhDOM.addClass("list-group-item-warning");
+    lopmhDOM.attr("onclick", "xoaLMH(" + mon + "," + lop + ")");
+    var tickDOM = $("#tick-lopmh-" + lopMH.id);
+    tickDOM.show();
 
     soMon++;
-    soTin += listSubject[isub].soTin;
+    soTin += monhoc.soTin;
+
     updateInfo();
 }
 
-function removeLesson(index) {
-    var lesson = $("#lesson-" + index);
-    lesson.addClass("list-group-item-info");
-    lesson.removeClass("list-group-item-warning");
-    lesson.attr("onclick", "addLesson(" + index + ")");
+function xoaLMH(mon, lop) {
+    var monhoc = dataMonHoc[mon];
+    var lopMHs = monhoc.lopMHs;
 
-    var id = listLesson[index].viTri;
-    emptyTable(id);
+    var lopMH = lopMHs[lop];
+    var buoiHocs = lopMH.buoiHocs;
 
-    //Hiện lại những ô đã bị ẩn
-    for (var i=1; i<listLesson[index].soTiet; i++) {
-        var idDelete = listLesson[index].viTri + i;
-        var trDelete = $("#location-" + idDelete);
-        trDelete.show();
+    for (var i = 0; i < buoiHocs.length; i++) {
+        var viTri = buoiHocs[i].viTri;
+        var soTiet = buoiHocs[i].soTiet;
+
+        //Làm rỗng ô
+        var location = $("#location-" + viTri);//Định vị ô cần làm rỗng
+        location.empty();
+        location.attr("rowspan", 1);
+        location.attr("class", "");
+
+        //Hiện lại những ô bị ẩn
+        for (var j = viTri + 1; j < viTri + soTiet; j++) {
+            $("#location-" + j).show();
+        }
     }
 
-    $("#tick-lesson-" + index).hide();
+    var lopmhDOM = $("#lopmh-" + lopMH.id);
+    lopmhDOM.addClass("list-group-item-info");
+    lopmhDOM.removeClass("list-group-item-warning");
+    lopmhDOM.attr("onclick", "themLMH(" + mon + "," + lop + ")");
+    var tickDOM = $("#tick-lopmh-" + lopMH.id);
+    tickDOM.hide();
 
-    var isub = lesson.attr("target");
+    removeBG(lopMH.id);
     soMon--;
-    soTin -= listSubject[isub].soTin;
+    soTin -= monhoc.soTin;
+
     updateInfo();
-    removeBG(index);
-}
-
-function insert2Table(index, isub) {
-    var viTri = $("#location-" + listLesson[index].viTri);
-    var lessonHTML = "<div><button class='close' onclick='removeLesson(" + index + ")' title='Bỏ chọn'>×</button><span class='name-subject'>"
-        + listSubject[isub].tenMH + "</span><span>" + listLesson[index].maLMH + "</span></div>";
-    viTri.html(lessonHTML);
-    viTri.attr("rowspan", listLesson[index].soTiet);
-    viTri.addClass("bg-lesson-" + getBG(index));
-
-    //Ẩn đi những ô bị thừa
-    for (var i=1; i<listLesson[index].soTiet; i++) {
-        var idDelete = listLesson[index].viTri + i;
-        var trDelete = $("#location-" + idDelete);
-        trDelete.hide();
-    }
-}
-
-//Đưa trạng thái của ô về rỗng
-function emptyTable(id) {
-    var viTri = $("#location-" + id);
-    viTri.empty();
-    viTri.attr("class", "");
-    viTri.attr("rowspan", 1);
 }
 
 function updateInfo() {
@@ -202,25 +250,32 @@ function updateInfo() {
     $("#soTin").text(soTin);
 }
 
-//Chuyển từ vị trí và số tiết sang dạng xâu: Thứ 4 - Tiết 8-10
-function cvtTimeLesson(viTri, soTiet) {
-    var str = "Thứ ";
-    str += parseInt(viTri/10) + 2;
-    var tietDau = parseInt(viTri % 10);
-    var tietCuoi = parseInt(tietDau + soTiet - 1);
-    str += " - Tiết " + tietDau + "-" + tietCuoi;
-    return str;
-}
-
-function ktTrungMon(viTri, soTiet) {
+function ktTrungThoiGian(viTri, soTiet) {
     for (var i=viTri; i<viTri + soTiet; i++) {
         var locationID = $("#location-" + i);
 
         if (locationID.text()) {
+            var x = locationID.attr("class");
+            locationID.addClass("animated shake").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                $(this).removeClass();
+                $(this).attr("class", x);
+            });
             return true;
         }
 
         if (locationID.css("display") == "none") {
+            var begin = parseInt(i / 10) * 10;
+            for (var j = i - 1; j >= begin; j--) {
+                var temp = $("#location-" + j);
+                if (temp.html() != "") {
+                    var x = temp.attr("class");
+                    temp.addClass("animated shake").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                        $(this).removeClass();
+                        $(this).attr("class", x);
+                    });
+                    break;
+                }
+            }
             return true;
         }
     }
@@ -253,10 +308,17 @@ function thongBao(text, type) {
         text        : text,
         type        : type,
         dismissQueue: true,
-        closeWith   : ['click', 'backdrop'],
-        modal       : true,
-        layout      : 'topCenter',
-        theme       : 'defaultTheme',
-        maxVisible  : 10
+        closeWith   : ['click', 'backdrop', 'hover', 'button'],
+        modal       : false,
+        layout      : 'topLeft',
+        theme       : 'relax',
+        maxVisible  : 10,
+        timeout: 200,
+        animation: {
+            open: 'animated bounceInUp', // Animate.css class names
+            close: 'animated bounceOutRight', // Animate.css class names
+            easing: 'swing', // unavailable - no need
+            speed: 500 // unavailable - no need
+        }
     });
 }

@@ -3,7 +3,7 @@
  */
 
 
-var data= []    //Mảng data[] Lưu danh sách các môn học.
+var data= [];    //Mảng data[] Lưu danh sách các môn học.
 // luu thong tin vo database
 $( document ).ready( function(){
     list();
@@ -38,17 +38,17 @@ $( document ).ready( function(){
 // in danh sach cac mon hoc....
 function list(){
     $.ajax( {
-        url : "../backend/getMonHoc.php",
+        url : "../backend/getmonhoc.php",
         type : 'post',
         dataType : 'json',
         success : function( list ){
             $.each( list, function( key, value ){
                 var str;
-                str += "<tr>"
+                str += "<tr>";
                 str +=         "<td style='width: 150px; text-align: left;clear: both; float: left;'>" + value['tenMH'] + "</td>";
                 str +=         "<td style='width: 90px; text-align: left; float: left;'>" + value['maLMH'] + "</td>";
                 str +=         "<td style='width: 130px; text-align: left; float: left;'>" + value['giaoVien'] + "</td>";
-                str +="</tr>"
+                str +="</tr>";
                 $("#list").append( str );
             });
         }
@@ -63,11 +63,11 @@ function addList(){
         success : function( the_last ){
             $.each( the_last, function( key, value ){
                 var str;
-                str += "<tr>"
+                str += "<tr>";
                 str +=         "<td style='width: 150px; text-align: left;clear: both; float: left;'>" + value['tenMH'] + "</td>";
                 str +=         "<td style='width: 90px; text-align: left; float: left;'>" + value['maLMH'] + "</td>";
                 str +=         "<td style='width: 130px; text-align: left; float: left;'>" + value['giaoVien'] + "</td>";
-                str +="</tr>"
+                str +="</tr>";
                 $("#list").append( str );
             });
         }
@@ -88,8 +88,8 @@ function check(){
     if( isNaN( $("#day").val() ) )return false;
     if( isNaN( $("#start").val() ) )return false;
     if( isNaN( $("#end").val() ) )return false;
-    if( $( "#end").val() <= $( "#start").val() ) return false;
-    return true;
+    return $("#end").val() > $("#start").val();
+
 }
 
 function getData(){

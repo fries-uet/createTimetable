@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 05, 2015 at 11:58 PM
+-- Generation Time: May 09, 2015 at 02:59 AM
 -- Server version: 5.5.43-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.9
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `buoihoc` (
   `giangDuong` varchar(40) NOT NULL,
   `giaoVien` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `buoihoc`
@@ -43,10 +43,11 @@ CREATE TABLE IF NOT EXISTS `buoihoc` (
 INSERT INTO `buoihoc` (`id`, `nhom`, `viTri`, `soTiet`, `giangDuong`, `giaoVien`) VALUES
 (1, 0, 1, 2, '301-G2', 'Hồ Đắc Phương'),
 (2, 1, 34, 2, '207-G2', 'Hồ Đắc Phương'),
-(3, 2, 32, 2, '207-G2', 'Trần Trúc Mai'),
-(4, 0, 38, 3, '103-G2', 'Trương Anh Hoàng'),
-(5, 0, 26, 2, '310-G2', 'Lê Phê Đô'),
-(6, 0, 34, 2, '301-G2', 'Lê Phê Đô');
+(3, 2, 32, 2, '207-G2', 'Đào Minh Thư'),
+(4, 0, 28, 3, '103-G2', 'Trương Anh Hoàng'),
+(5, 0, 16, 2, '310-G2', 'Lê Phê Đô'),
+(6, 0, 33, 2, '301-G2', 'Lê Phê Đô'),
+(7, 3, 34, 2, '403-E3', 'Phạm Bảo Sơn');
 
 -- --------------------------------------------------------
 
@@ -60,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `lopmh` (
   `danhSach` varchar(40) NOT NULL,
   `maLMH` varchar(40) NOT NULL,
   PRIMARY KEY (`id`,`sub_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `lopmh`
@@ -70,7 +71,8 @@ INSERT INTO `lopmh` (`id`, `sub_id`, `danhSach`, `maLMH`) VALUES
 (1, 1, '[1,2]', 'INT2209 1'),
 (2, 1, '[1,3]', 'INT2209 1'),
 (3, 3, '[4]', 'INT2208 4'),
-(4, 2, '[5,6]', 'INT1050 3');
+(4, 2, '[5,6]', 'INT1050 3'),
+(5, 1, '[1,7]', 'INT2209 1');
 
 -- --------------------------------------------------------
 
