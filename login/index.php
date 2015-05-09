@@ -56,7 +56,7 @@
                     <a href="#"><i class="halflings-icon cog"></i></a>
                 </div>
                 <h2>Login to your account</h2>
-                <form class="form-horizontal" action="index.html" method="post">
+                <form class="form-horizontal" action="dangky.php" method="post">
                     <fieldset>
 
                         <div class="input-prepend" title="Username">
@@ -74,7 +74,7 @@
                         <label class="remember" for="remember"><input type="checkbox" id="remember" />Remember me</label>
 
                         <div class="button-login">
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            <button type="submit" class="btn btn-primary">Đăng ký</button>
                         </div>
                         <div class="clearfix"></div>
                 </form>

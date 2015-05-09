@@ -46,6 +46,9 @@
 </head>
 
 <body>
+<?php
+    echo md5("123");
+?>
 <div class="container-fluid-full">
     <div class="row-fluid">
 
@@ -56,7 +59,7 @@
                     <a href="#"><i class="halflings-icon cog"></i></a>
                 </div>
                 <h2>Login to your account</h2>
-                <form class="form-horizontal" action="index.html" method="post">
+                <form class="form-horizontal" action="dangnhap.php" method="post">
                     <fieldset>
 
                         <div class="input-prepend" title="Username">
