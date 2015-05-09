@@ -13,6 +13,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.tooltipster.min.js"></script>
     <script src="js/jquery.noty.packaged.min.js"></script>
+    <script src="js/validator.js"></script>
 </head>
 <body>
 <div id="page" style="padding-top: 13px">
@@ -160,8 +161,9 @@
     </div>
 
     <!--Lấy footer-->
-    <?php include("includes/footer.php"); ?>
+    <?php include "includes/footer.php"; ?>
 </div>
+<script src="js/sign.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
