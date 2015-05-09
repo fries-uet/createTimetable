@@ -12,7 +12,7 @@
 require "MonHoc.php";
 require "LopMH.php";
 require "BuoiHoc.php";
-require "../config.php";
+require "../../config.php";
 
 $ds_monhoc = array();
 

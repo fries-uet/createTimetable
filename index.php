@@ -15,10 +15,10 @@
     <script src="js/jquery.noty.packaged.min.js"></script>
 </head>
 <body>
-<div id="page" style="padding-top: 55px">
+<div id="page" style="padding-top: 13px">
 
     <!--Lấy header-->
-    <?php include("includes/header.php"); ?>
+    <?php include "includes/header.php"; ?>
 
     <!--Phần thân của Thời khóa biểu-->
     <div id="content">

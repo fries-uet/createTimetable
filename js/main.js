@@ -124,7 +124,7 @@ function infoLesson() {
 // Get dữ liệu từ phía server
 $(document).ready(function () {
     $.ajax({
-        url     : "./api/getmonhoc.php",
+        url     : "./api/getData/getmonhoc.php",
         method  : "GET",
         dataType: "json",
         success : function(data) {
@@ -159,6 +159,21 @@ $(document).ready(function () {
             infoLesson();
         },
         cache: true
+    });
+
+
+    //Kiểm tra trạng thái đăng nhập?
+    $.ajax({
+        url: "api/sign/getStatus.php",
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+            if (data.status == true) {
+                signin();
+            } else {
+                signout();
+            }
+        }
     });
 });
 
@@ -372,3 +387,96 @@ function thongBao(text, type) {
         }
     });
 }
+
+$("#btn-signin-submit").click(function () {
+    var user = $("#inputEmail").val();
+    var pass = $("#inputPassword").val();
+
+    $.ajax({
+        url     : "api/sign/signin.php",
+        method  : "POST",
+        dataType: "json",
+        data    : {user: user, pass: pass},
+        success : function(data) {
+            var resultDOM = $("#result-signin");
+            if (data.result == true) {
+                $("#form-signin").modal("hide");
+                signin();
+            } else {
+                resultDOM.text("Đăng nhập thất bại");
+                resultDOM.addClass("bg-danger");
+                resultDOM.show();
+
+            }
+        }
+    });
+});
+
+$("#btn-signout").click(function() {
+    $.get("api/sign/signout.php");
+    signout();
+});
+
+function signout() {
+    var signinDOM = $("#signined");
+    signinDOM.hide();
+    signinDOM.attr("data-target", "out");
+    $("#btn-signup").show();
+    $("#btn-signin").show();
+}
+
+function signin() {
+    $.ajax({
+        url: "api/sign/getStatus.php",
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+            if (data.status == true) {
+                $("#hello-user").text(data.user);
+                var signinDOM = $("#signined");
+                signinDOM.show();
+                signinDOM.attr("data-target", "in");
+                $("#btn-signup").hide();
+                $("#btn-signin").hide();
+            }
+        }
+    });
+}
+
+function getStatusSign() {
+    var status = $("#signined").attr("data-target");
+    return (status == "in");
+}
+
+$("#btn-save-table").click(function () {
+    var sign = getStatusSign();
+    if (!sign) {
+        $("#form-signin").modal("show");
+        return;
+    }
+
+    //Nếu đã đăng nhập thì xử lý theo tool
+    alert("Chức năng đang hoàn thiện");
+});
+
+$("#btn-share-table").click(function () {
+    var sign = getStatusSign();
+    if (!sign) {
+        $("#form-signin").modal("show");
+        return;
+    }
+
+    //Nếu đã đăng nhập thì xử lý theo tool
+    alert("Chức năng đang hoàn thiện");
+});
+
+$("#btn-export-table").click(function () {
+    var sign = getStatusSign();
+    if (!sign) {
+        $("#form-signin").modal("show");
+        return;
+    }
+
+    //Nếu đã đăng nhập thì xử lý theo tool
+    alert("Chức năng đang hoàn thiện");
+});
