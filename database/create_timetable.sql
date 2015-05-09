@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 09, 2015 at 04:09 AM
+-- Generation Time: May 09, 2015 at 03:05 PM
 -- Server version: 5.5.43-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.9
 
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `lopmh` (
   `danhSach` varchar(40) NOT NULL,
   `maLMH` varchar(40) NOT NULL,
   PRIMARY KEY (`id`,`sub_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `lopmh`
@@ -141,6 +141,20 @@ INSERT INTO `monhoc` (`id`, `tenMH`, `maMH`, `soTin`) VALUES
 (10, 'Cấu trúc dữ liệu và giải thuật', 'INT2203', 3),
 (11, 'Lập trình nâng cao', 'INT2202', 3),
 (12, 'Cơ - Nhiệt', 'PHY1100', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nguoidung`
+--
+
+CREATE TABLE IF NOT EXISTS `nguoidung` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(40) NOT NULL,
+  `pass` varchar(40) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
