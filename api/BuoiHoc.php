@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * @Class BuoiHoc
  * - id: ID của buổi học
  * - nhom: nhóm của buổi học

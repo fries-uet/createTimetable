@@ -157,7 +157,8 @@ $(document).ready(function () {
                 $("#list-lesson").append(listLessonHTML);
             }
             infoLesson();
-        }
+        },
+        cache: true
     });
 });
 
