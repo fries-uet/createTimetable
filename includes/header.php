@@ -16,15 +16,16 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" title="Xem hướng dẫn sử dụng ứng dụng"><span class="glyphicon glyphicon-bullhorn"></span> Trợ giúp</a></li>
                 <li class="dropdown" id="signined" style="display: none;" data-target="out"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Xin chào <span id="hello-user"></span><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li id="btn-edit-profile"><a href="#">Chỉnh sửa</a></li>
+                        <li id="btn-edit-profile"><a href="/user/edit-profile.php">Chỉnh sửa</a></li>
+                        <li class="divider"></li>
                         <li id="btn-signout"><a href="#" >Đăng xuất</a></li>
                     </ul>
                 </li>
                 <li id="btn-signup" style="display: none;"><a href="#" data-target="#form-signup" data-toggle="modal"><span class="glyphicon glyphicon-user"></span> Đăng kí</a></li>
                 <li id="btn-signin" style="display: none;"><a href="#" data-target="#form-signin" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
-                <li><a href="#" title="Xem hướng dẫn sử dụng ứng dụng"><span class="glyphicon glyphicon-bullhorn"></span> Trợ giúp</a></li>
             </ul>
         </div>
     </div>

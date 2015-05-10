@@ -11,31 +11,22 @@ function checkUser($username) {
 
     return false;
 }
-function saveUser( $username, $password, $name ){
-    global $conn;
-    $password = md5( $password );
-    $sql = "insert into nguoidung set email = '$username', pass = '$password', name = '$name'";
-    mysqli_query( $conn, $sql );
-    return true;
-}
 
 function echoJson($result, $notify = null) {
     echo json_encode(array("result" => $result, "notify" => $notify));
 }
-$user = ""; $pass = "";
-if( isset( $_POST['user'] ) )
-    $user = $_POST['user'];
-if( isset( $_POST['pass'] ) )
-    $pass = $_POST['pass'];
 
-if ( $user != "" and $pass != "" ) {
+$user = $_POST['user'];
+$pass = $_POST['pass'];
+
+if (isset($user) and isset($pass)) {
     $check = checkUser($user);
 
     if($check == true) {
         echoJson(false, "Tài khoản này đã có người dùng!");
     } else {
-        $passw = md5($pass);
-        $sql = "insert into nguoidung set email = '$user', pass = '$passw'";
+        $password = md5($pass);
+        $sql = "insert into nguoidung set email = '$user', pass = '$pass'";
         mysqli_query( $conn, $sql );
         echoJson(true, "Đăng ký thành công!");
     }

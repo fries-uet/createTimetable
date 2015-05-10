@@ -26,19 +26,17 @@ function getName($username) {
         $name = $row['name'];
         return $name;
     }
+;
 }
 
 function echoJson($result, $notify = null) {
     echo json_encode(array("result" => $result, "notify" => $notify));
 }
 
-$user = ""; $pass = "";
-if( isset( $_POST['user'] ) )
-    $user = $_POST['user'];
-if( isset( $_POST['pass'] ) )
-    $pass = $_POST['pass'];
+$user = $_POST['user'];
+$pass = $_POST['pass'];
 
-if ( $user != "" and $pass != "" ) {
+if (isset($user) and isset($pass)) {
     $passw = getPassword($user);
     if ($passw == false) {
         echoJson(false, "Không tồn tại người dùng này!");
