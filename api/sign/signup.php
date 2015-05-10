@@ -11,15 +11,24 @@ function checkUser($username) {
 
     return false;
 }
+function saveUser( $username, $password, $name ){
+    global $conn;
+    $password = md5( $password );
+    $sql = "insert into nguoidung set email = '$username', pass = '$password', name = '$name'";
+    mysqli_query( $conn, $sql );
+    return true;
+}
 
 function echoJson($result, $notify = null) {
     echo json_encode(array("result" => $result, "notify" => $notify));
 }
+$user = ""; $pass = "";
+if( isset( $_POST['user'] ) )
+    $user = $_POST['user'];
+if( isset( $_POST['pass'] ) )
+    $pass = $_POST['pass'];
 
-$user = $_POST['user'];
-$pass = $_POST['pass'];
-
-if (isset($user) and isset($pass)) {
+if ( $user != "" and $pass != "" ) {
     $check = checkUser($user);
 
     if($check == true) {
