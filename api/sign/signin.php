@@ -24,13 +24,8 @@ function getName($username) {
     if (mysqli_num_rows($result ) > 0) {
         $row = mysqli_fetch_array($result, MYSQL_ASSOC);
         $name = $row['name'];
-        if ($name == "") {
-            return $username;
-        }
         return $name;
     }
-
-    return "Bạn";
 }
 
 function echoJson($result, $notify = null) {
@@ -46,7 +41,9 @@ if (isset($user) and isset($pass)) {
         echoJson(false, "Không tồn tại người dùng này!");
     } else {
         if (md5($pass) == $passw) {
-            $_SESSION['user'] = getName($user);
+            $_SESSION['user'] = $user;
+            $_SESSION['pass'] = $passw;
+            $_SESSION['name'] = getName($user);
             echoJson(true, "Đăng nhập thành công!");
         } else {
             echoJson(false, "Tài khoản hoặc mật khẩu không đúng!");

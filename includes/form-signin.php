@@ -4,7 +4,7 @@
             <form class="form-signin" role="form" method="post" data-toggle="validator">
                 <div class="form-group">
                     <label for="inputEmail" class="sr-only">Email</label>
-                    <input type="email" name="username" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                    <input type="email" name="email" id="inputEmail" data-remote="api/validator/" class="form-control" placeholder="Email address" required autofocus>
                     <div class="help-block with-errors"></div>
                 </div>
 

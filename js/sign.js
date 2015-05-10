@@ -44,7 +44,12 @@ function signin() {
         dataType: "json",
         success: function(data) {
             if (data.status == true) {
-                $("#hello-user").text(data.user);
+                if (data.name == "") {
+                    $("#hello-user").text(data.user);
+                } else {
+                    $("#hello-user").text(data.name);
+                }
+
                 var signinDOM = $("#signined");
                 signinDOM.show();
                 signinDOM.attr("data-target", "in");

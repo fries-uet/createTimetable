@@ -169,7 +169,13 @@ $(document).ready(function () {
         dataType: "json",
         success: function(data) {
             if (data.status == true) {
-                signinX(data.user);
+                var user;
+                if (data.name == "") {
+                    user = data.user;
+                } else {
+                    user = data.name;
+                }
+                signinX(user);
             } else {
                 signout();
             }
