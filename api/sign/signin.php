@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../../config.php";
-// lay password voi username nhap vao
+
 function getPassword($username) {
     global $conn;
     $sql = "select pass from nguoidung where email = '$username'";
@@ -33,20 +33,23 @@ function getName($username) {
     return "Bạn";
 }
 
-function echoJson($result) {
-    echo json_encode(array("result" => $result));
+function echoJson($result, $notify = null) {
+    echo json_encode(array("result" => $result, "notify" => $notify));
 }
 
-if (isset($_POST['user']) and isset($_POST['pass'])) {
-    $pass = getPassword($_POST['user']);
-    if ($pass == false) {
-        echoJson(false);
+$user = $_POST['user'];
+$pass = $_POST['pass'];
+
+if (isset($user) and isset($pass)) {
+    $passw = getPassword($user);
+    if ($passw == false) {
+        echoJson(false, "Không tồn tại người dùng này!");
     } else {
-        if (md5( $_POST['pass']) == $pass) {
-            $_SESSION['user'] = getName($_POST['user']);
-            echoJson(true);
+        if (md5($pass) == $passw) {
+            $_SESSION['user'] = getName($user);
+            echoJson(true, "Đăng nhập thành công!");
         } else {
-            echoJson(false);
+            echoJson(false, "Tài khoản hoặc mật khẩu không đúng!");
         }
     }
 }

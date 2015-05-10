@@ -19,11 +19,6 @@ function thongBao(text, type) {
     });
 }
 
-//Đăng nhập
-$("#btn-signin-submit").click(function () {
-    signinServer();
-});
-
 //Sign out khỏi hệ thống
 $("#btn-signout").click(function() {
     $.get("api/sign/signout.php");
@@ -59,6 +54,16 @@ function signin() {
         }
     });
 }
+//Thay đổi trang thái sang đã đăng nhập
+function signinX(user) {
+    $("#hello-user").text(user);
+    var signinDOM = $("#signined");
+    signinDOM.show();
+    signinDOM.attr("data-target", "in");
+    $("#btn-signup").hide();
+    $("#btn-signin").hide();
+}
+
 
 //Get trạng thái đăng nhập
 function getStatusSign() {
@@ -107,20 +112,6 @@ $("#btn-edit-profile").click(function() {
     thongBao("<strong>Đang phát triển</strong><br>Chức năng đang được hoàn thiện", "information");
 });
 
-//Ấn Enter trực tiếp sau khi gõ xong không cần nhấn nút Đăng nhập
-$('#inputPassword').keypress(function (e) {
-    if (e.which == 13) {
-        signinServer();
-        return false;
-    }
-});
-$('#inputEmail').keypress(function (e) {
-    if (e.which == 13) {
-        signinServer();
-        return false;
-    }
-});
-
 //Sign in vào server
 function signinServer() {
     var user = $("#inputEmail").val();
@@ -135,14 +126,21 @@ function signinServer() {
             if (data.result == true) {
                 $("#form-signin").modal("hide");
                 signin();
-                thongBao("<strong>Đăng nhập</strong><br>Đăng nhập thành công!", "success");
+                thongBao("<strong>Đăng nhập</strong><br>" + data.notify, "success");
             } else {
-                thongBao("<strong>Đăng nhập</strong><br>Đăng nhập thất bại!", "error");
+                thongBao("<strong>Đăng nhập</strong><br>" + data.notify, "error");
+                var temp = $("#form-signin");
+                var x = temp.attr("class");
+                temp.addClass("animated shake").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                    $(this).removeClass();
+                    $(this).attr("class", x);
+                });
             }
         }
     });
 }
 
+//Sign up vào server
 function signupServer() {
     var user = $("#inputEmail-up").val();
     var pass = $("#inputPassword-up").val();
@@ -155,9 +153,15 @@ function signupServer() {
         success : function(data) {
             if (data.result == true) {
                 $("#form-signup").modal("hide");
-                thongBao("<strong>Đăng ký</strong><br>Bạn đã đăng ký thành công!", "success");
+                thongBao("<strong>Đăng ký</strong><br>" + data.notify, "success");
             } else {
-                thongBao("<strong>Đăng ký</strong><br>Đăng ký thất bại! Vui lòng thử lại!", "error");
+                thongBao("<strong>Đăng ký</strong><br>" + data.notify, "error");
+                var temp = $("#form-signup");
+                var x = temp.attr("class");
+                temp.addClass("animated shake").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                    $(this).removeClass();
+                    $(this).attr("class", x);
+                });
             }
         }
     });
@@ -169,5 +173,14 @@ $('.form-signup').validator().on('submit', function (e) {
     } else {
         e.preventDefault();
         signupServer();
+    }
+});
+
+$('.form-signin').validator().on('submit', function (e) {
+    if (e.isDefaultPrevented()) {
+        // handle the invalid form...
+    } else {
+        e.preventDefault();
+        signinServer();
     }
 });

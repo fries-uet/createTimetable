@@ -169,7 +169,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function(data) {
             if (data.status == true) {
-                signin();
+                signinX(data.user);
             } else {
                 signout();
             }

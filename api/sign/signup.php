@@ -12,22 +12,23 @@ function checkUser($username) {
     return false;
 }
 
-function echoJson($result) {
-    echo json_encode(array("result" => $result));
+function echoJson($result, $notify = null) {
+    echo json_encode(array("result" => $result, "notify" => $notify));
 }
 
-if (isset($_POST['user']) and isset($_POST['pass'])) {
-    $check = checkUser($_POST['user']);
-    $username = $_POST['user'];
-    $password = $_POST['pass'];
+$user = $_POST['user'];
+$pass = $_POST['pass'];
+
+if (isset($user) and isset($pass)) {
+    $check = checkUser($user);
 
     if($check == true) {
-        echoJson(false);
+        echoJson(false, "Tài khoản này đã có người dùng!");
     } else {
-        $password = md5( $password );
-        $sql = "insert into nguoidung set email = '$username', pass = '$password'";
+        $passw = md5($pass);
+        $sql = "insert into nguoidung set email = '$user', pass = '$passw'";
         mysqli_query( $conn, $sql );
-        echoJson(true);
+        echoJson(true, "Đăng ký thành công!");
     }
 }
 else {
