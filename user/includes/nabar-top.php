@@ -11,7 +11,7 @@
 <!-- Top Menu Items -->
 <ul class="nav navbar-right top-nav">
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Xin chào <strong><?php echo $name; ?></strong> <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Xin chào <strong><?php if ($name != "") {echo $name;} else {echo $email;} ?></strong> <b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li>
                 <a href="edit-profile.php"><i class="fa fa-fw fa-gear"></i> Chỉnh sửa</a>
