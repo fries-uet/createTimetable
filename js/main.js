@@ -140,7 +140,7 @@ $(document).ready(function () {
                 $("#list-subject").append(li);
 
                 //Khởi tạo DOM cho #list-lesson
-                var listLessonHTML = "<div id='subjectX-" + i + "' style='display: none'><li class='list-group-item list-group-item-success head-lesson'>"
+                var listLessonHTML = "<div id='subjectX-" + id + "' style='display: none'><li class='list-group-item list-group-item-success head-lesson'>"
                     + data[i].tenMH + "<span class='glyphicon glyphicon-remove btn-remove' onclick='removeSubject(" + i + ");'></span></li>";
 
                 var lopMHs = data[i].lopMHs;
