@@ -53,28 +53,30 @@ function cvtTimeFull(viTri, soTiet, nhom) {
 
 //Thêm môn học
 function addSubject(index) {
-    var subject = $("#subject-" + index);
+    var id = dataMonHoc[index].id;
+    var subject = $("#subject-" + id);
     subject.removeClass("list-group-item-info");
     subject.addClass("list-group-item-warning");
     subject.attr("onclick", "removeSubject(" + index + ")");
 
-    var subjectX = $("#subjectX-" + index);
+    var subjectX = $("#subjectX-" + id);
     subjectX.show();
 
-    $("#tick-subject-" + index).show();
+    $("#tick-subject-" + id).show();
 }
 
 //Xóa môn học
 function removeSubject(index) {
-    var subject = $("#subject-" + index);
+    var id = dataMonHoc[index].id;
+    var subject = $("#subject-" + id);
     subject.addClass("list-group-item-info");
     subject.removeClass("list-group-item-warning");
     subject.attr("onclick", "addSubject(" + index + ")");
 
-    var subjectX = $("#subjectX-" + index);
+    var subjectX = $("#subjectX-" + id);
     subjectX.hide();
 
-    $("#tick-subject-" + index).hide();
+    $("#tick-subject-" + id).hide();
 }
 
 //Thêm thông tin chi tiết của lớp môn học
@@ -132,8 +134,9 @@ $(document).ready(function () {
 
             for (var i=0; i<data.length; i++) {
                 //Khởi tạo DOM cho danh sách môn học
-                var li = "<li class='list-group-item list-group-item-info monhoc' id='subject-" + i + "' onclick='addSubject(" + i +");'>"
-                    + data[i].tenMH + "<span class='glyphicon glyphicon-ok tick-status' id='tick-subject-" + i + "' style='display: none'></span></li>";
+                var id = data[i].id;
+                var li = "<li class='list-group-item list-group-item-info monhoc' id='subject-" + id + "' onclick='addSubject(" + i +");'>"
+                    + data[i].tenMH + "<span class='glyphicon glyphicon-ok tick-status' id='tick-subject-" + id + "' style='display: none'></span></li>";
                 $("#list-subject").append(li);
 
                 //Khởi tạo DOM cho #list-lesson
@@ -157,6 +160,10 @@ $(document).ready(function () {
                 $("#list-lesson").append(listLessonHTML);
             }
             infoLesson();
+
+            //Chèn thêm thông báo không tìm kiếm thấy môn nào
+            var empty = "<li id='search-empty-monhoc' class='list-group-item list-group-item-info' style='display: none'>Không có môn nào phù hợp</li>";
+            $("#list-subject").append(empty);
         },
         cache: true
     });
@@ -371,4 +378,41 @@ function removeMHformArr(id) {
 //Kiểm tra có đăng ký trùng môn không?
 function ktTrungMon(id) {
     return (monHocs.indexOf(id) >= 0);
+}
+
+//Tìm kiếm môn học
+$("#search-monhoc").keyup(function() {
+    var text = $(this).val().trim().toLowerCase();
+    text = bodauTiengViet(text);
+    $(".monhoc").hide();
+    var seachEmpty = $("#search-empty-monhoc");
+    seachEmpty.hide();
+    var empty = true;
+
+    for (var i = 0; i < dataMonHoc.length; i++) {
+        var tenMH = dataMonHoc[i].tenMH.toLowerCase();
+        tenMH = bodauTiengViet(tenMH);
+        var maMH = dataMonHoc[i].maMH.toLowerCase();
+        var id = dataMonHoc[i].id;
+        if (tenMH.indexOf(text) >= 0 || maMH.indexOf(text) >= 0) {
+            $("#subject-" + id).show();
+            empty = false;
+        }
+    }
+    if (empty == true) {
+        seachEmpty.show();
+    }
+});
+
+//Bỏ dấu Tiếng Việt sang không dấu
+function bodauTiengViet(str) {
+    str= str.toLowerCase();
+    str= str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a");
+    str= str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e");
+    str= str.replace(/ì|í|ị|ỉ|ĩ/g,"i");
+    str= str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o");
+    str= str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u");
+    str= str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y");
+    str= str.replace(/đ/g,"d");
+    return str;
 }

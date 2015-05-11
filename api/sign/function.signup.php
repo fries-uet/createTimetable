@@ -17,6 +17,10 @@ function echoJson($result, $notify = null) {
 
 function saveUser($username, $password, $name) {
     global $conn;
+    $check = checkUser($username);
+    if ($check == true) {
+        return false;
+    }
     $password = md5($password);
     $sql = "insert into nguoidung set email = '$username', pass = '$password', name = '$name'";
     mysqli_query($conn, $sql);
