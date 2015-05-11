@@ -20,8 +20,15 @@
                     </label>
                     <div class="help-block with-errors"></div>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn-signin-submit">Đăng nhập</button>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn-signin-submit">Đăng nhập</button>
+                </div>
+
+                <div>
+                    <label>Tôi chưa có tài khoản? <a href="#" id="btn-resignup">Đăng ký</a></label>
+                </div>
             </form>
+
         </div>
     </div>
 </div>

@@ -21,7 +21,7 @@ function thongBao(text, type) {
 
 //Sign out khỏi hệ thống
 $("#btn-signout").click(function() {
-    $.get("api/sign/signout.php");
+    $.get("api/sign/destroySession.php");
     signout();
 
     thongBao("<strong>Đăng xuất</strong><br>Đăng xuất thành công!", "success");
@@ -112,11 +112,6 @@ $("#btn-export-table").click(function () {
     thongBao("<strong>Đang phát triển</strong><br>Chức năng đang được hoàn thiện", "information");
 });
 
-//Chức năng sửa thông tin cá nhân
-$("#btn-edit-profile").click(function() {
-    thongBao("<strong>Đang phát triển</strong><br>Chức năng đang được hoàn thiện", "information");
-});
-
 //Sign in vào server
 function signinServer() {
     var user = $("#inputEmail").val();
@@ -188,4 +183,13 @@ $('.form-signin').validator().on('submit', function (e) {
         e.preventDefault();
         signinServer();
     }
+});
+
+$("#btn-resignin").click(function() {
+    $("#form-signup").modal("hide");
+    $("#form-signin").modal("show");
+});
+$("#btn-resignup").click(function() {
+    $("#form-signin").modal("hide");
+    $("#form-signup").modal("show");
 });

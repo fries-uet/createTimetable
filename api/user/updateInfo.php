@@ -17,16 +17,17 @@ $user = $_SESSION['user'];
 
 if (isset($user)) {
     global $conn;
-    if ($pass == false) {
+    if ($pass == "") {
         $passNew = $passOld;
     } else {
         $passNew = md5($pass);
     }
-    $sql = "UPDATE nguoidung SET name = '$name' WHERE email = '$user'";
+    $sql = "UPDATE nguoidung SET name = '$name', pass = '$passNew' WHERE email = '$user'";
     $result = mysqli_query($conn, $sql);
 
     //Update session
     $_SESSION['name'] = $name;
+    $_SESSION['pass'] = $passNew;
 
     echoJson(true, "Update thành công");
 } else {
