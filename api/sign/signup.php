@@ -1,20 +1,7 @@
 <?php
 
 include "../../config.php";
-function checkUser($username) {
-    global $conn;
-    $sql = "select email from nguoidung where email = '$username'";
-    $result = mysqli_query( $conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-        return true;
-    }
-
-    return false;
-}
-
-function echoJson($result, $notify = null) {
-    echo json_encode(array("result" => $result, "notify" => $notify));
-}
+include "function.signup.php";
 
 $user = $_POST['user'];
 $pass = $_POST['pass'];
@@ -26,7 +13,7 @@ if (isset($user) and isset($pass)) {
         echoJson(false, "Tài khoản này đã có người dùng!");
     } else {
         $password = md5($pass);
-        $sql = "insert into nguoidung set email = '$user', pass = '$pass'";
+        $sql = "insert into nguoidung set email = '$user', pass = '$password'";
         mysqli_query( $conn, $sql );
         echoJson(true, "Đăng ký thành công!");
     }

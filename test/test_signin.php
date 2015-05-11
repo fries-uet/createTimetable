@@ -1,13 +1,14 @@
 <?php
-    include "../sign/signin.php";
+    include "../config.php";
+    include "../api/sign/function.signin.php";
     $tong = 2;
     $true = 0;
     // du lieu da co tu phan test truoc ...
-    $username = "test_01@gmail.com";
-    $password = "123";
-    $name = "Nguyen Van A";
+    $username = "test@gmail.com";
+    $password = "123456";
+    $name = "";
     // check lay password ....
-    $password_true = "202cb962ac59075b964b07152d234b70";
+    $password_true = md5($password);
     $password_check = getPassword( $username );
     if( $password_check == $password_true ){
         echo "<br> test 01 signin : true";
@@ -15,6 +16,7 @@
     } else {
         echo "<br> test 01 signup : false";
     }
+
     $name_check = getName( $username );
     if( $name_check == $name ){
         echo "<br> test 02 signin : true";

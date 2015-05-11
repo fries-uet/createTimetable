@@ -1,5 +1,6 @@
 <?php
-    include "../sign/signup.php";
+    include "../config.php";
+    include "../api/sign/function.signup.php";
     $tong = 2;
     $true = 0;
     // khoi tao du lieu ...
@@ -28,8 +29,6 @@
     echo "<br> Tong so test : ". $tong;
     echo "<br> So test true : ". $true;
     echo "<br> Ket qua : ". ( $true / $tong * 100 ) . " % ";
-
-
 
 ?>
 <br>
