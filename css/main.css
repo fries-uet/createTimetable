@@ -5,50 +5,40 @@ body {
 }
 
 .bg-lesson-0 {
-    background-color: rgba(141, 158, 241, 0.3);
+    background-color: rgba(3, 221, 255, 0.5);
 }
-
 .bg-lesson-1 {
-    background-color: rgba(73, 191, 103, 0.3);
+    background-color: rgba(51, 181, 230, 0.5);
 }
-
 .bg-lesson-2 {
-    background-color: rgba(242, 222, 222, 0.3);
+    background-color: rgba(170, 102, 205, 0.5);
 }
-
 .bg-lesson-3 {
-    background-color: rgba(133, 141, 147, 0.3);
+    background-color: rgba(152, 203, 2, 0.5);
 }
-
 .bg-lesson-4 {
-    background-color: rgba(255, 153, 0, 0.3);
+    background-color: rgba(255, 68, 67, 0.5);
 }
-
 .bg-lesson-5 {
-    background-color: rgba(204, 255, 236, 0.3);
+    background-color: rgba(254, 241, 2, 0.5);
 }
-
 .bg-lesson-6 {
-    background-color: rgba(193, 255, 77, 0.3);
+    background-color: rgba(255, 127, 38, 0.5);
 }
-
 .bg-lesson-7 {
-    background-color: rgba(255, 148, 179, 0.3);
+    background-color: rgba(255, 200, 15, 0.5);
 }
-
 .bg-lesson-8 {
-    background-color: rgba(185, 145, 255, 0.3);
+    background-color: rgba(182, 229, 29, 0.5);
 }
-
 .bg-lesson-9 {
-    background-color: rgba(171, 184, 255, 0.3);
+    background-color: rgba(254, 174, 201, 0.5);
 }
-
 .bg-lesson-10 {
-    background-color: rgba(41, 174, 255, 0.3);
+    background-color: rgba(41, 174, 255, 0.5);
 }
 .bg-lesson-11 {
-    background-color: rgba(241, 224, 90, 0.3);
+    background-color: rgba(241, 224, 90, 0.5);
 }
 
 li.list-group-item.monhoc, li.list-group-item.lopmh {
