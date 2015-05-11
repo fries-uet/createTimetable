@@ -4,9 +4,12 @@
     $tong = 2;
     $true = 0;
     // khoi tao du lieu ...
-    $username = "test_01@gmail.com";
-    $password = "123";
+    $username = "test@gmail.com";
+    $password = "123456";
     $name = "Nguyen Van A";
+    $sql = "DELETE FROM nguoidung WHERE email = '$username'";
+    $r = mysqli_query($conn, $sql);
+
     // luu vao database...
     $save = saveUser( $username, $password, $name );
     if( $save == true ){
@@ -16,8 +19,8 @@
         echo "<br> test 01 signup : false";
     }
     // check su ton tai cua username ....
-    $username_check_01 = "test_01@gmail.com";
-    $username_check_011 = "test_011@gmail.com";
+    $username_check_01 = "test@gmail.com";
+    $username_check_011 = "test_1@gmail.com";
     $checkUser_01 = checkUser( $username_check_01 );
     $checkUser_011 = checkUser( $username_check_011 );
     if( $checkUser_01 == true and $checkUser_011 == false ){

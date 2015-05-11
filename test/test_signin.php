@@ -6,7 +6,7 @@
     // du lieu da co tu phan test truoc ...
     $username = "test@gmail.com";
     $password = "123456";
-    $name = "";
+    $name = "Nguyen Van A";
     // check lay password ....
     $password_true = md5($password);
     $password_check = getPassword( $username );
