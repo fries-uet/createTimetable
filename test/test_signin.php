@@ -1,3 +1,4 @@
+<meta charset="UTF-8">
 <?php
     include "../config.php";
     include "../api/sign/function.signin.php";
@@ -24,13 +25,10 @@
     } else {
         echo "<br> test 02 signup : false";
     }
-    echo "<br> Tong so test : ". $tong;
-    echo "<br> So test true : ". $true;
-    echo "<br> Ket qua : ". ( $true / $tong * 100 ) . " % ";
-
-
-
+    echo "<br> Tổng số test : ". $tong;
+    echo "<br> Số test true : ". $true;
+    echo "<br> Kết quả : ". ( $true / $tong * 100 ) . " % ";
 ?>
 <br>
 <br>
-<a href="test_function.php"> back to main </a>
+<a href="test_function.php">Back to main</a>

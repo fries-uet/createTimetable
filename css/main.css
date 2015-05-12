@@ -1,7 +1,9 @@
 @charset "UTF-8";
 
 body {
-    font-family: "Tahoma", Arial, "Helvetica Neue", Helvetica, sans-serif!important;
+    font-family: Arial, "Tahoma", "Helvetica Neue", Helvetica, sans-serif!important;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .bg-lesson-0 {
@@ -133,12 +135,6 @@ li.head-lesson {
 
 
 /* Sign in */
-body {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #eee;
-}
-
 .form-signin, .form-signup {
     max-width: 500px;
     padding: 15px;

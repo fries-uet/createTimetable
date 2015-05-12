@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Jasmine Test Sign out</title>
+    <title>Jasmine Test Main App</title>
 
     <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.3.2/jasmine_favicon.png">
     <link rel="stylesheet" href="lib/jasmine-2.3.2/jasmine.css">
@@ -20,10 +20,6 @@
     <script src="../js/jquery.tooltipster.min.js"></script>
     <script src="../js/jquery.noty.packaged.min.js"></script>
     <script src="../js/validator.js"></script>
-    <script src="../js/sign.js"></script>
-
-    <script src="../js/main.js"></script>
-    <script src="../js/tool.js"></script>
 
 </head>
 
@@ -32,7 +28,11 @@
     <?php include "../index.php"; ?>
 </div>
 
+<script src="src/sign.js"></script>
+<script src="src/main.js"></script>
+<script src="../js/tool.js"></script>
+
 <!-- include spec files here... -->
-<script src="spec/SpecSignout.js"></script>
+<script src="spec/SpecMain.js"></script>
 </body>
 </html>
