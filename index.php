@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Timetable UET - Fries</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/tooltipster.css">
     <link rel="stylesheet" href="css/tooltipster-light.css">

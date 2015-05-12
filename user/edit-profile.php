@@ -12,7 +12,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Chỉnh sửa thông tin cá nhân</title>
-
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/animate.css">
     <link rel="stylesheet" href="css/main.css">
