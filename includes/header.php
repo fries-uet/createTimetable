@@ -16,7 +16,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" title="Xem hướng dẫn sử dụng ứng dụng"><span class="glyphicon glyphicon-bullhorn"></span> Trợ giúp</a></li>
+                <li><a href="#" data-target="#guide-user" data-toggle="modal" title="Xem hướng dẫn sử dụng ứng dụng"><span class="glyphicon glyphicon-bullhorn"></span> Trợ giúp</a></li>
                 <li class="dropdown" id="signined" style="display: none;" data-target="out"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Xin chào <span id="hello-user"></span><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li id="btn-edit-profile"><a href="/user/edit-profile.php">Chỉnh sửa</a></li>
@@ -33,3 +33,4 @@
 
 <?php include "form-signin.php"; ?>
 <?php include "form-signup.php"; ?>
+<?php include "guide.php"; ?>
