@@ -1,27 +1,44 @@
-## Laravel PHP Framework
+# Create Timetable for Student UET
+[![Version 1.0](https://cloud.githubusercontent.com/assets/7255177/6105580/4a973aa8-b08b-11e4-9aae-d0e00d9e6a27.jpg)](#mô-tả)
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+***
+## Mô tả:
+Phần mềm giúp hỗ trợ sinh viên lập **thời khóa biểu** hợp lý trước mỗi khi đăng ký môn học của mỗi kì.
+* Tạo thời khóa biểu hợp lý theo ý muốn
+* Hỗ trợ tìm môn học
+* Tạo thời khóa biểu tự động
+* Tối ưu thời gian của lịch học
+* Chia sẻ thời khóa biểu cho bạn bè
+* ..................
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Công nghệ
+* HTML5
+* CSS3 ([Bootstrap](http://getbootstrap.com))
+* Javascript ([Jquery](//jquery.com))
+* PHP & MySQL
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Phân chia công việc trên PivotalTracker
+[Create Timetable UET (Public)](https://www.pivotaltracker.com/n/projects/1266230)
 
-## Official Documentation
+## Cấu trúc code của dự án
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **css** - Chứa các Style sheets
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **js** - Chứa các file Javascript
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **images** - Chứa các file Ảnh
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **includes** - Thư mục chứa các phần bố cục dùng chung của app như header, footer, sidebar,....
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **backend** - Xử lý các tác vụ với server
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **admin** - Trang xử lý tác vụ của người quản lý app
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **login** - Thư mục xử lý tác vụ đăng nhập
+* [![folder](https://cloud.githubusercontent.com/assets/7255177/6881694/81129276-d59d-11e4-8bef-20babdca8aee.png)](#) **signup** - Thư mục xử lý tác vụ đăng ký</li>
+* [![file](https://cloud.githubusercontent.com/assets/7255177/6881740/eea24e98-d59e-11e4-9ff8-b4bbf55f4c5c.png)](#) **index.php** - Trang chính của app
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Code style
+* [HTML/CSS](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml)
+* [Javascript](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+* [PHP & MySQL](https://make.wordpress.org/core/handbook/coding-standards/php/)
+* Công cụ kiểm tra tự động: [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer).
+Với công cụ **PHP_CodeSniffer** ta có thể kiểm tra được cái vi phạm style của PHP, Javascript và CSS theo một tiêu chuẩn mã hóa.
 
-## Contributing
+***
+Giáo viên hướng dẫn: [Trương Anh Hoàng](https://github.com/truonganhhoang).
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Các thành viên trong dự án: [Trần Văn Tú](https://github.com/tutv95), [Trần Minh Quý](https://github.com/quytm), [Bùi Minh Thái](https://github.com/thaibm), [Nguyễn Tiến Minh](https://github.com/minhnt58), [Nguyễn Văn Thành](https://github.com/thanhnv58).
