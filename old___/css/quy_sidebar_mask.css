@@ -1,0 +1,164 @@
+#wrapper-filter {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper-filter.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper-filter {
+    z-index: 1000;
+    position: fixed;
+    left: 330px;
+    /*right: 0px;  Căn lề phải*/
+    width: 0;
+    /*height: 100%;*/
+    height: 300px;
+    /*margin-left: -250px;*/
+    overflow-y: auto;
+    /*background: #000;*/
+    background-color: #ffffff;
+    /*background-color: rgba(0, 33, 195, 0.5);*/
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    /*Bo góc*/
+    -moz-border-radius-topleft:80px;
+    -webkit-border-top-left-radius:10px;
+    -moz-border-radius-bottomleft:10px;
+    -webkit-border-bottom-left-radius:10px;
+    /*Đổ bóng*/
+    box-shadow: 5px 5px 20px #858D93;
+}
+
+#wrapper-filter.toggled #sidebar-wrapper-filter {
+    width: 250px;
+}
+
+#wrapper-filter.toggled #page-content-wrapper-filter {
+    position: absolute;
+    margin-right: -250px;
+}
+
+#wrapper-filter a{
+    text-decoration: none;
+}
+
+@media(min-width:768px) {
+    #wrapper-filter {
+        padding-left: 250px;
+    }
+
+    #wrapper-filter.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper-filter {
+        width: 600px;
+        top: 100px;
+    }
+
+    #wrapper-filter.toggled #sidebar-wrapper-filter {
+        width: 0px;
+        /*right: -20px;   *//*Sau khi thu gọn thì căn lề thụt vào 20px, để làm mất thanh cuộn*/
+        height: 0px;
+        left: 170px;
+        top: 110px;
+    }
+
+    #wrapper-filter.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+
+#filter-table {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#filter-table.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-filter-table {
+    z-index: 1000;
+    position: fixed;
+    left: 330px;
+    /*right: 0px;  Căn lề phải*/
+    width: 0;
+    /*height: 100%;*/
+    height: 500px;
+    /*margin-left: -250px;*/
+    overflow-y: auto;
+    /*background: #000;*/
+    background-color: #ffffff;
+    /*background-color: rgba(0, 33, 195, 0.5);*/
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    /*Bo góc*/
+    -moz-border-radius-topleft:80px;
+    -webkit-border-top-left-radius:10px;
+    -moz-border-radius-bottomleft:10px;
+    -webkit-border-bottom-left-radius:10px;
+    /*Đổ bóng*/
+    box-shadow: 5px 5px 20px #858D93;
+}
+
+#filter-table.toggled #page-content-filter-table {
+    position: absolute;
+}
+
+#filter-table a{
+    text-decoration: none;
+}
+
+@media(min-width:1200px) {
+    #filter-table {
+        padding-left: 250px;
+    }
+
+    #filter-table.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-filter-table {
+        width: 1030px;
+        top: 100px;
+    }
+
+    #filter-table.toggled #sidebar-filter-table {
+        /*width: 0px;*/
+        /*right: -20px;   *//*Sau khi thu gọn thì căn lề thụt vào 20px, để làm mất thanh cuộn*/
+        height: 0px;
+        /*left: 170px;*/
+        top: 0px;
+    }
+
+    #filter-table.toggled #page-content-filter-table {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+.tick{
+    font-family: wingdings;
+    color: deepskyblue;
+}
+
+.lock{
+    font-family: wingdings;
+    color: red;
+}
