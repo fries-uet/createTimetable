@@ -62,7 +62,7 @@
 				<h1>Hello, world!</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati sunt ipsam quasi delectus nam et officia dolorem, odit sapiente doloremque, consequuntur numquam, laboriosam esse veritatis neque! Ipsa deleniti soluta quae?</p>
 				<p>
-					<a class="btn btn-primary btn-lg">Learn more</a>
+					<a href="/home" class="btn btn-primary btn-lg">Learn more</a>
 				</p>
 			</div>
 		</div>

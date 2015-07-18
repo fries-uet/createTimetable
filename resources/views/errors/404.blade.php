@@ -10,7 +10,7 @@
 		<h1>Ố shit :3</h1>
 		<p>Éo có trang này nhé -_-</p>
 		<p>
-			<a class="btn btn-primary btn-lg">Learn more</a>
+			<a href="/" class="btn btn-primary btn-lg">Quay lại trang chủ</a>
 		</p>
 	</div>
 </div>

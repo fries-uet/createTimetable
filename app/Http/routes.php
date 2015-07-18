@@ -13,6 +13,12 @@
 
 Route::get('/', 'MainController@index');
 
+Route::get('/home', 'MainController@home');
+
+Route::group(array('prefix' => 'api/v1'), function() {
+	Route::resource('data', 'DataController');
+});
+
 
 Route::get('/api', function() {
 	return view('api');

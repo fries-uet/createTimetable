@@ -1,7 +1,7 @@
 @extends ('layouts.master')
 
 @section ('head.title')
-<title>Trần Văn Tú</title>
+<title>Tạo mới thời khóa biểu - Create Timetable</title>
 @stop
 @section ('body.content')
 <div id="content">

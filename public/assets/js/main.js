@@ -126,7 +126,7 @@ function infoLesson() {
 // Get dữ liệu từ phía server
 $(document).ready(function () {
     $.ajax({
-        url     : "./api/getData/getmonhoc.php",
+        url     : "./api/v1/data",
         method  : "GET",
         dataType: "json",
         success : function(data) {
