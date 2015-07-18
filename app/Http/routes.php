@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+Route::get('/', 'MainController@index');
 
 
 Route::get('/api', function() {
