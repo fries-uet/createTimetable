@@ -19,7 +19,7 @@
 
                 <div class="checkbox form-group">
                     <label>
-                        <input type="checkbox" value="remember-me"> Nhớ tôi
+                        <input type="checkbox" value="remember-me" checked> Nhớ tôi
                     </label>
                     <div class="help-block with-errors"></div>
                 </div>

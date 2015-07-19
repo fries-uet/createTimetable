@@ -13,6 +13,19 @@ use DB;
 
 class UserController extends Controller
 {
+	function redirectHome() {
+    	return redirect()->action('MainController@index');
+    }
+
+    function checkSignin(Request $request) {
+    	if ($request->session()->get('status') === 'true')
+    		return true;
+
+    	return false;
+    }
+
+
+    //Đăng ký tài khoản
     function signup(Request $request) {
     	try {
     		$email = $request->input('email');
@@ -49,6 +62,7 @@ class UserController extends Controller
     	}
     }
 
+    //Đăng nhập
     function signin(Request $request) {
     	try {
     		$email = $request->input('email');
@@ -83,9 +97,10 @@ class UserController extends Controller
 	    			if (isset($name) && $name != "") {
 	    				$username = $name;
 	    			} else {
-	    				$username = $email;
+	    				$username = "UETer";
 	    			}
 	    			session(['username' => $username]);
+	    			session(['email' => $email]);
 	    		}
 		    }
     	} catch (Exception $e) {
@@ -95,8 +110,42 @@ class UserController extends Controller
     	}
     }
 
+    //Đăng xuất
     function signout(Request $request) {
     	session(['status' => 'false']);
-    	return redirect()->action('MainController@index');
+    	return $this->redirectHome();
+    }
+
+    //Bảng điều khiển người dùng
+    function dashboard(Request $request) {
+    	if (!$this->checkSignin($request)) {
+    		return $this->redirectHome();
+    	}
+
+    	return view('usercp.dashboard');
+    }
+
+    //Danh sách thời khóa biểu
+    function timetable(Request $request) {
+    	if (!$this->checkSignin($request)) {
+    		return $this->redirectHome();
+    	}
+
+    	return view('usercp.timetable');
+    }
+
+    //Cập nhật người dùng
+    function setting(Request $request) {
+    	if (!$this->checkSignin($request)) {
+    		return $this->redirectHome();
+    	}
+
+    	$email = session('email');
+
+    	$user = DB::table('nguoidung')
+		->where('email', $email)
+		->first();
+
+    	return view('usercp.setting')->with('user', $user);
     }
 }

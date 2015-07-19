@@ -28,22 +28,23 @@
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			
-			<li><a href="#" data-target="#guide-user" data-toggle="modal"><span class="glyphicon glyphicon-bullhorn"></span> Trợ giúp</a></li>
+			<li><a href="#" data-target="#guide-user" data-toggle="modal"><i class="fa fa-smile-o fa-fw"></i> Trợ giúp</a></li>
 			
 			<!-- Khi đã đăng nhập -->
 			@if (session('status') === 'true')
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Xin chào <b class="username">{{ session('username') }}</b> <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="#">Chỉnh sửa</a></li>
-					<li><a href="{{ route('user.signout') }}">Thoát</a></li>
+					<li><a href="{{ route('user.dashboard') }}"><i class="fa fa-user fa-fw"></i> Cá nhân</a></li>
+					<li class="divider"></li>
+					<li><a href="{{ route('user.signout') }}"><i class="fa fa-sign-out fa-fw"></i> Thoát</a></li>
 				</ul>
 			</li>
 
 			<!-- Khi chưa đăng nhập -->
 			@else
-            <li><a href="#" data-target="#form-signup" data-toggle="modal"><span class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
-            <li><a href="#" data-target="#form-signin" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+            <li><a href="#" data-target="#form-signup" data-toggle="modal"><i class="fa fa-user-plus fa-fw"></i> Đăng ký</a></li>
+            <li><a href="#" data-target="#form-signin" data-toggle="modal"><i class="fa fa-sign-in fa-fw"></i> Đăng nhập</a></li>
 
 			@endif
 		</ul>

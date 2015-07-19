@@ -17,7 +17,7 @@ Route::get('/', [
 	'uses' => 'MainController@index'
 ]);
 
-Route::get('/home', [
+Route::get('/create', [
 	'as'   => 'main.home',
 	'uses' => 'MainController@home'
 ]);
@@ -42,4 +42,24 @@ Route::post('/api/sign/in', [
 Route::get('/api/sign/out', [
 	'as'   => 'user.signout',
 	'uses' => "UserController@signout"
+]);
+
+
+//User Control Panel
+//Dashboard
+Route::get('/user', [
+	'as'   => 'user.dashboard',
+	'uses' => 'UserController@dashboard'
+]);
+
+//User Setting
+Route::get('/user/setting', [
+	'as'   => 'user.setting',
+	'uses' => 'UserController@setting'
+]);
+
+//List Timetable
+Route::get('/user/timetable', [
+	'as'   => 'user.timetable',
+	'uses' => 'UserController@timetable'
 ]);

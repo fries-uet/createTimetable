@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     @yield('head.title')
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/tooltipster.css">
     <link rel="stylesheet" href="/assets/css/tooltipster-light.css">
     <link rel="stylesheet" href="/assets/css/animate.css">
@@ -14,11 +15,7 @@
     @yield('head.css')
 </head>
 <body>
-<div id="page">
-
-    <!--Lấy header-->
-    <?php// include "includes/header.php"; ?>
-    
+<div id="page">    
     @include('partials.navbar')
     @include('partials.slide_guide')
     

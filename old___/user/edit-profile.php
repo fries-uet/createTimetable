@@ -69,7 +69,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <form role="form" data-toggle="validator" method="post" id="form-update-info">
-                        <label class="h3">Tên</label>
+                        <label class="h3">Thông tin liên hệ</label>
                         <div class="form-group input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                             <input id="iput-email" type="text" class="form-control" placeholder="Email" disabled value="<?php echo $email; ?>">
