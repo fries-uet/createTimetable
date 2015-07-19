@@ -20,6 +20,7 @@
     <?php// include "includes/header.php"; ?>
     
     @include('partials.navbar')
+    @include('partials.slide_guide')
     
     @yield('body.content')
 </div>

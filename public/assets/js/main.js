@@ -167,27 +167,6 @@ $(document).ready(function () {
         },
         cache: true
     });
-
-
-    //Kiểm tra trạng thái đăng nhập?
-    $.ajax({
-        url: "api/sign/getStatus.php",
-        method: "GET",
-        dataType: "json",
-        success: function(data) {
-            if (data.status == true) {
-                var user;
-                if (data.name == "") {
-                    user = data.user;
-                } else {
-                    user = data.name;
-                }
-                signinX(user);
-            } else {
-                signout();
-            }
-        }
-    });
 });
 
 //Thêm lớp môn học vào lịch tuần

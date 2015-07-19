@@ -132,4 +132,6 @@
 </div>
 
 @include ('partials.listSubject')
+@include ('partials.signin')
+@include ('partials.signup')
 @stop

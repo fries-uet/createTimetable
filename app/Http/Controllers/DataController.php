@@ -9,10 +9,10 @@ use App\Http\Controllers\Controller;
 
 
 use DB;
-use App\Monhoc;
-use App\Lopmh;
-use App\Buoihoc;
 use Response;
+use App\Monhoc;
+//use App\Lopmh;
+//use App\Buoihoc;
 
 class DataController extends Controller
 {
@@ -22,8 +22,6 @@ class DataController extends Controller
             $response = [];
      
             $monhoc = Monhoc::all();
-            $lopmh = Lopmh::all();
-            $buoihoc = Buoihoc::all();
 
             foreach($monhoc as $m){
                 $idMH = $m->id;//ID của môn học

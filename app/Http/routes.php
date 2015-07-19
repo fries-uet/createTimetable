@@ -11,15 +11,35 @@
 |
 */
 
-Route::get('/', 'MainController@index');
+//Main
+Route::get('/', [
+	'as'   => 'main.index',
+	'uses' => 'MainController@index'
+]);
 
-Route::get('/home', 'MainController@home');
+Route::get('/home', [
+	'as'   => 'main.home',
+	'uses' => 'MainController@home'
+]);
 
+//API
 Route::group(array('prefix' => 'api/v1'), function() {
 	Route::resource('data', 'DataController');
 });
 
 
-Route::get('/api', function() {
-	return view('api');
-});
+//User
+Route::post('/api/sign/up', [
+	'as'   => 'user.signup',
+	'uses' => 'UserController@signup'
+]);
+
+Route::post('/api/sign/in', [
+	'as'   => 'user.signin',
+	'uses' => 'UserController@signin'
+]);
+
+Route::get('/api/sign/out', [
+	'as'   => 'user.signout',
+	'uses' => "UserController@signout"
+]);

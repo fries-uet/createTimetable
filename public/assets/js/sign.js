@@ -19,78 +19,30 @@ function thongBao(text, type) {
     });
 }
 
-//Sign out khỏi hệ thống
-$("#btn-signout").click(function() {
-    $.get("api/sign/destroySession.php");
-    signout();
-
-    thongBao("<strong>Đăng xuất</strong><br>Đăng xuất thành công!", "success");
-});
-
-//Thay đổi trang thái sang đã đăng xuất
-function signout() {
-    var signinDOM = $("#signined");
-    signinDOM.hide();
-    signinDOM.attr("data-target", "out");
-    $("#btn-signup").show();
-    $("#btn-signin").show();
-}
-
-//Thay đổi trang thái sang đã đăng nhập
-function signin() {
-    $.ajax({
-        url: "api/sign/getStatus.php",
-        method: "GET",
-        dataType: "json",
-        success: function(data) {
-            if (data.status == true) {
-                if (data.name == "") {
-                    $("#hello-user").text(data.user);
-                } else {
-                    $("#hello-user").text(data.name);
-                }
-
-                var signinDOM = $("#signined");
-                signinDOM.show();
-                signinDOM.attr("data-target", "in");
-                $("#btn-signup").hide();
-                $("#btn-signin").hide();
-            }
-        }
-    });
-}
-//Thay đổi trang thái sang đã đăng nhập
-function signinX(user) {
-    $("#hello-user").text(user);
-    var signinDOM = $("#signined");
-    signinDOM.show();
-    signinDOM.attr("data-target", "in");
-    $("#btn-signup").hide();
-    $("#btn-signin").hide();
-}
-
-
-//Get trạng thái đăng nhập
-function getStatusSign() {
-    var status = $("#signined").attr("data-target");
-    return (status == "in");
-}
-
 //Sign in vào server
 function signinServer() {
-    var user = $("#inputEmail").val();
+    var email = $("#inputEmail").val();
     var pass = $("#inputPassword").val();
+    var token = $("#_tokenIn").val();
+
+    var url = $("form.form-signin").attr('data-post');
 
     $.ajax({
-        url     : "api/sign/signin.php",
+        url     : url,
         method  : "POST",
         dataType: "json",
-        data    : {user: user, pass: pass},
+        data    : {
+            email : email,
+            pass  : pass,
+            _token: token
+        },
         success : function(data) {
             if (data.result == true) {
                 $("#form-signin").modal("hide");
-                signin();
+                //signin();
                 thongBao("<strong>Đăng nhập</strong><br>" + data.notify, "success");
+                $(document).delay(1000);
+                location.reload();
             } else {
                 thongBao("<strong>Đăng nhập</strong><br>" + data.notify, "error");
                 var temp = $("#form-signin");
@@ -108,12 +60,20 @@ function signinServer() {
 function signupServer() {
     var user = $("#inputEmail-up").val();
     var pass = $("#inputPassword-up").val();
+    var repass = $("#inputPasswordConfirm").val();
+    var token = $("#_tokenUp").val();
+    var url = $("form.form-signup").attr('data-post');
 
     $.ajax({
-        url     : "api/sign/signup.php",
+        url     : url,
         method  : "POST",
         dataType: "json",
-        data    : {user: user, pass: pass},
+        data    : {
+            email: user,
+            pass: pass,
+            repass: repass,
+            _token: token
+        },
         success : function(data) {
             if (data.result == true) {
                 $("#form-signup").modal("hide");
@@ -149,11 +109,13 @@ $('.form-signin').validator().on('submit', function (e) {
     }
 });
 
-$("#btn-resignin").click(function() {
+$("#btn-resignin").click(function(e) {
+    e.preventDefault();
     $("#form-signup").modal("hide");
     $("#form-signin").modal("show");
 });
-$("#btn-resignup").click(function() {
+$("#btn-resignup").click(function(e) {
+    e.preventDefault();
     $("#form-signin").modal("hide");
     $("#form-signup").modal("show");
 });
