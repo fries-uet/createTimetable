@@ -58,6 +58,11 @@ Route::get('/user/setting', [
 	'uses' => 'UserController@setting'
 ]);
 
+Route::post('/user/setting', [
+	'as'   => 'user.setting',
+	'uses' => 'UserController@updateSetting'
+]);
+
 //List Timetable
 Route::get('/user/timetable', [
 	'as'   => 'user.timetable',

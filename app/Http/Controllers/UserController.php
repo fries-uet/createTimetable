@@ -146,6 +146,18 @@ class UserController extends Controller
 		->where('email', $email)
 		->first();
 
-    	return view('usercp.setting')->with('user', $user);
+		$notify = ['result' => null, 'mess' => null];
+    	return view('usercp.setting')->with('setting', [$user, $notify]);
+    }
+
+    function updateSetting(Request $request) {
+    	$email = session('email');
+    	$name = $request->input('name');
+
+    	$passCurrent = $request->input('pass-current');
+    	$passNew = $request->input('pass-new');
+    	$repassNew = $request->input('repass-new');
+
+    	dd($repassNew);
     }
 }
