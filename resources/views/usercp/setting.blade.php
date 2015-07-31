@@ -32,7 +32,7 @@ Thiết lập cá nhân
             <label class="h3">Tên</label>
             <div class="form-group input-group">
                 <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-                <input id="email" name="email" type="text" class="form-control" placeholder="Email" disabled value="{{ $setting[0]->email }}">
+                <input id="email" name="email" type="text" class="form-control" placeholder="Email" value="{{ $setting[0]->email }}" readonly>
             </div>
             <div class="form-group input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>

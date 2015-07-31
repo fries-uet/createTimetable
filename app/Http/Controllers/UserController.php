@@ -151,13 +151,17 @@ class UserController extends Controller
     }
 
     function updateSetting(Request $request) {
-    	$email = session('email');
-    	$name = $request->input('name');
+    	$emailSession = session('email');
+    	$email        = $request->input('email');
+    	$name         = $request->input('name');
+    	$passCurrent  = $request->input('pass-current');
+    	$passNew      = $request->input('pass-new');
+    	$repassNew    = $request->input('repass-new');
 
-    	$passCurrent = $request->input('pass-current');
-    	$passNew = $request->input('pass-new');
-    	$repassNew = $request->input('repass-new');
+    	$user = DB::table('nguoidung')
+		->where('email', $email)
+		->first();
 
-    	dd($repassNew);
+    	dd($email);
     }
 }
