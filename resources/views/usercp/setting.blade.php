@@ -57,7 +57,6 @@ Thiết lập cá nhân
                 <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn-update-submit">Cập nhật</button>
             </div>
         </form>
-
     </div>
 </div>
 @stop

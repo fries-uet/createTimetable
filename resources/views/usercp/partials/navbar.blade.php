@@ -40,6 +40,11 @@
             <ul class="nav" id="side-menu">
                 <li>
                     <a href="{{ route('user.dashboard') }}"><i class="fa fa-dashboard fa-fw"></i> Bảng điều khiển</a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#">Danh sách lớp môn học</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-table fa-fw"></i> Thời khóa biểu</a>
