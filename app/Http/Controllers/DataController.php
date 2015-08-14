@@ -23,51 +23,36 @@ class DataController extends Controller
      
             $monhoc = Monhoc::all();
 
-            foreach($monhoc as $m){
-                $idMH = $m->id;//ID của môn học
+            $arrMH = [];//Danh sách môn học ở dạng mảng đối tượng
+            foreach ($monhoc as $mh) {
+                $lopMHs = json_decode($mh->lopMHs);//Decode to array
 
-                $lopMH = DB::table('lopmh')
-                    ->where('sub_id', $idMH)
-                    ->get();
+                $arrLMH = [];//Danh sách lớp môn học ở dạng mảng các đối tượng
+                foreach ($lopMHs as $id_lmh) {
+                    $lopMH = DB::table('lopmh')
+                        ->where('id', $id_lmh)
+                        ->first();
 
-                //Truy vấn đên từng lớp môn học dựa trên id của môn học
-                $listLMH = [];
-                foreach ($lopMH as $mh) {
-                    $idLMH = $mh->id;//ID của Lớp môn học
-                    $dsBuoi = json_decode($mh->danhSach);
+                    $buoihocs = json_decode($lopMH->buoihocs);//Decode to array (Danh sách buổi học)
 
-                    //Truy vấn đến từng buổi học dựa trên danh sách của buổi học
-                    $buoiHocs = [];
-                    foreach ($dsBuoi as $i) {
-                        $b = DB::table('buoihoc')
-                            ->where('id', $i)
+                    $arrBuoiHoc = [];//Danh sách buổi học ở dạng mảng các đối tượng
+                    foreach ($buoihocs as $id_bh) {
+                        $buoihoc = DB::table('buoihoc')
+                            ->where('id', $id_bh)
                             ->first();
 
-                        $buoiHocs[] = [
-                            'id'        => $b->id,
-                            'nhom'      => $b->nhom,
-                            'viTri'     => $b->viTri,
-                            'soTiet'    => $b->soTiet,
-                            'giaoVien'  => $b->giaoVien,
-                            'giangDuong'=> $b->giangDuong
-                        ];
+                        array_push($arrBuoiHoc, $buoihoc);
                     }
 
-                    $listLMH[] = [
-                        'id'        => $mh->id,
-                        'maLMH'     => $mh->maLMH,
-                        'buoiHocs'  => $buoiHocs
-                    ];
+                    $lopMH->buoihocs = $arrBuoiHoc;
+                    array_push($arrLMH, $lopMH);
                 }
 
-                $response[] = [
-                    'id'     => $m->id,
-                    'maMH'   => $m->maMH,
-                    'tenMH'  => $m->tenMH,
-                    'soTin'  => $m->soTin,
-                    'lopMHs' => $listLMH
-                ];
+                $mh->lopMHs = $arrLMH;
+                array_push($arrMH, $mh);
             }
+
+            $response = $arrMH;
         } catch (Exception $e){
             $statusCode = 400;
         } finally {
