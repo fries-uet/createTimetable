@@ -92,13 +92,13 @@ function infoLesson() {
             var html = "<div>";
             html += "<span style='text-align: center; font-weight: bold;'>" + tenMH + "</span><br>";
             html += "<span>Mã LMH: " + maLMH + "</span><br>";
-            var buoiHocs = lopMHs[j].buoiHocs;
-            for (var t = 0; t < buoiHocs.length; t++) {
-                var viTri = buoiHocs[t].viTri;
-                var soTiet = buoiHocs[t].soTiet;
-                var nhom = buoiHocs[t].nhom;
-                var giaoVien = buoiHocs[t].giaoVien;
-                var giangDuong = buoiHocs[t].giangDuong;
+            var buoihocs = lopMHs[j].buoihocs;
+            for (var t = 0; t < buoihocs.length; t++) {
+                var viTri = buoihocs[t].viTri;
+                var soTiet = buoihocs[t].soTiet;
+                var nhom = buoihocs[t].nhom;
+                var giaoVien = buoihocs[t].giaoVien;
+                var giangDuong = buoihocs[t].giangDuong;
                 var thoiGian = cvtTimeFull(viTri, soTiet, nhom);
 
                 var buoi = "<br><span> " + thoiGian + "</span><br>";
@@ -146,11 +146,11 @@ $(document).ready(function () {
                 var lopMHs = data[i].lopMHs;
                 for (var j = 0; j < lopMHs.length; j++) {
                     listLessonHTML += "<li class='list-group-item lopmh list-group-item-info' onclick='themLMH(" + i + "," + j + ");' id='lopmh-" + lopMHs[j].id + "'>";
-                    var buoiHocs = lopMHs[j].buoiHocs;
-                    for (var t = 0; t < buoiHocs.length - 1; t++) {
-                        listLessonHTML += cvtTime(buoiHocs[t].viTri, buoiHocs[t].soTiet, buoiHocs[t].nhom) + " | ";
+                    var buoihocs = lopMHs[j].buoihocs;
+                    for (var t = 0; t < buoihocs.length - 1; t++) {
+                        listLessonHTML += cvtTime(buoihocs[t].viTri, buoihocs[t].soTiet, buoihocs[t].nhom) + " | ";
                     }
-                    listLessonHTML += cvtTime(buoiHocs[buoiHocs.length - 1].viTri, buoiHocs[buoiHocs.length - 1].soTiet, buoiHocs[buoiHocs.length - 1].nhom);
+                    listLessonHTML += cvtTime(buoihocs[buoihocs.length - 1].viTri, buoihocs[buoihocs.length - 1].soTiet, buoihocs[buoihocs.length - 1].nhom);
 
                     listLessonHTML += "<span class='glyphicon glyphicon-ok tick-status' id='tick-lopmh-" + lopMHs[j].id + "' style='display: none'></span></li>";
                 }
@@ -177,11 +177,11 @@ function themLMH(mon, lop) {
 
     var lopMH = lopMHs[lop];
     var maLMH = lopMH.maLMH;
-    var buoiHocs = lopMH.buoiHocs;
+    var buoihocs = lopMH.buoihocs;
 
-    for (var i = 0; i < buoiHocs.length; i++) {
-        var viTri = buoiHocs[i].viTri;
-        var soTiet = buoiHocs[i].soTiet;
+    for (var i = 0; i < buoihocs.length; i++) {
+        var viTri = buoihocs[i].viTri;
+        var soTiet = buoihocs[i].soTiet;
 
         //Kiểm tra xem có bị trùng thời gian hay không?
         if (ktTrungThoiGian(viTri, soTiet)) {
@@ -195,10 +195,10 @@ function themLMH(mon, lop) {
     }
 
     var bg = getBG(lopMH.id);
-    for (var i = 0; i < buoiHocs.length; i++) {
-        var viTri = buoiHocs[i].viTri;
-        var soTiet = buoiHocs[i].soTiet;
-        var nhom = buoiHocs[i].nhom;
+    for (var i = 0; i < buoihocs.length; i++) {
+        var viTri = buoihocs[i].viTri;
+        var soTiet = buoihocs[i].soTiet;
+        var nhom = buoihocs[i].nhom;
         var theLoai;
         if (nhom === 0) {
             theLoai = "CL";
@@ -240,11 +240,11 @@ function xoaLMH(mon, lop) {
     var lopMHs = monhoc.lopMHs;
 
     var lopMH = lopMHs[lop];
-    var buoiHocs = lopMH.buoiHocs;
+    var buoihocs = lopMH.buoihocs;
 
-    for (var i = 0; i < buoiHocs.length; i++) {
-        var viTri = buoiHocs[i].viTri;
-        var soTiet = buoiHocs[i].soTiet;
+    for (var i = 0; i < buoihocs.length; i++) {
+        var viTri = buoihocs[i].viTri;
+        var soTiet = buoihocs[i].soTiet;
 
         //Làm rỗng ô
         var location = $("#location-" + viTri);//Định vị ô cần làm rỗng

@@ -11,8 +11,6 @@ use App\Http\Controllers\Controller;
 use DB;
 use Response;
 use App\Monhoc;
-//use App\Lopmh;
-//use App\Buoihoc;
 
 class DataController extends Controller
 {
