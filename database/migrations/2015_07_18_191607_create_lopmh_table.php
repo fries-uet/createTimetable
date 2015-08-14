@@ -15,8 +15,7 @@ class CreateLopmhTable extends Migration
         Schema::create('lopmh', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('sub_id');
-            $table->string('danhSach', 40);
+            $table->string('buoihocs', 40);
             $table->string('maLMH', 40);
 
             $table->timestamps();

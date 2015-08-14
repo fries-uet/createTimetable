@@ -68,3 +68,9 @@ Route::get('/user/timetable', [
 	'as'   => 'user.timetable',
 	'uses' => 'UserController@timetable'
 ]);
+
+//Input
+Route::get('/user/input', [
+   'as' => 'user.input',
+    'uses' => 'UserController@input'
+]);

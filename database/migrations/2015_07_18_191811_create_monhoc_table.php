@@ -15,6 +15,7 @@ class CreateMonhocTable extends Migration
         Schema::create('monhoc', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->string('lopMHs', 40);
             $table->string('tenMH', 40);
             $table->string('maMH', 40);
             $table->integer('soTin');

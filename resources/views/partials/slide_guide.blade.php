@@ -6,31 +6,31 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img class="img-responsive" src="/assets/images/guide/1_addSubject.png" alt="Thêm môn học và tìm kiếm môn học theo tên môn học hoặc mã môn học">
+                        <img class="img-responsive" src="{{ url() }}/assets/images/guide/1_addSubject.png" alt="Thêm môn học và tìm kiếm môn học theo tên môn học hoặc mã môn học">
                         <div class="carousel-caption">
                             <div class="caption-guide"><span class="h4">Thêm môn học</span><br>Tìm kiếm theo tên môn học hoặc mã môn học</div>
                         </div>
                     </div>
                     <div class="item">
-                        <img class="img-responsive" src="/assets/images/guide/2_lmh.png" alt="Thêm, xóa môn học trên thời khóa biểu tuần">
+                        <img class="img-responsive" src="{{ url() }}/assets/images/guide/2_lmh.png" alt="Thêm, xóa môn học trên thời khóa biểu tuần">
                         <div class="carousel-caption">
                             <div class="caption-guide"><span class="h4">Thêm lớp môn học</span><br>Thêm, xóa môn học trên thời khóa biểu tuần</div>
                         </div>
                     </div>
                     <div class="item">
-                        <img class="img-responsive" src="/assets/images/guide/3_signup.png" alt="Đăng ký tài khoản người dùng.">
+                        <img class="img-responsive" src="{{ url() }}/assets/images/guide/3_signup.png" alt="Đăng ký tài khoản người dùng.">
                         <div class="carousel-caption">
                             <div class="caption-guide"><span class="h4">Đăng ký</span><br>Đăng ký tài khoản người dùng.</div>
                         </div>
                     </div>
                     <div class="item">
-                        <img class="img-responsive" src="/assets/images/guide/4_signin.png" alt="Đăng nhập người dùng.">
+                        <img class="img-responsive" src="{{ url() }}/assets/images/guide/4_signin.png" alt="Đăng nhập người dùng.">
                         <div class="carousel-caption">
                             <div class="caption-guide"><span class="h4">Đăng nhập</span><br>Đăng nhập người dùng.</div>
                         </div>
                     </div>
                     <div class="item">
-                        <img class="img-responsive" src="/assets/images/guide/5_editprofile.png" alt="Cập nhật, sửa thông tin cá nhân như tên, mật khẩu.">
+                        <img class="img-responsive" src="{{ url() }}/assets/images/guide/5_editprofile.png" alt="Cập nhật, sửa thông tin cá nhân như tên, mật khẩu.">
                         <div class="carousel-caption">
                             <div class="caption-guide"><span class="h4">Sửa thông tin</span><br>Cập nhật, sửa thông tin cá nhân như tên, mật khẩu.</div>
                         </div>

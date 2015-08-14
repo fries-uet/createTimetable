@@ -122,6 +122,12 @@ class UserController extends Controller
     		return $this->redirectHome();
     	}
 
+        $monhoc = DB::table('monhoc')->get();//Danh sách môn học
+        foreach ($monhoc as $mh) {
+            $id_md = $mh->id;
+
+        }
+
     	return view('usercp.dashboard');
     }
 
@@ -161,7 +167,15 @@ class UserController extends Controller
     	$user = DB::table('nguoidung')
 		->where('email', $email)
 		->first();
+    }
 
-    	dd($email);
+
+
+    function input(Request $request) {
+        if (!$this->checkSignin($request)) {
+            return $this->redirectHome();
+        }
+
+        return view('usercp.input');
     }
 }
