@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Response;
 
 use App\Nguoidung;
+use App\Input;
 use DB;
 
 class UserController extends Controller
@@ -176,6 +177,122 @@ class UserController extends Controller
             return $this->redirectHome();
         }
 
+        $input = Input::all();
+        foreach ($input as $i) {
+
+            //Buổi
+            $nhom = $this->cvtNhom($i->ghiChu);
+            $viTri = $this->cvtViTri($i->thu, $i->tiet)[0];
+            $soTiet = $this->cvtViTri($i->thu, $i->tiet)[1];
+            $giangDuong = $i->giangDuong;
+            $giangVien = $i->giangVien;
+
+            $id_buoi = DB::table('buoihoc')
+                ->insertGetId([
+                    'nhom' => $nhom,
+                    'viTri' => $viTri,
+                    'soTiet' => $soTiet,
+                    'giangDuong' => $giangDuong,
+                    'giaoVien' => $giangVien
+                ]);
+
+            //Lớp MH
+            $maLMH = $i->maLMH;
+
+            if (!$this->isAvailableLMH($maLMH)) {//Chua co lop MH
+                $id_lmh = DB::table('lopmh')
+                    ->insertGetId([
+                        'buoihocs' => "[$id_buoi]",
+                        'maLMH' => $maLMH
+                    ]);
+
+                //Môn học
+                $maMH = $i->maMH;
+                $tenMH = $i->monhoc;
+                $soTin = $i->soTin;
+
+                if (!$this->isAvailableMH($maMH)) {
+                    $id_mh = DB::table('monhoc')
+                        ->insertGetId([
+                            'lopMHs' => "[$id_lmh]",
+                            'tenMH' => $tenMH,
+                            'maMH' => $maMH,
+                            'soTin' => $soTin
+                        ]);
+                } else {
+                    $lopMHs = DB::table('monhoc')
+                        ->where('maMH', $maMH)
+                        ->value('lopMHs');
+
+                    $lopMHs = json_decode($lopMHs);
+                    array_push($lopMHs, $id_lmh);
+
+                    DB::table('monhoc')
+                        ->where('maMH', $maMH)
+                        ->update([
+                            'lopMHs' => json_encode($lopMHs)
+                        ]);
+                }
+
+
+            } else {
+                $buoihocs = DB::table('lopmh')
+                    ->where('maLMH', $maLMH)
+                    ->value('buoihocs');
+                $buoihocs = json_decode($buoihocs);
+
+                array_push($buoihocs, $id_buoi);
+
+                DB::table('lopmh')
+                    ->where('maLMH', $maLMH)
+                    ->update(['buoihocs' => json_encode($buoihocs)]);
+            }
+        }
         return view('usercp.input');
+    }
+
+    function isAvailableLMH($maLMH) {
+        $lopMH = DB::table('lopmh')
+            ->where('maLMH', $maLMH)
+            ->count();
+
+        if ($lopMH > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function isAvailableMH($maMH) {
+        $monhoc = DB::table('monhoc')
+            ->where('maMH', $maMH)
+            ->count();
+
+        if ($monhoc > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function cvtNhom($ghichu) {
+        switch ($ghichu) {
+            case 'N1': return 1;
+            case 'N2': return 2;
+            case 'N3': return 3;
+            default: return 0;
+        }
+    }
+
+    function cvtViTri($thu, $tiet) {
+        $arr = explode('-', $tiet);
+        $tietStart = intval($arr[0]);
+        $tietEnd = intval($arr[1]);
+
+        $thu = intval($thu);
+
+        $viTri = ($thu - 2) * 10 + $tietStart;
+        $soTiet = $tietEnd - $tietStart + 1;
+        return [$viTri, $soTiet];
     }
 }

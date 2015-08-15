@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMonhocTable extends Migration
+class CreateInputsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,8 @@ class CreateMonhocTable extends Migration
      */
     public function up()
     {
-        Schema::create('monhoc', function (Blueprint $table) {
+        Schema::create('inputs', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->string('lopMHs', 200);
-            $table->string('tenMH', 200);
-            $table->string('maMH', 40);
-            $table->integer('soTin');
-
             $table->timestamps();
         });
     }
@@ -31,6 +25,6 @@ class CreateMonhocTable extends Migration
      */
     public function down()
     {
-        Schema::drop('monhoc');
+        Schema::drop('inputs');
     }
 }

@@ -7,4 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Monhoc extends Model
 {
     protected $table = 'monhoc';
+
+    protected $fillable = [
+        'lopMHs',
+        'tenMH',
+        'maMH',
+        'soTin'
+    ];
 }
