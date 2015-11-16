@@ -8,7 +8,7 @@
 <div class="jumbotron">
 	<div class="container">
 		<h1>Create timetable</h1>
-		<p>Phiên bản beta - Ứng dụng tạo thời khóa biểu cho sinh viên UET :]</p>
+		<p>Phiên bản beta - Ứng dụng tạo thời khóa biểu cho sinh viênT :]</p>
 		<p>
 			<a href="{{ route('main.home') }}" class="btn btn-primary btn-lg">Dùng thử</a>
 		</p>
