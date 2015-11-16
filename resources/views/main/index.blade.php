@@ -10,7 +10,7 @@
 		<h1>Create timetable</h1>
 		<p>Phiên bản beta - Ứng dụng tạo thời khóa biểu cho sinh viên UET :]</p>
 		<p>
-			<a href="{{ route('main.home') }}" class="btn btn-primary btn-lg">Dùng thử</a>
+			<a href="{{ route('main.home') }}" class="btn btn-primary btn-lg">Dùng thử 123</a>
 		</p>
 	</div>
 </div>
